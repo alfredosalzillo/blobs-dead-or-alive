@@ -27,6 +27,26 @@
     "format": 2
    }
   },
+  "styles/index.css": {
+   "import": {
+    "filePath": "styles/index.css",
+    "output": "dist/style.css",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 4
+   },
+   "fetch": {
+    "filePath": "styles/index.css",
+    "output": "dist/style.css",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 4
+   }
+  },
   "lib/main.tsx": {
    "import": {
     "filePath": "lib/main.tsx",
@@ -69,17 +89,6 @@
      "exports": {}
     },
     "format": 64
-   }
-  },
-  "styles/index.css": {
-   "fetch": {
-    "filePath": "styles/index.css",
-    "output": "dist/deps/25686218953cfea3103c15d0a839fe3c6c2ccb91543c6ff7478007640f1ba910.css",
-    "dependencies": {
-     "imports": {},
-     "exports": {}
-    },
-    "format": 4
    }
   },
   "https://esm.sh/react@17.0.1": {
