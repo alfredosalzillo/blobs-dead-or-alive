@@ -4212,6 +4212,7 @@ System.register("lib/game.ts", ["lib/blob.ts", "lib/random.ts"], function (expor
                 const blobs = generateRandomBlobs();
                 return ({
                     blobs: blobs,
+                    captured: [],
                     wanted: random_ts_1.randomItem(blobs),
                     time: 3 * 1000,
                     elapsed: 0,
@@ -4221,11 +4222,12 @@ System.register("lib/game.ts", ["lib/blob.ts", "lib/random.ts"], function (expor
             });
             exports_1("calculatePoints", calculatePoints = (game) => Math
                 .round(MAX_ROUND_POINTS * (game.time - game.elapsed) / game.time));
-            exports_1("calculateTimeBonus", calculateTimeBonus = (game) => MAX_BONUS_TIME - Math.max(0, 10 * (2 ** (game.round - 1))));
+            exports_1("calculateTimeBonus", calculateTimeBonus = (game) => MAX_BONUS_TIME - Math.min(MAX_BONUS_TIME / 2, 10 * (2 ** (game.round - 1))));
             exports_1("nextRound", nextRound = (game) => {
                 const blobs = generateRandomBlobs();
                 return ({
                     blobs: blobs,
+                    captured: [...game.captured, game.wanted],
                     wanted: random_ts_1.randomItem(blobs),
                     time: game.time + calculateTimeBonus(game),
                     elapsed: 0,
