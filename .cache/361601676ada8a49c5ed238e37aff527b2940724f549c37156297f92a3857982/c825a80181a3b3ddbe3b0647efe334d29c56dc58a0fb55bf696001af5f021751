@@ -14,7 +14,7 @@ System.register("lib/game.ts", ["lib/blob.ts", "lib/random.ts"], function (expor
         execute: function () {
             exports_1("BOARD_SIZE", BOARD_SIZE = 4);
             exports_1("MAX_ROUND_POINTS", MAX_ROUND_POINTS = 100);
-            exports_1("MAX_BONUS_TIME", MAX_BONUS_TIME = 1000);
+            exports_1("MAX_BONUS_TIME", MAX_BONUS_TIME = 2000);
             exports_1("generateRandomBlobs", generateRandomBlobs = () => Array(BOARD_SIZE * BOARD_SIZE)
                 .fill(0)
                 .map(() => blob_ts_1.randomBlob(200, 200)));
@@ -32,14 +32,14 @@ System.register("lib/game.ts", ["lib/blob.ts", "lib/random.ts"], function (expor
             });
             exports_1("calculatePoints", calculatePoints = (game) => Math
                 .round(MAX_ROUND_POINTS * (game.time - game.elapsed) / game.time));
-            exports_1("calculateTimeBonus", calculateTimeBonus = (game) => MAX_BONUS_TIME - Math.min(MAX_BONUS_TIME / 2, 10 * (2 ** (game.round - 1))));
+            exports_1("calculateTimeBonus", calculateTimeBonus = (game) => (MAX_BONUS_TIME / 2) + (MAX_BONUS_TIME / (2 ** (game.round - 1))));
             exports_1("nextRound", nextRound = (game) => {
                 const blobs = generateRandomBlobs();
                 return ({
                     blobs: blobs,
                     captured: [...game.captured, game.wanted],
                     wanted: random_ts_1.randomItem(blobs),
-                    time: game.time + calculateTimeBonus(game),
+                    time: game.time - game.elapsed + calculateTimeBonus(game),
                     elapsed: 0,
                     points: game.points + calculatePoints(game),
                     round: game.round + 1,

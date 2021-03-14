@@ -155,7 +155,8 @@
       },
       "lib/blob.ts": {
        "specifiers": [
-        "Blob"
+        "Blob",
+        "randomBlob"
        ],
        "type": "import",
        "format": 8

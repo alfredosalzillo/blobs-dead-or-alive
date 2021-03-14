@@ -173,7 +173,7 @@ System.register("https://esm.sh/react-dom@17.0.1?external=react", ["https://cdn.
 
 System.register("lib/App.tsx", ["https://esm.sh/react@17.0.1", "lib/components/SvgBlob.tsx", "lib/blob.ts", "lib/components/WantedPoster.tsx", "lib/game.ts"], function (exports_1, context_1) {
     "use strict";
-    var react_1, SvgBlob_tsx_1, blob_ts_1, WantedPoster_tsx_1, game_ts_1, initialGame, App;
+    var react_1, SvgBlob_tsx_1, blob_ts_1, WantedPoster_tsx_1, game_ts_1, StartDialog, LoseDialog, initialGame, App;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
@@ -194,10 +194,38 @@ System.register("lib/App.tsx", ["https://esm.sh/react@17.0.1", "lib/components/S
             }
         ],
         execute: function () {
+            StartDialog = ({ onClickStart }) => (react_1.default.createElement("div", { className: "dialog-backdrop" },
+                react_1.default.createElement("dialog", { className: "dialog", open: true },
+                    react_1.default.createElement("h1", null, "Instructions"),
+                    react_1.default.createElement(WantedPoster_tsx_1.default, null,
+                        react_1.default.createElement(SvgBlob_tsx_1.default, Object.assign({}, blob_ts_1.randomBlob(200, 200)))),
+                    react_1.default.createElement("p", null, "Find the WANTED BLOB before the time end."),
+                    react_1.default.createElement("button", { className: "action-button", onClick: onClickStart }, "START"))));
+            LoseDialog = ({ onRetryClick, points, captured = [] }) => (react_1.default.createElement("div", { className: "dialog-backdrop" },
+                react_1.default.createElement("dialog", { className: "dialog", open: true },
+                    react_1.default.createElement("h1", null, "You LOOSE"),
+                    react_1.default.createElement("p", null,
+                        react_1.default.createElement("span", { style: { color: '#2b2b2b' } }, "SCORE"),
+                        react_1.default.createElement("br", null),
+                        points,
+                        " PT",
+                        react_1.default.createElement("br", null)),
+                    !!captured.length && (react_1.default.createElement("p", null,
+                        react_1.default.createElement("span", { style: { color: '#2b2b2b' } }, "CAPTURED"),
+                        react_1.default.createElement("br", null),
+                        captured.map((blob) => (react_1.default.createElement("div", { style: {
+                                width: '65px',
+                                margin: '3px',
+                                border: '1px solid black',
+                                background: '#adabab',
+                                display: 'inline-block',
+                            } },
+                            react_1.default.createElement(SvgBlob_tsx_1.default, Object.assign({ key: blob.id }, blob, { style: { width: '80px', margin: '5px', border: '1px solid black', background: '#adabab' } }))))))),
+                    react_1.default.createElement("button", { className: "action-button", onClick: onRetryClick }, "RETRY"))));
             initialGame = game_ts_1.initialRound(0);
             App = () => {
                 const [game, setGame] = react_1.useState(initialGame);
-                const { blobs, wanted, points, time, elapsed } = game;
+                const { blobs, captured, wanted, points, time, elapsed } = game;
                 const status = game_ts_1.getStatus(game);
                 react_1.useEffect(() => {
                     let request = null;
@@ -234,8 +262,11 @@ System.register("lib/App.tsx", ["https://esm.sh/react@17.0.1", "lib/components/S
                         react_1.default.createElement("div", { className: "content-header" },
                             react_1.default.createElement("div", { className: "controls" },
                                 react_1.default.createElement("div", null,
-                                    react_1.default.createElement("progress", { value: (time - elapsed) / time, max: 1, "data-animated": elapsed > 0 },
+                                    react_1.default.createElement("progress", { id: "time-progress", value: (time - elapsed) / time, max: 1, "data-animated": elapsed > 0 },
                                         elapsed,
+                                        "ms"),
+                                    react_1.default.createElement("label", { for: "time-progress", className: "time-progress-label" },
+                                        Math.round(time - elapsed),
                                         "ms")),
                                 react_1.default.createElement("div", { className: "score" },
                                     "PT ",
@@ -243,19 +274,8 @@ System.register("lib/App.tsx", ["https://esm.sh/react@17.0.1", "lib/components/S
                             react_1.default.createElement(WantedPoster_tsx_1.default, null, wanted && react_1.default.createElement(SvgBlob_tsx_1.default, Object.assign({}, wanted)))),
                         react_1.default.createElement("div", { className: "board" }, blobs.map((blob) => (react_1.default.createElement("div", { className: "box", onClick: () => onBlobClick(blob) },
                             react_1.default.createElement(SvgBlob_tsx_1.default, Object.assign({ key: blob.id }, blob, { animated: true })))))),
-                        status === 'start' && (react_1.default.createElement("div", { className: "dialog-backdrop" },
-                            react_1.default.createElement("dialog", { className: "dialog", open: true },
-                                react_1.default.createElement("h1", null, "Instructions"),
-                                react_1.default.createElement("p", null, "Find the WANTED BLOB before the time end."),
-                                react_1.default.createElement("button", { className: "action-button", onClick: () => setGame(game_ts_1.initialRound(1)) }, "START")))),
-                        status === 'loose' && (react_1.default.createElement("div", { className: "dialog-backdrop" },
-                            react_1.default.createElement("dialog", { className: "dialog", open: true },
-                                react_1.default.createElement("h1", null, "You LOOSE"),
-                                react_1.default.createElement("p", null,
-                                    react_1.default.createElement("h3", null, "SCORE"),
-                                    points,
-                                    " PT"),
-                                react_1.default.createElement("button", { className: "action-button", onClick: () => setGame(game_ts_1.initialRound(1)) }, "RETRY")))))));
+                        status === 'start' && (react_1.default.createElement(StartDialog, { onClickStart: () => setGame(game_ts_1.initialRound(1)) })),
+                        status === 'loose' && (react_1.default.createElement(LoseDialog, { points: points, captured: captured, onRetryClick: () => setGame(game_ts_1.initialRound(1)) })))));
             };
             exports_1("default", App);
         }
@@ -4204,7 +4224,7 @@ System.register("lib/game.ts", ["lib/blob.ts", "lib/random.ts"], function (expor
         execute: function () {
             exports_1("BOARD_SIZE", BOARD_SIZE = 4);
             exports_1("MAX_ROUND_POINTS", MAX_ROUND_POINTS = 100);
-            exports_1("MAX_BONUS_TIME", MAX_BONUS_TIME = 1000);
+            exports_1("MAX_BONUS_TIME", MAX_BONUS_TIME = 2000);
             exports_1("generateRandomBlobs", generateRandomBlobs = () => Array(BOARD_SIZE * BOARD_SIZE)
                 .fill(0)
                 .map(() => blob_ts_1.randomBlob(200, 200)));
@@ -4222,14 +4242,14 @@ System.register("lib/game.ts", ["lib/blob.ts", "lib/random.ts"], function (expor
             });
             exports_1("calculatePoints", calculatePoints = (game) => Math
                 .round(MAX_ROUND_POINTS * (game.time - game.elapsed) / game.time));
-            exports_1("calculateTimeBonus", calculateTimeBonus = (game) => MAX_BONUS_TIME - Math.min(MAX_BONUS_TIME / 2, 10 * (2 ** (game.round - 1))));
+            exports_1("calculateTimeBonus", calculateTimeBonus = (game) => (MAX_BONUS_TIME / 2) + (MAX_BONUS_TIME / (2 ** (game.round - 1))));
             exports_1("nextRound", nextRound = (game) => {
                 const blobs = generateRandomBlobs();
                 return ({
                     blobs: blobs,
                     captured: [...game.captured, game.wanted],
                     wanted: random_ts_1.randomItem(blobs),
-                    time: game.time + calculateTimeBonus(game),
+                    time: game.time - game.elapsed + calculateTimeBonus(game),
                     elapsed: 0,
                     points: game.points + calculatePoints(game),
                     round: game.round + 1,
