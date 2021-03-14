@@ -14,7 +14,7 @@ export type GameStatus = 'start' | 'run' | 'loose'
 
 export const BOARD_SIZE = 4;
 export const MAX_ROUND_POINTS = 100;
-export const MAX_BONUS_TIME = 1000;
+export const MAX_BONUS_TIME = 2000;
 
 export const generateRandomBlobs = () => Array(BOARD_SIZE * BOARD_SIZE)
   .fill(0)
@@ -35,14 +35,14 @@ export const initialRound = (stage = 1): Game => {
 
 export const calculatePoints = (game: Game) => Math
   .round(MAX_ROUND_POINTS * (game.time - game.elapsed) / game.time)
-export const calculateTimeBonus = (game: Game) => MAX_BONUS_TIME - Math.min(MAX_BONUS_TIME / 2, 10 * (2 ** (game.round - 1)));
+export const calculateTimeBonus = (game: Game) => (MAX_BONUS_TIME / 2) + (MAX_BONUS_TIME /  (2 ** (game.round - 1)));
 export const nextRound = (game: Game): Game => {
   const blobs = generateRandomBlobs();
   return ({
     blobs: blobs,
     captured: [...game.captured, game.wanted],
     wanted: randomItem(blobs),
-    time: game.time + calculateTimeBonus(game),
+    time: game.time - game.elapsed + calculateTimeBonus(game),
     elapsed: 0,
     points: game.points + calculatePoints(game),
     round: game.round + 1,
