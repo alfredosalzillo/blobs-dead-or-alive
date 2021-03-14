@@ -244,16 +244,16 @@ header {
         transform: translate(0, 0);
     }
     20% {
-        transform: translate(var(--radius), 0px);
+        transform: translate(5px, 0px);
     }
     40% {
-        transform: translate(calc(-1 * var(--radius)), 0px);
+        transform: translate(calc(-5px), 0px);
     }
     60% {
-        transform: translate(var(--radius), 0px);
+        transform: translate(5px, 0px);
     }
     80% {
-        transform: translate(calc(-1 * var(--radius)), 0px);
+        transform: translate(-5px, 0px);
     }
     100% {
         transform: translate(0, 0);
