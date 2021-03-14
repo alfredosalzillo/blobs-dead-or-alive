@@ -1,0 +1,21 @@
+System.register("lib/main.tsx", ["https://esm.sh/react@17.0.1", "https://esm.sh/react-dom@17.0.1?external=react", "lib/App.tsx"], function (exports_1, context_1) {
+    "use strict";
+    var react_1, react_dom_1, App_tsx_1;
+    var __moduleName = context_1 && context_1.id;
+    return {
+        setters: [
+            function (react_1_1) {
+                react_1 = react_1_1;
+            },
+            function (react_dom_1_1) {
+                react_dom_1 = react_dom_1_1;
+            },
+            function (App_tsx_1_1) {
+                App_tsx_1 = App_tsx_1_1;
+            }
+        ],
+        execute: function () {
+            react_dom_1.default.render(react_1.default.createElement(App_tsx_1.default, null), document.getElementById('root'));
+        }
+    };
+});

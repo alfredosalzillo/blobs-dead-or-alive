@@ -1,0 +1,108 @@
+System.register("lib/blob.ts", ["lib/random.ts"], function (exports_1, context_1) {
+    "use strict";
+    var random_ts_1, randomPalette, randomBody, randomEyes, randomBlob;
+    var __moduleName = context_1 && context_1.id;
+    return {
+        setters: [
+            function (random_ts_1_1) {
+                random_ts_1 = random_ts_1_1;
+            }
+        ],
+        execute: function () {
+            /**
+             * Generate a palette of colors.
+             */
+            exports_1("randomPalette", randomPalette = () => {
+                // random hue
+                const hue = random_ts_1.random(0, 360);
+                // random saturation, keeping it quite high here as a stylistic preference
+                const saturation = random_ts_1.random(75, 100);
+                // random lightness, keeping it quite high here as a stylistic preference
+                const lightness = random_ts_1.random(75, 95);
+                // base color
+                const primary = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+                // almost black, slightly tinted with the base color
+                const dark = `hsl(${hue}, ${saturation}%, 2%)`;
+                // almost white, slightly tinted with the base color
+                const light = `hsl(${hue}, ${saturation}%, 98%)`;
+                return {
+                    primary,
+                    dark,
+                    light,
+                };
+            });
+            /**
+             * Generate a Blob body.
+             */
+            exports_1("randomBody", randomBody = (x, y, size) => {
+                // how many points do we want?
+                const numPoints = random_ts_1.random(3, 12);
+                // step used to place each point at equal distances
+                const angleStep = (Math.PI * 2) / numPoints;
+                return Array(numPoints).fill(0).map((_, i) => {
+                    // how much randomness should be added to each point
+                    const pull = random_ts_1.random(0.75, 1, true);
+                    // x & y coordinates of the current point
+                    // cos(theta) * radius + a little randomness thrown in
+                    const px = x + Math.cos(i * angleStep) * (size * pull);
+                    // sin(theta) * radius + a little randomness thrown in
+                    const py = y + Math.sin(i * angleStep) * (size * pull);
+                    return {
+                        x: px,
+                        y: py,
+                    };
+                });
+            });
+            /**
+             * Generate Blob Eyes.
+             */
+            exports_1("randomEyes", randomEyes = (x, y, width) => {
+                const isCyclops = random_ts_1.random(0, 1, true) > 0.75;
+                const size = random_ts_1.random(width / 2, width);
+                if (isCyclops) {
+                    return [
+                        {
+                            x,
+                            y,
+                            size,
+                        }
+                    ];
+                }
+                return [
+                    {
+                        y,
+                        size,
+                        x: x - width,
+                    },
+                    {
+                        y,
+                        size,
+                        x: x + width,
+                    },
+                ];
+            });
+            /**
+             * Generate a random Blob.
+             */
+            exports_1("randomBlob", randomBlob = (width, height) => {
+                const x = width / 2;
+                const y = height / 2;
+                const size = random_ts_1.random(50, 80);
+                const colors = randomPalette();
+                const body = randomBody(x, y, size);
+                const maxWidth = size / 2;
+                const eyes = randomEyes(x, y, maxWidth);
+                return {
+                    id: btoa(`${Date.now()}${random_ts_1.random(0, 1000)}`),
+                    x,
+                    y,
+                    width,
+                    height,
+                    body,
+                    eyes,
+                    colors,
+                };
+            });
+        }
+    };
+});

@@ -1,0 +1,25 @@
+System.register("lib/random.ts", [], function (exports_1, context_1) {
+    "use strict";
+    var random, randomItem;
+    var __moduleName = context_1 && context_1.id;
+    return {
+        setters: [],
+        execute: function () {
+            /**
+             * Generate a random number between `min` and `max`.
+             */
+            exports_1("random", random = (min, max, float = false) => {
+                const val = Math.random() * (max - min) + min;
+                if (float) {
+                    return val;
+                }
+                return Math.floor(val);
+            });
+            /**
+             * Generate a random element of `list`.
+             */
+            exports_1("randomItem", randomItem = (list) => list[random(0, list.length)]);
+            exports_1("default", random);
+        }
+    };
+});
