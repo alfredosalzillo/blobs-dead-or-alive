@@ -13,7 +13,7 @@ on:
     branches: [master]
 
 jobs:
-  test:
+  deploy:
     runs-on: ${{ matrix.os }} # runs a test on Ubuntu, Windows and macOS
 
     strategy:
