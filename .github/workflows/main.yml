@@ -1,0 +1,48 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.
+# For more information see: https://github.com/denolib/setup-deno
+
+name: Deploy to Pages
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ${{ matrix.os }} # runs a test on Ubuntu, Windows and macOS
+
+    strategy:
+      matrix:
+        deno: ["v1.x"]
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - name: Setup Deno
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: ${{ matrix.deno }} # tests across multiple Deno versions
+
+      - name: Install Bundler
+        run: deno install --unstable --allow-read --allow-write --allow-net --allow-env --name bundler https://deno.land/x/bundler/cli.ts
+
+      - name: Build
+        run: |
+          rm -rf dist
+          mv styles/index.css styles/index.css_b
+          echo '' > styles/index.css
+          bundler bundle --config tsconfig.json --import-map import_map.json index.html=index.html styles/index.css=style.css
+          mv styles/index.css_b dist/style.css
+      
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.
