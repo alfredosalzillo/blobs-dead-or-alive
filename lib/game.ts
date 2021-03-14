@@ -3,6 +3,7 @@ import { randomItem } from './random.ts';
 
 export type Game = {
   blobs: Blob[],
+  captured: Blob[],
   wanted: Blob,
   points: number,
   elapsed: number,
@@ -23,6 +24,7 @@ export const initialRound = (stage = 1): Game => {
   const blobs = generateRandomBlobs();
   return ({
     blobs: blobs,
+    captured: [],
     wanted: randomItem(blobs),
     time: 3*1000,
     elapsed: 0,
@@ -33,11 +35,12 @@ export const initialRound = (stage = 1): Game => {
 
 export const calculatePoints = (game: Game) => Math
   .round(MAX_ROUND_POINTS * (game.time - game.elapsed) / game.time)
-export const calculateTimeBonus = (game: Game) => MAX_BONUS_TIME - Math.max(0, 10 * (2 ** (game.round - 1)));
+export const calculateTimeBonus = (game: Game) => MAX_BONUS_TIME - Math.min(MAX_BONUS_TIME / 2, 10 * (2 ** (game.round - 1)));
 export const nextRound = (game: Game): Game => {
   const blobs = generateRandomBlobs();
   return ({
     blobs: blobs,
+    captured: [...game.captured, game.wanted],
     wanted: randomItem(blobs),
     time: game.time + calculateTimeBonus(game),
     elapsed: 0,
