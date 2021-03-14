@@ -260,18 +260,21 @@ header {
     }
 }
 
+.blob {
+
+}
 .blob-eye-pupil {
-    --radius: 10px;
+    --radius: 5px;
 }
 
 .eye-roll .blob-eye-pupil {
     transform: translate(0, 0);
-    animation: roll linear 4s;
+    animation: roll linear 3s;
 }
 
 .eye-roll-reverse .blob-eye-pupil {
     transform: translate(0, 0);
-    animation: roll linear 4s reverse;
+    animation: roll linear 3s reverse;
 }
 
 .eye-converge .blob-eye:nth-child(1) .blob-eye-pupil {
