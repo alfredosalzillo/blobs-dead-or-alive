@@ -2,6 +2,8 @@
 
 A Blobs game made using React and generative art.
 
+Try it [here](http://alfredosalzillo.me/blobs-dead-or-alive/).
+
 ## Develop
 
 Install [denoliver](https://github.com/joakimunge/denoliver) 
