@@ -199,16 +199,16 @@ header {
         transform: translate(0, 0);
     }
     20% {
-        transform: translate(10px, 10px);
+        transform: translate(5px, 5px);
     }
     40% {
-        transform: translate(10px, 0px);
+        transform: translate(5px, 0px);
     }
     60% {
-        transform: translate(10px, -10px);
+        transform: translate(5px, -5px);
     }
     60% {
-        transform: translate(0, -10px);
+        transform: translate(0, -5px);
     }
     100% {
         transform: translate(0, 0);
@@ -220,7 +220,7 @@ header {
         transform: translate(0, 0);
     }
     50% {
-        transform: translate(10px, 0);
+        transform: translate(5px, 0);
     }
     100% {
         transform: translate(0, 0);
@@ -232,7 +232,7 @@ header {
         transform: translate(0, 0);
     }
     50% {
-        transform: translate(-10px, 0);
+        transform: translate(-5px, 0);
     }
     100% {
         transform: translate(0, 0);
