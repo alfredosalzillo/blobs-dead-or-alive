@@ -40,7 +40,6 @@ jobs:
           echo '' > styles/index.css
           bundler bundle --config tsconfig.json --import-map import_map.json index.html=index.html styles/index.css=style.css
           mv styles/index.css_b dist/style.css
-          bundler bundle --config tsconfig.json --import-map import_map.json --reload index.html=index.html
       
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
