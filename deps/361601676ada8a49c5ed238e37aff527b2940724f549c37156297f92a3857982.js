@@ -269,7 +269,6 @@ System.register("https://cdn.esm.sh/v24/react@17.0.1/deno/react.js", [], functio
     return {
         setters: [],
         execute: function () {
-            /* esm.sh - esbuild bundle(react@17.0.1) deno production */
             G = Object.create, _ = Object.defineProperty, J = Object.getPrototypeOf, K = Object.prototype.hasOwnProperty, Q = Object.getOwnPropertyNames, X = Object.getOwnPropertyDescriptor;
             Z = e => _(e, "__esModule", { value: !0 });
             g = (e, r) => () => (r || (r = { exports: {} }, e(r.exports, r)), r.exports);
@@ -461,19 +460,6 @@ System.register("https://cdn.esm.sh/v24/react@17.0.1/deno/react.js", [], functio
             exports_1("useState", Le);
             exports_1("version", Ue);
             exports_1("default", De);
-            /*
-            object-assign
-            (c) Sindre Sorhus
-            @license MIT
-            */
-            /** @license React v17.0.1
-             * react.production.min.js
-             *
-             * Copyright (c) Facebook, Inc. and its affiliates.
-             *
-             * This source code is licensed under the MIT license found in the
-             * LICENSE file in the root directory of this source tree.
-             */
         }
     };
 });
@@ -4018,27 +4004,6 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
             exports_1("unstable_renderSubtreeIntoContainer", Lc);
             exports_1("version", Oc);
             exports_1("default", zc);
-            /*
-            object-assign
-            (c) Sindre Sorhus
-            @license MIT
-            */
-            /** @license React v0.20.1
-             * scheduler.production.min.js
-             *
-             * Copyright (c) Facebook, Inc. and its affiliates.
-             *
-             * This source code is licensed under the MIT license found in the
-             * LICENSE file in the root directory of this source tree.
-             */
-            /** @license React v17.0.1
-             * react-dom.production.min.js
-             *
-             * Copyright (c) Facebook, Inc. and its affiliates.
-             *
-             * This source code is licensed under the MIT license found in the
-             * LICENSE file in the root directory of this source tree.
-             */
         }
     };
 });
