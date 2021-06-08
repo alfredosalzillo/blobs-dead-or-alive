@@ -191,7 +191,9 @@ header {
     --board-rows: 4;
     --size: min(90vmin, 100vh - 230px) ;
     display: grid;
+    grid-template-columns: repeat(,;
     grid-template-columns: repeat(var(--board-cols), calc(100% / var(--board-cols)));
+    grid-template-rows: repeat(,;
     grid-template-rows: repeat(var(--board-rows), calc(100% / var(--board-rows)));
     justify-content: center;
     width: var(--size);
@@ -202,6 +204,27 @@ header {
 
 .board .box {
     border: 1px solid #2b2b2b;
+}
+
+@-webkit-keyframes roll {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(5px, 5px);
+    }
+    40% {
+        transform: translate(5px, 0px);
+    }
+    60% {
+        transform: translate(5px, -5px);
+    }
+    60% {
+        transform: translate(0, -5px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
 }
 
 @keyframes roll {
@@ -225,6 +248,18 @@ header {
     }
 }
 
+@-webkit-keyframes converge-left {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(5px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
 @keyframes converge-left {
     0% {
         transform: translate(0, 0);
@@ -237,12 +272,45 @@ header {
     }
 }
 
+@-webkit-keyframes converge-right {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-5px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
 @keyframes converge-right {
     0% {
         transform: translate(0, 0);
     }
     50% {
         transform: translate(-5px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@-webkit-keyframes flock {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(5px, 0px);
+    }
+    40% {
+        transform: translate(calc(-5px), 0px);
+    }
+    60% {
+        transform: translate(5px, 0px);
+    }
+    80% {
+        transform: translate(-5px, 0px);
     }
     100% {
         transform: translate(0, 0);
@@ -279,7 +347,8 @@ header {
 
 .eye-roll .blob-eye-pupil {
     transform: translate(0, 0);
-    animation: roll linear 3s;
+    -webkit-animation: roll linear 3s;
+            animation: roll linear 3s;
 }
 
 .eye-roll-reverse .blob-eye-pupil {
@@ -289,25 +358,30 @@ header {
 
 .eye-converge .blob-eye:nth-child(1) .blob-eye-pupil {
     transform: translate(0, 0);
-    animation: converge-left linear 0.5s;
+    -webkit-animation: converge-left linear 0.5s;
+            animation: converge-left linear 0.5s;
 }
 
 .eye-converge .blob-eye:nth-child(2) .blob-eye-pupil {
     transform: translate(0, 0);
-    animation: converge-right linear 0.5s;
+    -webkit-animation: converge-right linear 0.5s;
+            animation: converge-right linear 0.5s;
 }
 
 .eye-converge-reverse .blob-eye:nth-child(1) .blob-eye-pupil {
     transform: translate(0, 0);
-    animation: converge-right linear 0.5s;
+    -webkit-animation: converge-right linear 0.5s;
+            animation: converge-right linear 0.5s;
 }
 
 .eye-converge-reverse .blob-eye:nth-child(2) .blob-eye-pupil {
     transform: translate(0, 0);
-    animation: converge-left linear 0.5s;
+    -webkit-animation: converge-left linear 0.5s;
+            animation: converge-left linear 0.5s;
 }
 
 .eye-flock .blob-eye-pupil {
     transform: translate(0, 0);
-    animation: flock linear 1s;
+    -webkit-animation: flock linear 1s;
+            animation: flock linear 1s;
 }
