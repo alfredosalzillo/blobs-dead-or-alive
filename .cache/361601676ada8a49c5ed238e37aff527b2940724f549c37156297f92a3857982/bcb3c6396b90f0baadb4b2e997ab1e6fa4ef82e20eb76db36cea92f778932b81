@@ -1,6 +1,6 @@
 /* https://cdn.esm.sh/v41/react@17.0.2/deno/react.js */
-const mod1 = (async () => {
-    const __object_assign$ = (await mod).default;
+const mod3 = (async () => {
+    const __object_assign$ = (await mod9).default;
     var W = Object.create, h = Object.defineProperty, Y = Object.getPrototypeOf, G = Object.prototype.hasOwnProperty, J = Object.getOwnPropertyNames, K = Object.getOwnPropertyDescriptor;
     var Q = e => h(e, "__esModule", { value: !0 });
     var j = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports);

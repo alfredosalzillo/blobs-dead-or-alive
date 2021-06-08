@@ -1,6 +1,6 @@
 /* lib/components/WantedPoster.tsx */
-const mod10 = (async () => {
-    const React = (await mod2).default;
+const mod7 = (async () => {
+    const React = (await mod).default;
     function WantedPoster(props) {
         const { children } = props;
         return (React.createElement("div", { className: "wanted" },

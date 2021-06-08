@@ -1,251 +1,61 @@
-
-/* https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js */
-const mod = (async () => {
-    var b = Object.create, s = Object.defineProperty, p = Object.getPrototypeOf, O = Object.prototype.hasOwnProperty, j = Object.getOwnPropertyNames, g = Object.getOwnPropertyDescriptor;
-    var m = r => s(r, "__esModule", { value: !0 });
-    var v = (r, e) => () => (e || r((e = { exports: {} }).exports, e), e.exports);
-    var y = (r, e, t) => {
-        if (e && typeof e == "object" || typeof e == "function")
-            for (let n of j(e))
-                !O.call(r, n) && n !== "default" && s(r, n, { get: () => e[n], enumerable: !(t = g(e, n)) || t.enumerable });
-        return r;
-    }, h = r => y(m(s(r != null ? b(p(r)) : {}, "default", r && r.__esModule && "default" in r ? { get: () => r.default, enumerable: !0 } : { value: r, enumerable: !0 })), r);
-    var l = v((q, u) => {
-        "use strict";
-        var i = Object.getOwnPropertySymbols, d = Object.prototype.hasOwnProperty, w = Object.prototype.propertyIsEnumerable;
-        function P(r) {
-            if (r == null)
-                throw new TypeError("Object.assign cannot be called with null or undefined");
-            return Object(r);
+const mod12 = (async () => {
+    const formatPoints = (points, close = false) => {
+        const result = [...points].map(({ x, y }) => [x, y]);
+        if (close) {
+            const lastPoint = result[result.length - 1];
+            const secondToLastPoint = result[result.length - 2];
+            const firstPoint = result[0];
+            const secondPoint = result[1];
+            result.unshift(lastPoint);
+            result.unshift(secondToLastPoint);
+            result.push(firstPoint);
+            result.push(secondPoint);
         }
-        function E() {
-            try {
-                if (!Object.assign)
-                    return !1;
-                var r = new String("abc");
-                if (r[5] = "de", Object.getOwnPropertyNames(r)[0] === "5")
-                    return !1;
-                for (var e = {}, t = 0; t < 10; t++)
-                    e["_" + String.fromCharCode(t)] = t;
-                var n = Object.getOwnPropertyNames(e).map(function (o) { return e[o]; });
-                if (n.join("") !== "0123456789")
-                    return !1;
-                var a = {};
-                return "abcdefghijklmnopqrst".split("").forEach(function (o) { a[o] = o; }), Object.keys(Object.assign({}, a)).join("") === "abcdefghijklmnopqrst";
-            }
-            catch (o) {
-                return !1;
-            }
+        return result.flat();
+    };
+    const spline = (points = [], tension = 1, close = false) => {
+        const flatPoints = formatPoints(points, close);
+        const size = flatPoints.length;
+        const last = size - 4;
+        const startPointX = close ? flatPoints[2] : flatPoints[0];
+        const startPointY = close ? flatPoints[3] : flatPoints[1];
+        let path = "M" + [startPointX, startPointY];
+        const startIteration = close ? 2 : 0;
+        const maxIteration = close ? size - 4 : size - 2;
+        const inc = 2;
+        for (let i = startIteration; i < maxIteration; i += inc) {
+            const x0 = i ? flatPoints[i - 2] : flatPoints[0];
+            const y0 = i ? flatPoints[i - 1] : flatPoints[1];
+            const x1 = flatPoints[i];
+            const y1 = flatPoints[i + 1];
+            const x2 = flatPoints[i + 2];
+            const y2 = flatPoints[i + 3];
+            const x3 = i !== last ? flatPoints[i + 4] : x2;
+            const y3 = i !== last ? flatPoints[i + 5] : y2;
+            const cp1x = x1 + (x2 - x0) / 6 * tension;
+            const cp1y = y1 + (y2 - y0) / 6 * tension;
+            const cp2x = x2 - (x3 - x1) / 6 * tension;
+            const cp2y = y2 - (y3 - y1) / 6 * tension;
+            path += "C" + [cp1x, cp1y, cp2x, cp2y, x2, y2];
         }
-        u.exports = E() ? Object.assign : function (r, e) {
-            for (var t, n = P(r), a, o = 1; o < arguments.length; o++) {
-                t = Object(arguments[o]);
-                for (var f in t)
-                    d.call(t, f) && (n[f] = t[f]);
-                if (i) {
-                    a = i(t);
-                    for (var c = 0; c < a.length; c++)
-                        w.call(t, a[c]) && (n[a[c]] = t[a[c]]);
-                }
-            }
-            return n;
-        };
-    });
-    var S = h(l());
-    var export_default = S.default;
-    return { default: export_default };
+        return path;
+    };
+    return { spline };
 })();
-
-/* https://cdn.esm.sh/v41/react@17.0.2/deno/react.js */
-const mod1 = (async () => {
-    const __object_assign$ = (await mod).default;
-    var W = Object.create, h = Object.defineProperty, Y = Object.getPrototypeOf, G = Object.prototype.hasOwnProperty, J = Object.getOwnPropertyNames, K = Object.getOwnPropertyDescriptor;
-    var Q = e => h(e, "__esModule", { value: !0 });
-    var j = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports);
-    var X = (e, t, r) => {
-        if (t && typeof t == "object" || typeof t == "function")
-            for (let o of J(t))
-                !G.call(e, o) && o !== "default" && h(e, o, { get: () => t[o], enumerable: !(r = K(t, o)) || r.enumerable });
-        return e;
-    }, O = e => X(Q(h(e != null ? W(Y(e)) : {}, "default", e && e.__esModule && "default" in e ? { get: () => e.default, enumerable: !0 } : { value: e, enumerable: !0 })), e);
-    var z = j(n => {
-        "use strict";
-        var E = __object_assign$, y = 60103, P = 60106;
-        n.Fragment = 60107;
-        n.StrictMode = 60108;
-        n.Profiler = 60114;
-        var x = 60109, I = 60110, w = 60112;
-        n.Suspense = 60113;
-        var A = 60115, F = 60116;
-        typeof Symbol == "function" && Symbol.for && (l = Symbol.for, y = l("react.element"), P = l("react.portal"), n.Fragment = l("react.fragment"), n.StrictMode = l("react.strict_mode"), n.Profiler = l("react.profiler"), x = l("react.provider"), I = l("react.context"), w = l("react.forward_ref"), n.Suspense = l("react.suspense"), A = l("react.memo"), F = l("react.lazy"));
-        var l, L = typeof Symbol == "function" && Symbol.iterator;
-        function Z(e) { return e === null || typeof e != "object" ? null : (e = L && e[L] || e["@@iterator"], typeof e == "function" ? e : null); }
-        function _(e) {
-            for (var t = "https://reactjs.org/docs/error-decoder.html?invariant=" + e, r = 1; r < arguments.length; r++)
-                t += "&args[]=" + encodeURIComponent(arguments[r]);
-            return "Minified React error #" + e + "; visit " + t + " for the full message or use the non-minified dev environment for full errors and additional helpful warnings.";
+const mod11 = (async () => {
+    const random = (min, max, float = false) => {
+        const val = Math.random() * (max - min) + min;
+        if (float) {
+            return val;
         }
-        var q = { isMounted: function () { return !1; }, enqueueForceUpdate: function () { }, enqueueReplaceState: function () { }, enqueueSetState: function () { } }, D = {};
-        function d(e, t, r) { this.props = e, this.context = t, this.refs = D, this.updater = r || q; }
-        d.prototype.isReactComponent = {};
-        d.prototype.setState = function (e, t) {
-            if (typeof e != "object" && typeof e != "function" && e != null)
-                throw Error(_(85));
-            this.updater.enqueueSetState(this, e, t, "setState");
-        };
-        d.prototype.forceUpdate = function (e) { this.updater.enqueueForceUpdate(this, e, "forceUpdate"); };
-        function M() { }
-        M.prototype = d.prototype;
-        function S(e, t, r) { this.props = e, this.context = t, this.refs = D, this.updater = r || q; }
-        var C = S.prototype = new M;
-        C.constructor = S;
-        E(C, d.prototype);
-        C.isPureReactComponent = !0;
-        var R = { current: null }, N = Object.prototype.hasOwnProperty, U = { key: !0, ref: !0, __self: !0, __source: !0 };
-        function T(e, t, r) {
-            var o, u = {}, c = null, f = null;
-            if (t != null)
-                for (o in t.ref !== void 0 && (f = t.ref), t.key !== void 0 && (c = "" + t.key), t)
-                    N.call(t, o) && !U.hasOwnProperty(o) && (u[o] = t[o]);
-            var s = arguments.length - 2;
-            if (s === 1)
-                u.children = r;
-            else if (1 < s) {
-                for (var i = Array(s), p = 0; p < s; p++)
-                    i[p] = arguments[p + 2];
-                u.children = i;
-            }
-            if (e && e.defaultProps)
-                for (o in s = e.defaultProps, s)
-                    u[o] === void 0 && (u[o] = s[o]);
-            return { $$typeof: y, type: e, key: c, ref: f, props: u, _owner: R.current };
-        }
-        function b(e, t) { return { $$typeof: y, type: e.type, key: t, ref: e.ref, props: e.props, _owner: e._owner }; }
-        function k(e) { return typeof e == "object" && e !== null && e.$$typeof === y; }
-        function ee(e) { var t = { "=": "=0", ":": "=2" }; return "$" + e.replace(/[=:]/g, function (r) { return t[r]; }); }
-        var V = /\/+/g;
-        function $(e, t) { return typeof e == "object" && e !== null && e.key != null ? ee("" + e.key) : t.toString(36); }
-        function v(e, t, r, o, u) {
-            var c = typeof e;
-            (c === "undefined" || c === "boolean") && (e = null);
-            var f = !1;
-            if (e === null)
-                f = !0;
-            else
-                switch (c) {
-                    case "string":
-                    case "number":
-                        f = !0;
-                        break;
-                    case "object": switch (e.$$typeof) {
-                        case y:
-                        case P: f = !0;
-                    }
-                }
-            if (f)
-                return f = e, u = u(f), e = o === "" ? "." + $(f, 0) : o, Array.isArray(u) ? (r = "", e != null && (r = e.replace(V, "$&/") + "/"), v(u, t, r, "", function (p) { return p; })) : u != null && (k(u) && (u = b(u, r + (!u.key || f && f.key === u.key ? "" : ("" + u.key).replace(V, "$&/") + "/") + e)), t.push(u)), 1;
-            if (f = 0, o = o === "" ? "." : o + ":", Array.isArray(e))
-                for (var s = 0; s < e.length; s++) {
-                    c = e[s];
-                    var i = o + $(c, s);
-                    f += v(c, t, r, i, u);
-                }
-            else if (i = Z(e), typeof i == "function")
-                for (e = i.call(e), s = 0; !(c = e.next()).done;)
-                    c = c.value, i = o + $(c, s++), f += v(c, t, r, i, u);
-            else if (c === "object")
-                throw t = "" + e, Error(_(31, t === "[object Object]" ? "object with keys {" + Object.keys(e).join(", ") + "}" : t));
-            return f;
-        }
-        function m(e, t, r) {
-            if (e == null)
-                return e;
-            var o = [], u = 0;
-            return v(e, o, "", "", function (c) { return t.call(r, c, u++); }), o;
-        }
-        function te(e) {
-            if (e._status === -1) {
-                var t = e._result;
-                t = t(), e._status = 0, e._result = t, t.then(function (r) { e._status === 0 && (r = r.default, e._status = 1, e._result = r); }, function (r) { e._status === 0 && (e._status = 2, e._result = r); });
-            }
-            if (e._status === 1)
-                return e._result;
-            throw e._result;
-        }
-        var B = { current: null };
-        function a() {
-            var e = B.current;
-            if (e === null)
-                throw Error(_(321));
-            return e;
-        }
-        var re = { ReactCurrentDispatcher: B, ReactCurrentBatchConfig: { transition: 0 }, ReactCurrentOwner: R, IsSomeRendererActing: { current: !1 }, assign: E };
-        n.Children = { map: m, forEach: function (e, t, r) { m(e, function () { t.apply(this, arguments); }, r); }, count: function (e) { var t = 0; return m(e, function () { t++; }), t; }, toArray: function (e) { return m(e, function (t) { return t; }) || []; }, only: function (e) {
-                if (!k(e))
-                    throw Error(_(143));
-                return e;
-            } };
-        n.Component = d;
-        n.PureComponent = S;
-        n.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = re;
-        n.cloneElement = function (e, t, r) {
-            if (e == null)
-                throw Error(_(267, e));
-            var o = E({}, e.props), u = e.key, c = e.ref, f = e._owner;
-            if (t != null) {
-                if (t.ref !== void 0 && (c = t.ref, f = R.current), t.key !== void 0 && (u = "" + t.key), e.type && e.type.defaultProps)
-                    var s = e.type.defaultProps;
-                for (i in t)
-                    N.call(t, i) && !U.hasOwnProperty(i) && (o[i] = t[i] === void 0 && s !== void 0 ? s[i] : t[i]);
-            }
-            var i = arguments.length - 2;
-            if (i === 1)
-                o.children = r;
-            else if (1 < i) {
-                s = Array(i);
-                for (var p = 0; p < i; p++)
-                    s[p] = arguments[p + 2];
-                o.children = s;
-            }
-            return { $$typeof: y, type: e.type, key: u, ref: c, props: o, _owner: f };
-        };
-        n.createContext = function (e, t) { return t === void 0 && (t = null), e = { $$typeof: I, _calculateChangedBits: t, _currentValue: e, _currentValue2: e, _threadCount: 0, Provider: null, Consumer: null }, e.Provider = { $$typeof: x, _context: e }, e.Consumer = e; };
-        n.createElement = T;
-        n.createFactory = function (e) { var t = T.bind(null, e); return t.type = e, t; };
-        n.createRef = function () { return { current: null }; };
-        n.forwardRef = function (e) { return { $$typeof: w, render: e }; };
-        n.isValidElement = k;
-        n.lazy = function (e) { return { $$typeof: F, _payload: { _status: -1, _result: e }, _init: te }; };
-        n.memo = function (e, t) { return { $$typeof: A, type: e, compare: t === void 0 ? null : t }; };
-        n.useCallback = function (e, t) { return a().useCallback(e, t); };
-        n.useContext = function (e, t) { return a().useContext(e, t); };
-        n.useDebugValue = function () { };
-        n.useEffect = function (e, t) { return a().useEffect(e, t); };
-        n.useImperativeHandle = function (e, t, r) { return a().useImperativeHandle(e, t, r); };
-        n.useLayoutEffect = function (e, t) { return a().useLayoutEffect(e, t); };
-        n.useMemo = function (e, t) { return a().useMemo(e, t); };
-        n.useReducer = function (e, t, r) { return a().useReducer(e, t, r); };
-        n.useRef = function (e) { return a().useRef(e); };
-        n.useState = function (e) { return a().useState(e); };
-        n.version = "17.0.2";
-    });
-    var g = j((ce, H) => {
-        "use strict";
-        H.exports = z();
-    });
-    var ne = O(g()), oe = O(g()), { PureComponent: fe, lazy: le, useCallback: pe, useDebugValue: ae, useState: ye, isValidElement: de, useLayoutEffect: _e, useMemo: ve, version: me, forwardRef: he, useReducer: Ee, useRef: Se, StrictMode: Ce, Profiler: Re, Children: ke, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: $e, createElement: ge, useContext: je, useImperativeHandle: Oe, Suspense: Pe, Component: xe, createFactory: Ie, memo: we, useEffect: Ae, cloneElement: Fe, Fragment: Le, createContext: qe, createRef: De } = ne;
-    var export_default = oe.default;
-    return { Children: ke, Component: xe, Fragment: Le, Profiler: Re, PureComponent: fe, StrictMode: Ce, Suspense: Pe, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: $e, cloneElement: Fe, createContext: qe, createElement: ge, createFactory: Ie, createRef: De, default: export_default, forwardRef: he, isValidElement: de, lazy: le, memo: we, useCallback: pe, useContext: je, useDebugValue: ae, useEffect: Ae, useImperativeHandle: Oe, useLayoutEffect: _e, useMemo: ve, useReducer: Ee, useRef: Se, useState: ye, version: me };
+        return Math.floor(val);
+    };
+    function randomItem(list) {
+        return list[random(0, list.length)];
+    }
+    return { random, randomItem };
 })();
-
-/* https://esm.sh/react@17.0.2 */
-const mod2 = (async () => {
-    const { default: _default } = await mod1;
-    return { default: _default, ...await mod1 };
-})();
-
-/* https://cdn.esm.sh/v41/scheduler@0.20.2/deno/scheduler.js */
-const mod3 = (async () => {
+const mod10 = (async () => {
     var D = Object.create, j = Object.defineProperty, z = Object.getPrototypeOf, B = Object.prototype.hasOwnProperty, G = Object.getOwnPropertyNames, ee = Object.getOwnPropertyDescriptor;
     var ne = e => j(e, "__esModule", { value: !0 });
     var H = (e, n) => () => (n || e((n = { exports: {} }).exports, n), n.exports);
@@ -455,12 +265,332 @@ const mod3 = (async () => {
     var export_default = ie.default;
     return { default: export_default, unstable_IdlePriority: ve, unstable_ImmediatePriority: he, unstable_LowPriority: xe, unstable_NormalPriority: Te, unstable_Profiling: de, unstable_UserBlockingPriority: Ie, unstable_cancelCallback: _e, unstable_continueExecution: we, unstable_forceFrameRate: pe, unstable_getCurrentPriorityLevel: ke, unstable_getFirstCallbackNode: ye, unstable_next: Me, unstable_now: be, unstable_pauseExecution: je, unstable_requestPaint: me, unstable_runWithPriority: Ce, unstable_scheduleCallback: fe, unstable_shouldYield: Pe, unstable_wrapCallback: ge };
 })();
-
-/* https://cdn.esm.sh/v41/react-dom@17.0.2/deno/react-dom.js */
+const mod9 = (async () => {
+    var b = Object.create, s = Object.defineProperty, p = Object.getPrototypeOf, O = Object.prototype.hasOwnProperty, j = Object.getOwnPropertyNames, g = Object.getOwnPropertyDescriptor;
+    var m = r => s(r, "__esModule", { value: !0 });
+    var v = (r, e) => () => (e || r((e = { exports: {} }).exports, e), e.exports);
+    var y = (r, e, t) => {
+        if (e && typeof e == "object" || typeof e == "function")
+            for (let n of j(e))
+                !O.call(r, n) && n !== "default" && s(r, n, { get: () => e[n], enumerable: !(t = g(e, n)) || t.enumerable });
+        return r;
+    }, h = r => y(m(s(r != null ? b(p(r)) : {}, "default", r && r.__esModule && "default" in r ? { get: () => r.default, enumerable: !0 } : { value: r, enumerable: !0 })), r);
+    var l = v((q, u) => {
+        "use strict";
+        var i = Object.getOwnPropertySymbols, d = Object.prototype.hasOwnProperty, w = Object.prototype.propertyIsEnumerable;
+        function P(r) {
+            if (r == null)
+                throw new TypeError("Object.assign cannot be called with null or undefined");
+            return Object(r);
+        }
+        function E() {
+            try {
+                if (!Object.assign)
+                    return !1;
+                var r = new String("abc");
+                if (r[5] = "de", Object.getOwnPropertyNames(r)[0] === "5")
+                    return !1;
+                for (var e = {}, t = 0; t < 10; t++)
+                    e["_" + String.fromCharCode(t)] = t;
+                var n = Object.getOwnPropertyNames(e).map(function (o) { return e[o]; });
+                if (n.join("") !== "0123456789")
+                    return !1;
+                var a = {};
+                return "abcdefghijklmnopqrst".split("").forEach(function (o) { a[o] = o; }), Object.keys(Object.assign({}, a)).join("") === "abcdefghijklmnopqrst";
+            }
+            catch (o) {
+                return !1;
+            }
+        }
+        u.exports = E() ? Object.assign : function (r, e) {
+            for (var t, n = P(r), a, o = 1; o < arguments.length; o++) {
+                t = Object(arguments[o]);
+                for (var f in t)
+                    d.call(t, f) && (n[f] = t[f]);
+                if (i) {
+                    a = i(t);
+                    for (var c = 0; c < a.length; c++)
+                        w.call(t, a[c]) && (n[a[c]] = t[a[c]]);
+                }
+            }
+            return n;
+        };
+    });
+    var S = h(l());
+    var export_default = S.default;
+    return { default: export_default };
+})();
+const mod6 = (async () => {
+    const { random } = await mod11;
+    const randomPalette = () => {
+        const hue = random(0, 360);
+        const saturation = random(75, 100);
+        const lightness = random(75, 95);
+        const primary = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        const dark = `hsl(${hue}, ${saturation}%, 2%)`;
+        const light = `hsl(${hue}, ${saturation}%, 98%)`;
+        return {
+            primary, dark, light
+        };
+    };
+    const randomBody = (x, y, size) => {
+        const numPoints = random(3, 12);
+        const angleStep = (Math.PI * 2) / numPoints;
+        return Array(numPoints).fill(0).map((_, i) => {
+            const pull = random(0.75, 1, true);
+            const px = x + Math.cos(i * angleStep) * (size * pull);
+            const py = y + Math.sin(i * angleStep) * (size * pull);
+            return {
+                x: px, y: py
+            };
+        });
+    };
+    const randomEyes = (x, y, width) => {
+        const isCyclops = random(0, 1, true) > 0.75;
+        const size = random(width / 2, width);
+        if (isCyclops) {
+            return [
+                {
+                    x, y, size
+                }
+            ];
+        }
+        return [
+            {
+                y, size, x: x - width
+            }, {
+                y, size, x: x + width
+            }
+        ];
+    };
+    const randomBlob = (width, height) => {
+        const x = width / 2;
+        const y = height / 2;
+        const size = random(50, 80);
+        const colors = randomPalette();
+        const body = randomBody(x, y, size);
+        const maxWidth = size / 2;
+        const eyes = randomEyes(x, y, maxWidth);
+        return {
+            id: btoa(`${Date.now()}${random(0, 1000)}`), x, y, width, height, body, eyes, colors
+        };
+    };
+    return { randomPalette, randomBody, randomEyes, randomBlob };
+})();
+const mod8 = (async () => {
+    const { Blob, randomBlob } = await mod6;
+    const { randomItem } = await mod11;
+    const BOARD_SIZE = 4;
+    const MAX_ROUND_POINTS = 100;
+    const MAX_BONUS_TIME = 2000;
+    const generateRandomBlobs = () => Array(BOARD_SIZE * BOARD_SIZE).fill(0).map(() => randomBlob(200, 200));
+    const initialRound = (stage = 1) => {
+        const blobs = generateRandomBlobs();
+        return ({
+            blobs: blobs, captured: [], wanted: randomItem(blobs), time: 3 * 1000, elapsed: 0, points: 0, round: stage
+        });
+    };
+    const calculatePoints = (game) => Math.round(MAX_ROUND_POINTS * (game.time - game.elapsed) / game.time);
+    const calculateTimeBonus = (game) => (MAX_BONUS_TIME / 2) + (MAX_BONUS_TIME / (2 ** (game.round - 1)));
+    const nextRound = (game) => {
+        const blobs = generateRandomBlobs();
+        return ({
+            blobs: blobs, captured: [...game.captured, game.wanted], wanted: randomItem(blobs), time: game.time - game.elapsed + calculateTimeBonus(game), elapsed: 0, points: game.points + calculatePoints(game), round: game.round + 1
+        });
+    };
+    const getStatus = (game) => {
+        if (game.round === 0)
+            return "start";
+        if (game.elapsed >= game.time)
+            return "loose";
+        return "run";
+    };
+    return { BOARD_SIZE, MAX_ROUND_POINTS, MAX_BONUS_TIME, generateRandomBlobs, initialRound, calculatePoints, calculateTimeBonus, nextRound, getStatus };
+})();
+const mod3 = (async () => {
+    const __object_assign$ = (await mod9).default;
+    var W = Object.create, h = Object.defineProperty, Y = Object.getPrototypeOf, G = Object.prototype.hasOwnProperty, J = Object.getOwnPropertyNames, K = Object.getOwnPropertyDescriptor;
+    var Q = e => h(e, "__esModule", { value: !0 });
+    var j = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports);
+    var X = (e, t, r) => {
+        if (t && typeof t == "object" || typeof t == "function")
+            for (let o of J(t))
+                !G.call(e, o) && o !== "default" && h(e, o, { get: () => t[o], enumerable: !(r = K(t, o)) || r.enumerable });
+        return e;
+    }, O = e => X(Q(h(e != null ? W(Y(e)) : {}, "default", e && e.__esModule && "default" in e ? { get: () => e.default, enumerable: !0 } : { value: e, enumerable: !0 })), e);
+    var z = j(n => {
+        "use strict";
+        var E = __object_assign$, y = 60103, P = 60106;
+        n.Fragment = 60107;
+        n.StrictMode = 60108;
+        n.Profiler = 60114;
+        var x = 60109, I = 60110, w = 60112;
+        n.Suspense = 60113;
+        var A = 60115, F = 60116;
+        typeof Symbol == "function" && Symbol.for && (l = Symbol.for, y = l("react.element"), P = l("react.portal"), n.Fragment = l("react.fragment"), n.StrictMode = l("react.strict_mode"), n.Profiler = l("react.profiler"), x = l("react.provider"), I = l("react.context"), w = l("react.forward_ref"), n.Suspense = l("react.suspense"), A = l("react.memo"), F = l("react.lazy"));
+        var l, L = typeof Symbol == "function" && Symbol.iterator;
+        function Z(e) { return e === null || typeof e != "object" ? null : (e = L && e[L] || e["@@iterator"], typeof e == "function" ? e : null); }
+        function _(e) {
+            for (var t = "https://reactjs.org/docs/error-decoder.html?invariant=" + e, r = 1; r < arguments.length; r++)
+                t += "&args[]=" + encodeURIComponent(arguments[r]);
+            return "Minified React error #" + e + "; visit " + t + " for the full message or use the non-minified dev environment for full errors and additional helpful warnings.";
+        }
+        var q = { isMounted: function () { return !1; }, enqueueForceUpdate: function () { }, enqueueReplaceState: function () { }, enqueueSetState: function () { } }, D = {};
+        function d(e, t, r) { this.props = e, this.context = t, this.refs = D, this.updater = r || q; }
+        d.prototype.isReactComponent = {};
+        d.prototype.setState = function (e, t) {
+            if (typeof e != "object" && typeof e != "function" && e != null)
+                throw Error(_(85));
+            this.updater.enqueueSetState(this, e, t, "setState");
+        };
+        d.prototype.forceUpdate = function (e) { this.updater.enqueueForceUpdate(this, e, "forceUpdate"); };
+        function M() { }
+        M.prototype = d.prototype;
+        function S(e, t, r) { this.props = e, this.context = t, this.refs = D, this.updater = r || q; }
+        var C = S.prototype = new M;
+        C.constructor = S;
+        E(C, d.prototype);
+        C.isPureReactComponent = !0;
+        var R = { current: null }, N = Object.prototype.hasOwnProperty, U = { key: !0, ref: !0, __self: !0, __source: !0 };
+        function T(e, t, r) {
+            var o, u = {}, c = null, f = null;
+            if (t != null)
+                for (o in t.ref !== void 0 && (f = t.ref), t.key !== void 0 && (c = "" + t.key), t)
+                    N.call(t, o) && !U.hasOwnProperty(o) && (u[o] = t[o]);
+            var s = arguments.length - 2;
+            if (s === 1)
+                u.children = r;
+            else if (1 < s) {
+                for (var i = Array(s), p = 0; p < s; p++)
+                    i[p] = arguments[p + 2];
+                u.children = i;
+            }
+            if (e && e.defaultProps)
+                for (o in s = e.defaultProps, s)
+                    u[o] === void 0 && (u[o] = s[o]);
+            return { $$typeof: y, type: e, key: c, ref: f, props: u, _owner: R.current };
+        }
+        function b(e, t) { return { $$typeof: y, type: e.type, key: t, ref: e.ref, props: e.props, _owner: e._owner }; }
+        function k(e) { return typeof e == "object" && e !== null && e.$$typeof === y; }
+        function ee(e) { var t = { "=": "=0", ":": "=2" }; return "$" + e.replace(/[=:]/g, function (r) { return t[r]; }); }
+        var V = /\/+/g;
+        function $(e, t) { return typeof e == "object" && e !== null && e.key != null ? ee("" + e.key) : t.toString(36); }
+        function v(e, t, r, o, u) {
+            var c = typeof e;
+            (c === "undefined" || c === "boolean") && (e = null);
+            var f = !1;
+            if (e === null)
+                f = !0;
+            else
+                switch (c) {
+                    case "string":
+                    case "number":
+                        f = !0;
+                        break;
+                    case "object": switch (e.$$typeof) {
+                        case y:
+                        case P: f = !0;
+                    }
+                }
+            if (f)
+                return f = e, u = u(f), e = o === "" ? "." + $(f, 0) : o, Array.isArray(u) ? (r = "", e != null && (r = e.replace(V, "$&/") + "/"), v(u, t, r, "", function (p) { return p; })) : u != null && (k(u) && (u = b(u, r + (!u.key || f && f.key === u.key ? "" : ("" + u.key).replace(V, "$&/") + "/") + e)), t.push(u)), 1;
+            if (f = 0, o = o === "" ? "." : o + ":", Array.isArray(e))
+                for (var s = 0; s < e.length; s++) {
+                    c = e[s];
+                    var i = o + $(c, s);
+                    f += v(c, t, r, i, u);
+                }
+            else if (i = Z(e), typeof i == "function")
+                for (e = i.call(e), s = 0; !(c = e.next()).done;)
+                    c = c.value, i = o + $(c, s++), f += v(c, t, r, i, u);
+            else if (c === "object")
+                throw t = "" + e, Error(_(31, t === "[object Object]" ? "object with keys {" + Object.keys(e).join(", ") + "}" : t));
+            return f;
+        }
+        function m(e, t, r) {
+            if (e == null)
+                return e;
+            var o = [], u = 0;
+            return v(e, o, "", "", function (c) { return t.call(r, c, u++); }), o;
+        }
+        function te(e) {
+            if (e._status === -1) {
+                var t = e._result;
+                t = t(), e._status = 0, e._result = t, t.then(function (r) { e._status === 0 && (r = r.default, e._status = 1, e._result = r); }, function (r) { e._status === 0 && (e._status = 2, e._result = r); });
+            }
+            if (e._status === 1)
+                return e._result;
+            throw e._result;
+        }
+        var B = { current: null };
+        function a() {
+            var e = B.current;
+            if (e === null)
+                throw Error(_(321));
+            return e;
+        }
+        var re = { ReactCurrentDispatcher: B, ReactCurrentBatchConfig: { transition: 0 }, ReactCurrentOwner: R, IsSomeRendererActing: { current: !1 }, assign: E };
+        n.Children = { map: m, forEach: function (e, t, r) { m(e, function () { t.apply(this, arguments); }, r); }, count: function (e) { var t = 0; return m(e, function () { t++; }), t; }, toArray: function (e) { return m(e, function (t) { return t; }) || []; }, only: function (e) {
+                if (!k(e))
+                    throw Error(_(143));
+                return e;
+            } };
+        n.Component = d;
+        n.PureComponent = S;
+        n.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = re;
+        n.cloneElement = function (e, t, r) {
+            if (e == null)
+                throw Error(_(267, e));
+            var o = E({}, e.props), u = e.key, c = e.ref, f = e._owner;
+            if (t != null) {
+                if (t.ref !== void 0 && (c = t.ref, f = R.current), t.key !== void 0 && (u = "" + t.key), e.type && e.type.defaultProps)
+                    var s = e.type.defaultProps;
+                for (i in t)
+                    N.call(t, i) && !U.hasOwnProperty(i) && (o[i] = t[i] === void 0 && s !== void 0 ? s[i] : t[i]);
+            }
+            var i = arguments.length - 2;
+            if (i === 1)
+                o.children = r;
+            else if (1 < i) {
+                s = Array(i);
+                for (var p = 0; p < i; p++)
+                    s[p] = arguments[p + 2];
+                o.children = s;
+            }
+            return { $$typeof: y, type: e.type, key: u, ref: c, props: o, _owner: f };
+        };
+        n.createContext = function (e, t) { return t === void 0 && (t = null), e = { $$typeof: I, _calculateChangedBits: t, _currentValue: e, _currentValue2: e, _threadCount: 0, Provider: null, Consumer: null }, e.Provider = { $$typeof: x, _context: e }, e.Consumer = e; };
+        n.createElement = T;
+        n.createFactory = function (e) { var t = T.bind(null, e); return t.type = e, t; };
+        n.createRef = function () { return { current: null }; };
+        n.forwardRef = function (e) { return { $$typeof: w, render: e }; };
+        n.isValidElement = k;
+        n.lazy = function (e) { return { $$typeof: F, _payload: { _status: -1, _result: e }, _init: te }; };
+        n.memo = function (e, t) { return { $$typeof: A, type: e, compare: t === void 0 ? null : t }; };
+        n.useCallback = function (e, t) { return a().useCallback(e, t); };
+        n.useContext = function (e, t) { return a().useContext(e, t); };
+        n.useDebugValue = function () { };
+        n.useEffect = function (e, t) { return a().useEffect(e, t); };
+        n.useImperativeHandle = function (e, t, r) { return a().useImperativeHandle(e, t, r); };
+        n.useLayoutEffect = function (e, t) { return a().useLayoutEffect(e, t); };
+        n.useMemo = function (e, t) { return a().useMemo(e, t); };
+        n.useReducer = function (e, t, r) { return a().useReducer(e, t, r); };
+        n.useRef = function (e) { return a().useRef(e); };
+        n.useState = function (e) { return a().useState(e); };
+        n.version = "17.0.2";
+    });
+    var g = j((ce, H) => {
+        "use strict";
+        H.exports = z();
+    });
+    var ne = O(g()), oe = O(g()), { PureComponent: fe, lazy: le, useCallback: pe, useDebugValue: ae, useState: ye, isValidElement: de, useLayoutEffect: _e, useMemo: ve, version: me, forwardRef: he, useReducer: Ee, useRef: Se, StrictMode: Ce, Profiler: Re, Children: ke, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: $e, createElement: ge, useContext: je, useImperativeHandle: Oe, Suspense: Pe, Component: xe, createFactory: Ie, memo: we, useEffect: Ae, cloneElement: Fe, Fragment: Le, createContext: qe, createRef: De } = ne;
+    var export_default = oe.default;
+    return { Children: ke, Component: xe, Fragment: Le, Profiler: Re, PureComponent: fe, StrictMode: Ce, Suspense: Pe, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: $e, cloneElement: Fe, createContext: qe, createElement: ge, createFactory: Ie, createRef: De, default: export_default, forwardRef: he, isValidElement: de, lazy: le, memo: we, useCallback: pe, useContext: je, useDebugValue: ae, useEffect: Ae, useImperativeHandle: Oe, useLayoutEffect: _e, useMemo: ve, useReducer: Ee, useRef: Se, useState: ye, version: me };
+})();
 const mod4 = (async () => {
-    const __react$ = (await mod1).default;
-    const __scheduler$ = (await mod3).default;
-    const __object_assign$ = (await mod).default;
+    const __react$ = (await mod3).default;
+    const __scheduler$ = (await mod10).default;
+    const __object_assign$ = (await mod9).default;
     var Cs = Object.create, zr = Object.defineProperty, _s = Object.getPrototypeOf, Ns = Object.prototype.hasOwnProperty, Ps = Object.getOwnPropertyNames, Ts = Object.getOwnPropertyDescriptor;
     var Ls = e => zr(e, "__esModule", { value: !0 });
     var Oi = (e, n) => () => (n || e((n = { exports: {} }).exports, n), n.exports);
@@ -4591,146 +4721,32 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
     var export_default = Pf.default;
     return { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: Ff, createPortal: jf, default: export_default, findDOMNode: Mf, flushSync: Rf, hydrate: Wf, render: Hf, unmountComponentAtNode: Uf, unstable_batchedUpdates: Vf, unstable_createPortal: Df, unstable_renderSubtreeIntoContainer: Bf, version: If };
 })();
-
-/* https://esm.sh/react-dom@17.0.2?external=react */
-const mod5 = (async () => {
+const mod1 = (async () => {
     const { default: _default } = await mod4;
     return { default: _default, ...await mod4 };
 })();
-
-/* lib/random.ts */
-const mod6 = (async () => {
-    const random = (min, max, float = false) => {
-        const val = Math.random() * (max - min) + min;
-        if (float) {
-            return val;
-        }
-        return Math.floor(val);
-    };
-    function randomItem(list) {
-        return list[random(0, list.length)];
-    }
-    return { random, randomItem };
+const mod = (async () => {
+    const { default: _default } = await mod3;
+    return { default: _default, ...await mod3 };
 })();
-
-/* lib/blob.ts */
 const mod7 = (async () => {
-    const { random } = await mod6;
-    const randomPalette = () => {
-        const hue = random(0, 360);
-        const saturation = random(75, 100);
-        const lightness = random(75, 95);
-        const primary = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-        const dark = `hsl(${hue}, ${saturation}%, 2%)`;
-        const light = `hsl(${hue}, ${saturation}%, 98%)`;
-        return {
-            primary, dark, light
-        };
-    };
-    const randomBody = (x, y, size) => {
-        const numPoints = random(3, 12);
-        const angleStep = (Math.PI * 2) / numPoints;
-        return Array(numPoints).fill(0).map((_, i) => {
-            const pull = random(0.75, 1, true);
-            const px = x + Math.cos(i * angleStep) * (size * pull);
-            const py = y + Math.sin(i * angleStep) * (size * pull);
-            return {
-                x: px, y: py
-            };
-        });
-    };
-    const randomEyes = (x, y, width) => {
-        const isCyclops = random(0, 1, true) > 0.75;
-        const size = random(width / 2, width);
-        if (isCyclops) {
-            return [
-                {
-                    x, y, size
-                }
-            ];
-        }
-        return [
-            {
-                y, size, x: x - width
-            }, {
-                y, size, x: x + width
-            }
-        ];
-    };
-    const randomBlob = (width, height) => {
-        const x = width / 2;
-        const y = height / 2;
-        const size = random(50, 80);
-        const colors = randomPalette();
-        const body = randomBody(x, y, size);
-        const maxWidth = size / 2;
-        const eyes = randomEyes(x, y, maxWidth);
-        return {
-            id: btoa(`${Date.now()}${random(0, 1000)}`), x, y, width, height, body, eyes, colors
-        };
-    };
-    return { randomPalette, randomBody, randomEyes, randomBlob };
+    const React = (await mod).default;
+    function WantedPoster(props) {
+        const { children } = props;
+        return (React.createElement("div", { className: "wanted" }, React.createElement("div", { className: "wanted-title" }, "WANTED"), React.createElement("div", { className: "wanted-subtitle" }, "Dead or Alive"), React.createElement("div", { className: "wanted-picture" }, children), React.createElement("div", { className: "wanted-reward" }, "100 REWARD")));
+    }
+    return { default: WantedPoster };
 })();
-
-/* lib/spline.ts */
-const mod8 = (async () => {
-    const formatPoints = (points, close = false) => {
-        const result = [...points].map(({ x, y }) => [x, y]);
-        if (close) {
-            const lastPoint = result[result.length - 1];
-            const secondToLastPoint = result[result.length - 2];
-            const firstPoint = result[0];
-            const secondPoint = result[1];
-            result.unshift(lastPoint);
-            result.unshift(secondToLastPoint);
-            result.push(firstPoint);
-            result.push(secondPoint);
-        }
-        return result.flat();
-    };
-    const spline = (points = [], tension = 1, close = false) => {
-        const flatPoints = formatPoints(points, close);
-        const size = flatPoints.length;
-        const last = size - 4;
-        const startPointX = close ? flatPoints[2] : flatPoints[0];
-        const startPointY = close ? flatPoints[3] : flatPoints[1];
-        let path = "M" + [startPointX, startPointY];
-        const startIteration = close ? 2 : 0;
-        const maxIteration = close ? size - 4 : size - 2;
-        const inc = 2;
-        for (let i = startIteration; i < maxIteration; i += inc) {
-            const x0 = i ? flatPoints[i - 2] : flatPoints[0];
-            const y0 = i ? flatPoints[i - 1] : flatPoints[1];
-            const x1 = flatPoints[i];
-            const y1 = flatPoints[i + 1];
-            const x2 = flatPoints[i + 2];
-            const y2 = flatPoints[i + 3];
-            const x3 = i !== last ? flatPoints[i + 4] : x2;
-            const y3 = i !== last ? flatPoints[i + 5] : y2;
-            const cp1x = x1 + (x2 - x0) / 6 * tension;
-            const cp1y = y1 + (y2 - y0) / 6 * tension;
-            const cp2x = x2 - (x3 - x1) / 6 * tension;
-            const cp2y = y2 - (y3 - y1) / 6 * tension;
-            path += "C" + [cp1x, cp1y, cp2x, cp2y, x2, y2];
-        }
-        return path;
-    };
-    return { spline };
-})();
-
-/* lib/components/SvgBlob.tsx */
-const mod9 = (async () => {
-    const { useEffect, useState } = await mod2;
-    const { Blob, Eye, Palette } = await mod7;
-    const { random, randomItem } = await mod6;
-    const { spline } = await mod8;
+const mod5 = (async () => {
+    const { useEffect, useState } = await mod;
+    const { Blob, Eye, Palette } = await mod6;
+    const { random, randomItem } = await mod11;
+    const { spline } = await mod12;
     const SvgBlobEye = (props) => {
         const { x, y, size, colors } = props;
-        return (React.createElement("g", { transform: `matrix(1,0,0,1,${x},${y})`, className: "blob-eye" },
-            React.createElement("circle", { r: size, cx: "0", cy: "0", "stroke-width": "2", stroke: colors.dark, fill: colors.light, className: "blob-eye-iris" }),
-            React.createElement("circle", { r: size / 2, cx: "0", cy: "0", fill: colors.dark, className: "blob-eye-pupil", style: {
-                    "--radius": `${size / 2}px`
-                } })));
+        return (React.createElement("g", { transform: `matrix(1,0,0,1,${x},${y})`, className: "blob-eye" }, React.createElement("circle", { r: size, cx: "0", cy: "0", "stroke-width": "2", stroke: colors.dark, fill: colors.light, className: "blob-eye-iris" }), React.createElement("circle", { r: size / 2, cx: "0", cy: "0", fill: colors.dark, className: "blob-eye-pupil", style: {
+                "--radius": `${size / 2}px`
+            } })));
     };
     const animations = ["eye-roll", "eye-roll-reverse", "eye-converge", "eye-converge-reverse"];
     function SvgBlob(props) {
@@ -4744,92 +4760,20 @@ const mod9 = (async () => {
                 return () => clearTimeout(timeout);
             }
         }, [animation, setAnimation]);
-        return (React.createElement("svg", { viewBox: `0 0 ${width} ${height}`, className: `blob ${animated && animation}`, onClick: () => setAnimation("eye-flock"), onAnimationEnd: () => setAnimation("") },
-            React.createElement("path", { d: spline(body, 1, true), "stroke-width": 2, stroke: colors.dark, fill: colors.primary }),
-            React.createElement("g", null,
-                "$",
-                eyes.map((eye) => React.createElement(SvgBlobEye, Object.assign({}, eye, { colors: colors }))))));
+        return (React.createElement("svg", { viewBox: `0 0 ${width} ${height}`, className: `blob ${animated && animation}`, onClick: () => setAnimation("eye-flock"), onAnimationEnd: () => setAnimation("") }, React.createElement("path", { d: spline(body, 1, true), "stroke-width": 2, stroke: colors.dark, fill: colors.primary }), React.createElement("g", null, "$", eyes.map((eye) => React.createElement(SvgBlobEye, Object.assign({}, eye, { colors: colors }))))));
     }
     return { default: SvgBlob };
 })();
-
-/* lib/components/WantedPoster.tsx */
-const mod10 = (async () => {
-    const React = (await mod2).default;
-    function WantedPoster(props) {
-        const { children } = props;
-        return (React.createElement("div", { className: "wanted" },
-            React.createElement("div", { className: "wanted-title" }, "WANTED"),
-            React.createElement("div", { className: "wanted-subtitle" }, "Dead or Alive"),
-            React.createElement("div", { className: "wanted-picture" }, children),
-            React.createElement("div", { className: "wanted-reward" }, "100 REWARD")));
-    }
-    return { default: WantedPoster };
-})();
-
-/* lib/game.ts */
-const mod11 = (async () => {
-    const { Blob, randomBlob } = await mod7;
-    const { randomItem } = await mod6;
-    const BOARD_SIZE = 4;
-    const MAX_ROUND_POINTS = 100;
-    const MAX_BONUS_TIME = 2000;
-    const generateRandomBlobs = () => Array(BOARD_SIZE * BOARD_SIZE).fill(0).map(() => randomBlob(200, 200));
-    const initialRound = (stage = 1) => {
-        const blobs = generateRandomBlobs();
-        return ({
-            blobs: blobs, captured: [], wanted: randomItem(blobs), time: 3 * 1000, elapsed: 0, points: 0, round: stage
-        });
-    };
-    const calculatePoints = (game) => Math.round(MAX_ROUND_POINTS * (game.time - game.elapsed) / game.time);
-    const calculateTimeBonus = (game) => (MAX_BONUS_TIME / 2) + (MAX_BONUS_TIME / (2 ** (game.round - 1)));
-    const nextRound = (game) => {
-        const blobs = generateRandomBlobs();
-        return ({
-            blobs: blobs, captured: [...game.captured, game.wanted], wanted: randomItem(blobs), time: game.time - game.elapsed + calculateTimeBonus(game), elapsed: 0, points: game.points + calculatePoints(game), round: game.round + 1
-        });
-    };
-    const getStatus = (game) => {
-        if (game.round === 0)
-            return "start";
-        if (game.elapsed >= game.time)
-            return "loose";
-        return "run";
-    };
-    return { BOARD_SIZE, MAX_ROUND_POINTS, MAX_BONUS_TIME, generateRandomBlobs, initialRound, calculatePoints, calculateTimeBonus, nextRound, getStatus };
-})();
-
-/* lib/App.tsx */
-const mod12 = (async () => {
-    const { useEffect, useState } = await mod2;
-    const SvgBlob = (await mod9).default;
-    const { Blob, randomBlob } = await mod7;
-    const WantedPoster = (await mod10).default;
-    const { getStatus, initialRound, nextRound } = await mod11;
-    const StartDialog = ({ onClickStart }) => (React.createElement("div", { className: "dialog-backdrop" },
-        React.createElement("dialog", { className: "dialog", open: true },
-            React.createElement("h1", null, "Instructions"),
-            React.createElement(WantedPoster, null,
-                React.createElement(SvgBlob, Object.assign({}, randomBlob(200, 200)))),
-            React.createElement("p", null, "Find the WANTED BLOB before the time end."),
-            React.createElement("button", { className: "action-button", onClick: onClickStart }, "START"))));
-    const LoseDialog = ({ onRetryClick, points, captured = [] }) => (React.createElement("div", { className: "dialog-backdrop" },
-        React.createElement("dialog", { className: "dialog", open: true },
-            React.createElement("h1", null, "You LOOSE"),
-            React.createElement("p", null,
-                React.createElement("span", { style: { color: "#2b2b2b" } }, "SCORE"),
-                React.createElement("br", null),
-                points,
-                " PT",
-                React.createElement("br", null)),
-            !!captured.length && (React.createElement("p", null,
-                React.createElement("span", { style: { color: "#2b2b2b" } }, "CAPTURED"),
-                React.createElement("br", null),
-                captured.map((blob) => (React.createElement("div", { style: {
-                        width: "65px", margin: "3px", border: "1px solid black", background: "#adabab", display: "inline-block"
-                    } },
-                    React.createElement(SvgBlob, Object.assign({ key: blob.id }, blob, { style: { width: "80px", margin: "5px", border: "1px solid black", background: "#adabab" } }))))))),
-            React.createElement("button", { className: "action-button", onClick: onRetryClick }, "RETRY"))));
+const mod2 = (async () => {
+    const { useEffect, useState } = await mod;
+    const SvgBlob = (await mod5).default;
+    const { Blob, randomBlob } = await mod6;
+    const WantedPoster = (await mod7).default;
+    const { getStatus, initialRound, nextRound } = await mod8;
+    const StartDialog = ({ onClickStart }) => (React.createElement("div", { className: "dialog-backdrop" }, React.createElement("dialog", { className: "dialog", open: true }, React.createElement("h1", null, "Instructions"), React.createElement(WantedPoster, null, React.createElement(SvgBlob, Object.assign({}, randomBlob(200, 200)))), React.createElement("p", null, "Find the WANTED BLOB before the time end."), React.createElement("button", { className: "action-button", onClick: onClickStart }, "START"))));
+    const LoseDialog = ({ onRetryClick, points, captured = [] }) => (React.createElement("div", { className: "dialog-backdrop" }, React.createElement("dialog", { className: "dialog", open: true }, React.createElement("h1", null, "You LOOSE"), React.createElement("p", null, React.createElement("span", { style: { color: "#2b2b2b" } }, "SCORE"), React.createElement("br", null), points, " PT", React.createElement("br", null)), !!captured.length && (React.createElement("p", null, React.createElement("span", { style: { color: "#2b2b2b" } }, "CAPTURED"), React.createElement("br", null), captured.map((blob) => (React.createElement("div", { style: {
+            width: "65px", margin: "3px", border: "1px solid black", background: "#adabab", display: "inline-block"
+        } }, React.createElement(SvgBlob, Object.assign({ key: blob.id }, blob, { style: { width: "80px", margin: "5px", border: "1px solid black", background: "#adabab" } }))))))), React.createElement("button", { className: "action-button", onClick: onRetryClick }, "RETRY"))));
     const initialGame = initialRound(0);
     function App() {
         const [game, setGame] = useState(initialGame);
@@ -4860,38 +4804,14 @@ const mod12 = (async () => {
                 setGame(nextRound);
             }
         };
-        return (React.createElement(React.Fragment, null,
-            React.createElement("header", null,
-                React.createElement("h1", { className: "title" },
-                    "BLOBS ",
-                    React.createElement("span", { className: "title-doa" }, "DEAD OR ALIVE"))),
-            React.createElement("div", { className: "content" },
-                React.createElement("div", { className: "content-header" },
-                    React.createElement("div", { className: "controls" },
-                        React.createElement("div", null,
-                            React.createElement("progress", { id: "time-progress", value: (time - elapsed) / time, max: 1, "data-animated": elapsed > 0 },
-                                elapsed,
-                                "ms"),
-                            React.createElement("label", { htmlFor: "time-progress", className: "time-progress-label" },
-                                Math.round(time - elapsed),
-                                "ms")),
-                        React.createElement("div", { className: "score" },
-                            "PT ",
-                            points)),
-                    React.createElement(WantedPoster, null, wanted && React.createElement(SvgBlob, Object.assign({}, wanted)))),
-                React.createElement("div", { className: "board" }, blobs.map((blob) => (React.createElement("div", { className: "box", onClick: () => onBlobClick(blob) },
-                    React.createElement(SvgBlob, Object.assign({ key: blob.id }, blob, { animated: true })))))),
-                status === "start" && (React.createElement(StartDialog, { onClickStart: () => setGame(initialRound(1)) })),
-                status === "loose" && (React.createElement(LoseDialog, { points: points, captured: captured, onRetryClick: () => setGame(initialRound(1)) })))));
+        return (React.createElement(React.Fragment, null, React.createElement("header", null, React.createElement("h1", { className: "title" }, "BLOBS ", React.createElement("span", { className: "title-doa" }, "DEAD OR ALIVE"))), React.createElement("div", { className: "content" }, React.createElement("div", { className: "content-header" }, React.createElement("div", { className: "controls" }, React.createElement("div", null, React.createElement("progress", { id: "time-progress", value: (time - elapsed) / time, max: 1, "data-animated": elapsed > 0 }, elapsed, "ms"), React.createElement("label", { htmlFor: "time-progress", className: "time-progress-label" }, Math.round(time - elapsed), "ms")), React.createElement("div", { className: "score" }, "PT ", points)), React.createElement(WantedPoster, null, wanted && React.createElement(SvgBlob, Object.assign({}, wanted)))), React.createElement("div", { className: "board" }, blobs.map((blob) => (React.createElement("div", { className: "box", onClick: () => onBlobClick(blob) }, React.createElement(SvgBlob, Object.assign({ key: blob.id }, blob, { animated: true })))))), status === "start" && (React.createElement(StartDialog, { onClickStart: () => setGame(initialRound(1)) })), status === "loose" && (React.createElement(LoseDialog, { points: points, captured: captured, onRetryClick: () => setGame(initialRound(1)) })))));
     }
     return { default: App };
 })();
-
-/* lib/main.tsx */
 export default (async () => {
-    const React = (await mod2).default;
-    const ReactDOM = (await mod5).default;
-    const App = (await mod12).default;
+    const React = (await mod).default;
+    const ReactDOM = (await mod1).default;
+    const App = (await mod2).default;
     window.React = React;
     ReactDOM.render(React.createElement(App, null), document.getElementById("root"));
     return {};

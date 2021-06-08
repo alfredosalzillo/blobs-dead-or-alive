@@ -10,7 +10,6 @@
        "specifiers": {},
        "defaults": [],
        "namespaces": [],
-       "types": {},
        "type": "import",
        "format": 8
       },
@@ -18,7 +17,6 @@
        "specifiers": {},
        "defaults": [],
        "namespaces": [],
-       "types": {},
        "type": "import",
        "format": 64
       },
@@ -26,7 +24,6 @@
        "specifiers": {},
        "defaults": [],
        "namespaces": [],
-       "types": {},
        "type": "import",
        "format": 48
       },
@@ -34,7 +31,6 @@
        "specifiers": {},
        "defaults": [],
        "namespaces": [],
-       "types": {},
        "type": "import",
        "format": 4
       }
@@ -75,7 +71,6 @@
       "https://esm.sh/react@17.0.2": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "React"
        ],
@@ -85,7 +80,6 @@
       "https://esm.sh/react-dom@17.0.2?external=react": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "ReactDOM"
        ],
@@ -95,7 +89,6 @@
       "lib/App.tsx": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "App"
        ],
@@ -133,7 +126,6 @@
        "namespaces": [
         null
        ],
-       "types": {},
        "defaults": [],
        "type": "export",
        "format": 8
@@ -157,7 +149,6 @@
        "namespaces": [
         null
        ],
-       "types": {},
        "defaults": [],
        "type": "export",
        "format": 8
@@ -179,7 +170,6 @@
         "useState": "useState"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "import",
        "format": 8
@@ -187,7 +177,6 @@
       "lib/components/SvgBlob.tsx": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "SvgBlob"
        ],
@@ -200,7 +189,6 @@
         "randomBlob": "randomBlob"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "import",
        "format": 8
@@ -208,7 +196,6 @@
       "lib/components/WantedPoster.tsx": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "WantedPoster"
        ],
@@ -222,7 +209,6 @@
         "nextRound": "nextRound"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "import",
        "format": 8
@@ -235,7 +221,6 @@
         "App"
        ],
        "namespaces": [],
-       "types": {},
        "type": "export",
        "format": 8
       }
@@ -253,7 +238,6 @@
       "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "__object_assign$"
        ],
@@ -295,7 +279,6 @@
         "version": "me"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "export",
        "format": 8
@@ -312,7 +295,6 @@
       "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "__object_assign$"
        ],
@@ -354,7 +336,6 @@
         "version": "me"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "export",
        "format": 8
@@ -373,7 +354,6 @@
       "https://cdn.esm.sh/v41/react@17.0.2/deno/react.js": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "__react$"
        ],
@@ -383,7 +363,6 @@
       "https://cdn.esm.sh/v41/scheduler@0.20.2/deno/scheduler.js": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "__scheduler$"
        ],
@@ -393,7 +372,6 @@
       "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "__object_assign$"
        ],
@@ -418,7 +396,6 @@
         "version": "If"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "export",
        "format": 8
@@ -440,7 +417,6 @@
         "useState": "useState"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "import",
        "format": 8
@@ -452,7 +428,6 @@
         "Palette": "Palette"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "import",
        "format": 8
@@ -463,7 +438,6 @@
         "randomItem": "randomItem"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "import",
        "format": 8
@@ -473,7 +447,6 @@
         "spline": "spline"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "import",
        "format": 8
@@ -486,9 +459,6 @@
         "SvgBlob"
        ],
        "namespaces": [],
-       "types": {
-        "SvgBlobProps": "SvgBlobProps"
-       },
        "type": "export",
        "format": 8
       }
@@ -508,7 +478,6 @@
         "random": "random"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "import",
        "format": 8
@@ -524,11 +493,6 @@
        },
        "defaults": [],
        "namespaces": [],
-       "types": {
-        "Palette": "Palette",
-        "Eye": "Eye",
-        "Blob": "Blob"
-       },
        "type": "export",
        "format": 8
       }
@@ -546,7 +510,6 @@
       "https://esm.sh/react@17.0.2": {
        "specifiers": {},
        "namespaces": [],
-       "types": {},
        "defaults": [
         "React"
        ],
@@ -561,7 +524,6 @@
         "WantedPoster"
        ],
        "namespaces": [],
-       "types": {},
        "type": "export",
        "format": 8
       }
@@ -582,7 +544,6 @@
         "randomBlob": "randomBlob"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "import",
        "format": 8
@@ -592,7 +553,6 @@
         "randomItem": "randomItem"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "import",
        "format": 8
@@ -613,10 +573,6 @@
        },
        "defaults": [],
        "namespaces": [],
-       "types": {
-        "Game": "Game",
-        "GameStatus": "GameStatus"
-       },
        "type": "export",
        "format": 8
       }
@@ -637,7 +593,6 @@
         "default": "export_default"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "export",
        "format": 8
@@ -678,7 +633,6 @@
         "unstable_wrapCallback": "ge"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "export",
        "format": 8
@@ -702,7 +656,6 @@
        },
        "defaults": [],
        "namespaces": [],
-       "types": {},
        "type": "export",
        "format": 8
       }
@@ -723,7 +676,6 @@
         "spline": "spline"
        },
        "namespaces": [],
-       "types": {},
        "defaults": [],
        "type": "export",
        "format": 8

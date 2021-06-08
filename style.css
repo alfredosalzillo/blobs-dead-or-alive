@@ -191,10 +191,8 @@ header {
     --board-rows: 4;
     --size: min(90vmin, 100vh - 230px) ;
     display: grid;
-    grid-template-columns: repeat(,;
-    grid-template-columns: repeat(var(--board-cols), calc(100% / var(--board-cols)));
-    grid-template-rows: repeat(,;
-    grid-template-rows: repeat(var(--board-rows), calc(100% / var(--board-rows)));
+    grid-template-columns: repeat(4, calc(100% / 4));
+    grid-template-rows: repeat(4, calc(100% / 4));
     justify-content: center;
     width: var(--size);
     height: var(--size);

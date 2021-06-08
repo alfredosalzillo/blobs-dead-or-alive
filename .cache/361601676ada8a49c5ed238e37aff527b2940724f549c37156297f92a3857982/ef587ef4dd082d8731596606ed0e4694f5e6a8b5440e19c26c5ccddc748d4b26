@@ -1,9 +1,9 @@
 /* lib/components/SvgBlob.tsx */
-const mod9 = (async () => {
-    const { useEffect, useState } = await mod2;
-    const { Blob, Eye, Palette } = await mod7;
-    const { random, randomItem } = await mod6;
-    const { spline } = await mod8;
+const mod5 = (async () => {
+    const { useEffect, useState } = await mod;
+    const { Blob, Eye, Palette } = await mod6;
+    const { random, randomItem } = await mod11;
+    const { spline } = await mod12;
     const SvgBlobEye = (props) => {
         const { x, y, size, colors } = props;
         return (React.createElement("g", { transform: `matrix(1,0,0,1,${x},${y})`, className: "blob-eye" },
