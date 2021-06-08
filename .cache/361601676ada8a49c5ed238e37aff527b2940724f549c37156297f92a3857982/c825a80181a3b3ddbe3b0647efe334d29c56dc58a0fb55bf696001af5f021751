@@ -1,57 +1,31 @@
-System.register("lib/game.ts", ["lib/blob.ts", "lib/random.ts"], function (exports_1, context_1) {
-    "use strict";
-    var blob_ts_1, random_ts_1, BOARD_SIZE, MAX_ROUND_POINTS, MAX_BONUS_TIME, generateRandomBlobs, initialRound, calculatePoints, calculateTimeBonus, nextRound, getStatus;
-    var __moduleName = context_1 && context_1.id;
-    return {
-        setters: [
-            function (blob_ts_1_1) {
-                blob_ts_1 = blob_ts_1_1;
-            },
-            function (random_ts_1_1) {
-                random_ts_1 = random_ts_1_1;
-            }
-        ],
-        execute: function () {
-            exports_1("BOARD_SIZE", BOARD_SIZE = 4);
-            exports_1("MAX_ROUND_POINTS", MAX_ROUND_POINTS = 100);
-            exports_1("MAX_BONUS_TIME", MAX_BONUS_TIME = 2000);
-            exports_1("generateRandomBlobs", generateRandomBlobs = () => Array(BOARD_SIZE * BOARD_SIZE)
-                .fill(0)
-                .map(() => blob_ts_1.randomBlob(200, 200)));
-            exports_1("initialRound", initialRound = (stage = 1) => {
-                const blobs = generateRandomBlobs();
-                return ({
-                    blobs: blobs,
-                    captured: [],
-                    wanted: random_ts_1.randomItem(blobs),
-                    time: 3 * 1000,
-                    elapsed: 0,
-                    points: 0,
-                    round: stage,
-                });
-            });
-            exports_1("calculatePoints", calculatePoints = (game) => Math
-                .round(MAX_ROUND_POINTS * (game.time - game.elapsed) / game.time));
-            exports_1("calculateTimeBonus", calculateTimeBonus = (game) => (MAX_BONUS_TIME / 2) + (MAX_BONUS_TIME / (2 ** (game.round - 1))));
-            exports_1("nextRound", nextRound = (game) => {
-                const blobs = generateRandomBlobs();
-                return ({
-                    blobs: blobs,
-                    captured: [...game.captured, game.wanted],
-                    wanted: random_ts_1.randomItem(blobs),
-                    time: game.time - game.elapsed + calculateTimeBonus(game),
-                    elapsed: 0,
-                    points: game.points + calculatePoints(game),
-                    round: game.round + 1,
-                });
-            });
-            exports_1("getStatus", getStatus = (game) => {
-                if (game.round === 0)
-                    return 'start';
-                if (game.elapsed >= game.time)
-                    return 'loose';
-                return 'run';
-            });
-        }
+/* lib/game.ts */
+const mod11 = (async () => {
+    const { Blob, randomBlob } = await mod7;
+    const { randomItem } = await mod6;
+    const BOARD_SIZE = 4;
+    const MAX_ROUND_POINTS = 100;
+    const MAX_BONUS_TIME = 2000;
+    const generateRandomBlobs = () => Array(BOARD_SIZE * BOARD_SIZE).fill(0).map(() => randomBlob(200, 200));
+    const initialRound = (stage = 1) => {
+        const blobs = generateRandomBlobs();
+        return ({
+            blobs: blobs, captured: [], wanted: randomItem(blobs), time: 3 * 1000, elapsed: 0, points: 0, round: stage
+        });
     };
-});
+    const calculatePoints = (game) => Math.round(MAX_ROUND_POINTS * (game.time - game.elapsed) / game.time);
+    const calculateTimeBonus = (game) => (MAX_BONUS_TIME / 2) + (MAX_BONUS_TIME / (2 ** (game.round - 1)));
+    const nextRound = (game) => {
+        const blobs = generateRandomBlobs();
+        return ({
+            blobs: blobs, captured: [...game.captured, game.wanted], wanted: randomItem(blobs), time: game.time - game.elapsed + calculateTimeBonus(game), elapsed: 0, points: game.points + calculatePoints(game), round: game.round + 1
+        });
+    };
+    const getStatus = (game) => {
+        if (game.round === 0)
+            return "start";
+        if (game.elapsed >= game.time)
+            return "loose";
+        return "run";
+    };
+    return { BOARD_SIZE, MAX_ROUND_POINTS, MAX_BONUS_TIME, generateRandomBlobs, initialRound, calculatePoints, calculateTimeBonus, nextRound, getStatus };
+})();

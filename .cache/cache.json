@@ -7,18 +7,27 @@
     "dependencies": {
      "imports": {
       "lib/main.tsx": {
-       "specifiers": [],
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
        "type": "import",
        "format": 8
       },
       "assets/icon.svg": {
-       "specifiers": [],
-       "type": "fetch",
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
        "format": 64
       },
       "styles/index.css": {
-       "specifiers": [],
-       "type": "fetch",
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
        "format": 4
       }
      },
@@ -36,15 +45,6 @@
      "exports": {}
     },
     "format": 4
-   },
-   "fetch": {
-    "filePath": "styles/index.css",
-    "output": "dist/style.css",
-    "dependencies": {
-     "imports": {},
-     "exports": {}
-    },
-    "format": 4
    }
   },
   "lib/main.tsx": {
@@ -54,22 +54,31 @@
     "dependencies": {
      "imports": {
       "https://esm.sh/react@17.0.1": {
-       "specifiers": [
-        "default"
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "React"
        ],
        "type": "import",
        "format": 8
       },
       "https://esm.sh/react-dom@17.0.1?external=react": {
-       "specifiers": [
-        "default"
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "ReactDOM"
        ],
        "type": "import",
        "format": 8
       },
       "lib/App.tsx": {
-       "specifiers": [
-        "default"
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "App"
        ],
        "type": "import",
        "format": 8
@@ -81,7 +90,7 @@
    }
   },
   "assets/icon.svg": {
-   "fetch": {
+   "import": {
     "filePath": "assets/icon.svg",
     "output": "dist/deps/d0786480a462432e607e4b0d62628ffd7f59c9283ba7822c2e6f9c1ee42cd93c.svg",
     "dependencies": {
@@ -98,11 +107,15 @@
     "dependencies": {
      "imports": {},
      "exports": {
-      "https://cdn.esm.sh/v24/react@17.0.1/deno/react.js": {
-       "specifiers": [
-        "*",
-        "default"
+      "https://cdn.esm.sh/v41/react@17.0.1/deno/react.js": {
+       "specifiers": {
+        "default": "default"
+       },
+       "namespaces": [
+        null
        ],
+       "types": {},
+       "defaults": [],
        "type": "export",
        "format": 8
       }
@@ -118,11 +131,15 @@
     "dependencies": {
      "imports": {},
      "exports": {
-      "https://cdn.esm.sh/v24/react-dom@17.0.1/external=react@17.0.1/deno/react-dom.js": {
-       "specifiers": [
-        "*",
-        "default"
+      "https://cdn.esm.sh/v41/react-dom@17.0.1/deno/react-dom.js": {
+       "specifiers": {
+        "default": "default"
+       },
+       "namespaces": [
+        null
        ],
+       "types": {},
+       "defaults": [],
        "type": "export",
        "format": 8
       }
@@ -138,51 +155,66 @@
     "dependencies": {
      "imports": {
       "https://esm.sh/react@17.0.1": {
-       "specifiers": [
-        "default",
-        "useState",
-        "useEffect"
-       ],
+       "specifiers": {
+        "useState": "useState",
+        "useEffect": "useEffect"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "import",
        "format": 8
       },
       "lib/components/SvgBlob.tsx": {
-       "specifiers": [
-        "default"
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "SvgBlob"
        ],
        "type": "import",
        "format": 8
       },
       "lib/blob.ts": {
-       "specifiers": [
-        "Blob",
-        "randomBlob"
-       ],
+       "specifiers": {
+        "Blob": "Blob",
+        "randomBlob": "randomBlob"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "import",
        "format": 8
       },
       "lib/components/WantedPoster.tsx": {
-       "specifiers": [
-        "default"
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "WantedPoster"
        ],
        "type": "import",
        "format": 8
       },
       "lib/game.ts": {
-       "specifiers": [
-        "getStatus",
-        "initialRound",
-        "nextRound"
-       ],
+       "specifiers": {
+        "getStatus": "getStatus",
+        "initialRound": "initialRound",
+        "nextRound": "nextRound"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "import",
        "format": 8
       }
      },
      "exports": {
       "lib/App.tsx": {
-       "specifiers": [
-        "default"
-       ],
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
        "type": "export",
        "format": 8
       }
@@ -191,45 +223,59 @@
     "format": 8
    }
   },
-  "https://cdn.esm.sh/v24/react@17.0.1/deno/react.js": {
+  "https://cdn.esm.sh/v41/react@17.0.1/deno/react.js": {
    "export": {
-    "filePath": "https://cdn.esm.sh/v24/react@17.0.1/deno/react.js",
-    "output": "dist/deps/9beb4743a7ebfea05c03e23b3f2a4ace96ad6665c3e7acbae31286cd56e320c4.js",
+    "filePath": "https://cdn.esm.sh/v41/react@17.0.1/deno/react.js",
+    "output": "dist/deps/3a9cb4194b83b72c31384d720acaf88cbb54e4bf0aa15b7f48435c72e38f397b.js",
     "dependencies": {
-     "imports": {},
-     "exports": {
-      "https://cdn.esm.sh/v24/react@17.0.1/deno/react.js": {
-       "specifiers": [
-        "Children",
-        "Component",
-        "Fragment",
-        "Profiler",
-        "PureComponent",
-        "StrictMode",
-        "Suspense",
-        "___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
-        "cloneElement",
-        "createContext",
-        "createElement",
-        "createFactory",
-        "createRef",
-        "default",
-        "forwardRef",
-        "isValidElement",
-        "lazy",
-        "memo",
-        "useCallback",
-        "useContext",
-        "useDebugValue",
-        "useEffect",
-        "useImperativeHandle",
-        "useLayoutEffect",
-        "useMemo",
-        "useReducer",
-        "useRef",
-        "useState",
-        "version"
+     "imports": {
+      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "__object_assign$"
        ],
+       "type": "import",
+       "format": 8
+      }
+     },
+     "exports": {
+      "https://cdn.esm.sh/v41/react@17.0.1/deno/react.js": {
+       "specifiers": {
+        "Children": "pe",
+        "Component": "Ce",
+        "Fragment": "je",
+        "Profiler": "Oe",
+        "PureComponent": "ve",
+        "StrictMode": "Se",
+        "Suspense": "de",
+        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED": "Pe",
+        "cloneElement": "Ae",
+        "createContext": "_e",
+        "createElement": "xe",
+        "createFactory": "Fe",
+        "createRef": "fe",
+        "default": "export_default",
+        "forwardRef": "me",
+        "isValidElement": "Le",
+        "lazy": "qe",
+        "memo": "Ie",
+        "useCallback": "De",
+        "useContext": "Re",
+        "useDebugValue": "ke",
+        "useEffect": "we",
+        "useImperativeHandle": "$e",
+        "useLayoutEffect": "he",
+        "useMemo": "Ee",
+        "useReducer": "ye",
+        "useRef": "ge",
+        "useState": "ae",
+        "version": "le"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "export",
        "format": 8
       }
@@ -238,43 +284,57 @@
     "format": 8
    },
    "import": {
-    "filePath": "https://cdn.esm.sh/v24/react@17.0.1/deno/react.js",
-    "output": "dist/deps/9beb4743a7ebfea05c03e23b3f2a4ace96ad6665c3e7acbae31286cd56e320c4.js",
+    "filePath": "https://cdn.esm.sh/v41/react@17.0.1/deno/react.js",
+    "output": "dist/deps/3a9cb4194b83b72c31384d720acaf88cbb54e4bf0aa15b7f48435c72e38f397b.js",
     "dependencies": {
-     "imports": {},
-     "exports": {
-      "https://cdn.esm.sh/v24/react@17.0.1/deno/react.js": {
-       "specifiers": [
-        "Children",
-        "Component",
-        "Fragment",
-        "Profiler",
-        "PureComponent",
-        "StrictMode",
-        "Suspense",
-        "___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
-        "cloneElement",
-        "createContext",
-        "createElement",
-        "createFactory",
-        "createRef",
-        "default",
-        "forwardRef",
-        "isValidElement",
-        "lazy",
-        "memo",
-        "useCallback",
-        "useContext",
-        "useDebugValue",
-        "useEffect",
-        "useImperativeHandle",
-        "useLayoutEffect",
-        "useMemo",
-        "useReducer",
-        "useRef",
-        "useState",
-        "version"
+     "imports": {
+      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "__object_assign$"
        ],
+       "type": "import",
+       "format": 8
+      }
+     },
+     "exports": {
+      "https://cdn.esm.sh/v41/react@17.0.1/deno/react.js": {
+       "specifiers": {
+        "Children": "pe",
+        "Component": "Ce",
+        "Fragment": "je",
+        "Profiler": "Oe",
+        "PureComponent": "ve",
+        "StrictMode": "Se",
+        "Suspense": "de",
+        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED": "Pe",
+        "cloneElement": "Ae",
+        "createContext": "_e",
+        "createElement": "xe",
+        "createFactory": "Fe",
+        "createRef": "fe",
+        "default": "export_default",
+        "forwardRef": "me",
+        "isValidElement": "Le",
+        "lazy": "qe",
+        "memo": "Ie",
+        "useCallback": "De",
+        "useContext": "Re",
+        "useDebugValue": "ke",
+        "useEffect": "we",
+        "useImperativeHandle": "$e",
+        "useLayoutEffect": "he",
+        "useMemo": "Ee",
+        "useReducer": "ye",
+        "useRef": "ge",
+        "useState": "ae",
+        "version": "le"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "export",
        "format": 8
       }
@@ -283,36 +343,62 @@
     "format": 8
    }
   },
-  "https://cdn.esm.sh/v24/react-dom@17.0.1/external=react@17.0.1/deno/react-dom.js": {
+  "https://cdn.esm.sh/v41/react-dom@17.0.1/deno/react-dom.js": {
    "export": {
-    "filePath": "https://cdn.esm.sh/v24/react-dom@17.0.1/external=react@17.0.1/deno/react-dom.js",
-    "output": "dist/deps/c3eb15bb2271afd1f81895f7967e2e15e1fb04cba7f1dfbea5f2058096cd6e9b.js",
+    "filePath": "https://cdn.esm.sh/v41/react-dom@17.0.1/deno/react-dom.js",
+    "output": "dist/deps/f3a92acbc8618f3f82263ff8197ca46efa1b113a71305089867cc22d6ee0e303.js",
     "dependencies": {
      "imports": {
-      "https://cdn.esm.sh/v24/react@17.0.1/deno/react.js": {
-       "specifiers": [
-        "default"
+      "https://cdn.esm.sh/v41/react@17.0.1/deno/react.js": {
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "__react$"
+       ],
+       "type": "import",
+       "format": 8
+      },
+      "https://cdn.esm.sh/v41/scheduler@0.20.2/deno/scheduler.js": {
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "__scheduler$"
+       ],
+       "type": "import",
+       "format": 8
+      },
+      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "__object_assign$"
        ],
        "type": "import",
        "format": 8
       }
      },
      "exports": {
-      "https://cdn.esm.sh/v24/react-dom@17.0.1/external=react@17.0.1/deno/react-dom.js": {
-       "specifiers": [
-        "___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
-        "createPortal",
-        "default",
-        "findDOMNode",
-        "flushSync",
-        "hydrate",
-        "render",
-        "unmountComponentAtNode",
-        "unstable_batchedUpdates",
-        "unstable_createPortal",
-        "unstable_renderSubtreeIntoContainer",
-        "version"
-       ],
+      "https://cdn.esm.sh/v41/react-dom@17.0.1/deno/react-dom.js": {
+       "specifiers": {
+        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED": "Ff",
+        "createPortal": "jf",
+        "default": "export_default",
+        "findDOMNode": "Mf",
+        "flushSync": "Uf",
+        "hydrate": "Vf",
+        "render": "Rf",
+        "unmountComponentAtNode": "Df",
+        "unstable_batchedUpdates": "Bf",
+        "unstable_createPortal": "Wf",
+        "unstable_renderSubtreeIntoContainer": "If",
+        "version": "Hf"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "export",
        "format": 8
       }
@@ -328,44 +414,58 @@
     "dependencies": {
      "imports": {
       "https://esm.sh/react@17.0.1": {
-       "specifiers": [
-        "default",
-        "useState",
-        "useEffect"
-       ],
+       "specifiers": {
+        "useState": "useState",
+        "useEffect": "useEffect"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "import",
        "format": 8
       },
       "lib/blob.ts": {
-       "specifiers": [
-        "Blob",
-        "Eye",
-        "Palette"
-       ],
+       "specifiers": {
+        "Blob": "Blob",
+        "Eye": "Eye",
+        "Palette": "Palette"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "import",
        "format": 8
       },
       "lib/random.ts": {
-       "specifiers": [
-        "random",
-        "randomItem"
-       ],
+       "specifiers": {
+        "random": "random",
+        "randomItem": "randomItem"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "import",
        "format": 8
       },
       "lib/spline.ts": {
-       "specifiers": [
-        "spline"
-       ],
+       "specifiers": {
+        "spline": "spline"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "import",
        "format": 8
       }
      },
      "exports": {
       "lib/components/SvgBlob.tsx": {
-       "specifiers": [
-        "default"
-       ],
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {
+        "SvgBlobProps": "SvgBlobProps"
+       },
        "type": "export",
        "format": 8
       }
@@ -381,21 +481,31 @@
     "dependencies": {
      "imports": {
       "lib/random.ts": {
-       "specifiers": [
-        "random"
-       ],
+       "specifiers": {
+        "random": "random"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "import",
        "format": 8
       }
      },
      "exports": {
       "lib/blob.ts": {
-       "specifiers": [
-        "randomPalette",
-        "randomBody",
-        "randomEyes",
-        "randomBlob"
-       ],
+       "specifiers": {
+        "randomPalette": "randomPalette",
+        "randomBody": "randomBody",
+        "randomEyes": "randomEyes",
+        "randomBlob": "randomBlob"
+       },
+       "defaults": [],
+       "namespaces": [],
+       "types": {
+        "Palette": "Palette",
+        "Eye": "Eye",
+        "Blob": "Blob"
+       },
        "type": "export",
        "format": 8
       }
@@ -411,8 +521,11 @@
     "dependencies": {
      "imports": {
       "https://esm.sh/react@17.0.1": {
-       "specifiers": [
-        "default"
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "React"
        ],
        "type": "import",
        "format": 8
@@ -420,9 +533,10 @@
      },
      "exports": {
       "lib/components/WantedPoster.tsx": {
-       "specifiers": [
-        "default"
-       ],
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
        "type": "export",
        "format": 8
       }
@@ -438,34 +552,109 @@
     "dependencies": {
      "imports": {
       "lib/blob.ts": {
-       "specifiers": [
-        "Blob",
-        "randomBlob"
-       ],
+       "specifiers": {
+        "Blob": "Blob",
+        "randomBlob": "randomBlob"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "import",
        "format": 8
       },
       "lib/random.ts": {
-       "specifiers": [
-        "randomItem"
-       ],
+       "specifiers": {
+        "randomItem": "randomItem"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "import",
        "format": 8
       }
      },
      "exports": {
       "lib/game.ts": {
-       "specifiers": [
-        "BOARD_SIZE",
-        "MAX_ROUND_POINTS",
-        "MAX_BONUS_TIME",
-        "generateRandomBlobs",
-        "initialRound",
-        "calculatePoints",
-        "calculateTimeBonus",
-        "nextRound",
-        "getStatus"
-       ],
+       "specifiers": {
+        "BOARD_SIZE": "BOARD_SIZE",
+        "MAX_ROUND_POINTS": "MAX_ROUND_POINTS",
+        "MAX_BONUS_TIME": "MAX_BONUS_TIME",
+        "generateRandomBlobs": "generateRandomBlobs",
+        "initialRound": "initialRound",
+        "calculatePoints": "calculatePoints",
+        "calculateTimeBonus": "calculateTimeBonus",
+        "nextRound": "nextRound",
+        "getStatus": "getStatus"
+       },
+       "defaults": [],
+       "namespaces": [],
+       "types": {
+        "Game": "Game",
+        "GameStatus": "GameStatus"
+       },
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
+   "import": {
+    "filePath": "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js",
+    "output": "dist/deps/ce295ff61e202ec2a1a518034ded2573fd84d9b58fed12140e32f58c2cf54673.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
+       "specifiers": {
+        "default": "export_default"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://cdn.esm.sh/v41/scheduler@0.20.2/deno/scheduler.js": {
+   "import": {
+    "filePath": "https://cdn.esm.sh/v41/scheduler@0.20.2/deno/scheduler.js",
+    "output": "dist/deps/45831c1c711da872070b02bd8f1187b43c951e2072ccce342930fb0526f6367b.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/scheduler@0.20.2/deno/scheduler.js": {
+       "specifiers": {
+        "default": "export_default",
+        "unstable_IdlePriority": "ve",
+        "unstable_ImmediatePriority": "he",
+        "unstable_LowPriority": "xe",
+        "unstable_NormalPriority": "Te",
+        "unstable_Profiling": "de",
+        "unstable_UserBlockingPriority": "Ie",
+        "unstable_cancelCallback": "_e",
+        "unstable_continueExecution": "we",
+        "unstable_forceFrameRate": "pe",
+        "unstable_getCurrentPriorityLevel": "ke",
+        "unstable_getFirstCallbackNode": "ye",
+        "unstable_next": "Me",
+        "unstable_now": "be",
+        "unstable_pauseExecution": "je",
+        "unstable_requestPaint": "me",
+        "unstable_runWithPriority": "Ce",
+        "unstable_scheduleCallback": "fe",
+        "unstable_shouldYield": "Pe",
+        "unstable_wrapCallback": "ge"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "export",
        "format": 8
       }
@@ -482,11 +671,13 @@
      "imports": {},
      "exports": {
       "lib/random.ts": {
-       "specifiers": [
-        "random",
-        "randomItem",
-        "default"
-       ],
+       "specifiers": {
+        "random": "random",
+        "randomItem": "randomItem"
+       },
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
        "type": "export",
        "format": 8
       }
@@ -503,9 +694,12 @@
      "imports": {},
      "exports": {
       "lib/spline.ts": {
-       "specifiers": [
-        "spline"
-       ],
+       "specifiers": {
+        "spline": "spline"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
        "type": "export",
        "format": 8
       }

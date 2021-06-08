@@ -1,24 +1,5 @@
-System.register("https://esm.sh/react-dom@17.0.1?external=react", ["https://cdn.esm.sh/v24/react-dom@17.0.1/external=react@17.0.1/deno/react-dom.js"], function (exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var exportedNames_1 = {};
-    function exportStar_1(m) {
-        var exports = {};
-        for (var n in m) {
-            if (n !== "default" && !exportedNames_1.hasOwnProperty(n)) exports[n] = m[n];
-        }
-        exports_1(exports);
-    }
-    return {
-        setters: [
-            function (react_dom_js_1_1) {
-                exportStar_1(react_dom_js_1_1);
-                exports_1({
-                    "default": react_dom_js_1_1["default"]
-                });
-            }
-        ],
-        execute: function () {
-        }
-    };
-});
+/* https://esm.sh/react-dom@17.0.1?external=react */
+const mod5 = (async () => {
+    const { default: _default } = await mod4;
+    return { default: _default, ...await mod4 };
+})();

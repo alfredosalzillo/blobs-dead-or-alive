@@ -1,49 +1,33 @@
-System.register("lib/components/SvgBlob.tsx", ["https://esm.sh/react@17.0.1", "lib/blob.ts", "lib/random.ts", "lib/spline.ts"], function (exports_1, context_1) {
-    "use strict";
-    var react_1, blob_ts_1, random_ts_1, spline_ts_1, SvgBlobEye, animations, SvgBlob;
-    var __moduleName = context_1 && context_1.id;
-    return {
-        setters: [
-            function (react_1_1) {
-                react_1 = react_1_1;
-            },
-            function (blob_ts_1_1) {
-                blob_ts_1 = blob_ts_1_1;
-            },
-            function (random_ts_1_1) {
-                random_ts_1 = random_ts_1_1;
-            },
-            function (spline_ts_1_1) {
-                spline_ts_1 = spline_ts_1_1;
-            }
-        ],
-        execute: function () {
-            SvgBlobEye = (props) => {
-                const { x, y, size, colors } = props;
-                return (react_1.default.createElement("g", { transform: `matrix(1,0,0,1,${x},${y})`, className: "blob-eye" },
-                    react_1.default.createElement("circle", { r: size, cx: "0", cy: "0", "stroke-width": "2", stroke: colors.dark, fill: colors.light, className: "blob-eye-iris" }),
-                    react_1.default.createElement("circle", { r: size / 2, cx: "0", cy: "0", fill: colors.dark, className: "blob-eye-pupil", style: {
-                            '--radius': `${size / 2}px`,
-                        } })));
-            };
-            animations = ['eye-roll', 'eye-roll-reverse', 'eye-converge', 'eye-converge-reverse'];
-            SvgBlob = ({ width, height, body, eyes, colors, animated, }) => {
-                const [animation, setAnimation] = react_1.useState('');
-                react_1.useEffect(() => {
-                    if (!animated)
-                        return;
-                    if (!animation) {
-                        const timeout = setTimeout(() => setAnimation(random_ts_1.randomItem(animations)), random_ts_1.random(0, 20000));
-                        return () => clearTimeout(timeout);
-                    }
-                }, [animation, setAnimation]);
-                return (react_1.default.createElement("svg", { viewBox: `0 0 ${width} ${height}`, className: `blob ${animated && animation}`, onClick: () => setAnimation('eye-flock'), onAnimationEnd: () => setAnimation('') },
-                    react_1.default.createElement("path", { d: spline_ts_1.spline(body, 1, true), "stroke-width": 2, stroke: colors.dark, fill: colors.primary }),
-                    react_1.default.createElement("g", null,
-                        "$",
-                        eyes.map((eye) => react_1.default.createElement(SvgBlobEye, Object.assign({}, eye, { colors: colors }))))));
-            };
-            exports_1("default", SvgBlob);
-        }
+/* lib/components/SvgBlob.tsx */
+const mod9 = (async () => {
+    const { useState, useEffect } = await mod2;
+    const { Blob, Eye, Palette } = await mod7;
+    const { random, randomItem } = await mod6;
+    const { spline } = await mod8;
+    const SvgBlobEye = (props) => {
+        const { x, y, size, colors } = props;
+        return (React.createElement("g", { transform: `matrix(1,0,0,1,${x},${y})`, className: "blob-eye" },
+            React.createElement("circle", { r: size, cx: "0", cy: "0", "stroke-width": "2", stroke: colors.dark, fill: colors.light, className: "blob-eye-iris" }),
+            React.createElement("circle", { r: size / 2, cx: "0", cy: "0", fill: colors.dark, className: "blob-eye-pupil", style: {
+                    "--radius": `${size / 2}px`
+                } })));
     };
-});
+    const animations = ["eye-roll", "eye-roll-reverse", "eye-converge", "eye-converge-reverse"];
+    const SvgBlob = ({ width, height, body, eyes, colors, animated, }) => {
+        const [animation, setAnimation] = useState("");
+        useEffect(() => {
+            if (!animated)
+                return;
+            if (!animation) {
+                const timeout = setTimeout(() => setAnimation(randomItem(animations)), random(0, 20000));
+                return () => clearTimeout(timeout);
+            }
+        }, [animation, setAnimation]);
+        return (React.createElement("svg", { viewBox: `0 0 ${width} ${height}`, className: `blob ${animated && animation}`, onClick: () => setAnimation("eye-flock"), onAnimationEnd: () => setAnimation("") },
+            React.createElement("path", { d: spline(body, 1, true), "stroke-width": 2, stroke: colors.dark, fill: colors.primary }),
+            React.createElement("g", null,
+                "$",
+                eyes.map((eye) => React.createElement(SvgBlobEye, Object.assign({}, eye, { colors: colors }))))));
+    };
+    return {};
+})();
