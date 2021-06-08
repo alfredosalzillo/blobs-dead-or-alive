@@ -22,6 +22,14 @@
        "type": "import",
        "format": 64
       },
+      "manifest.json": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 48
+      },
       "styles/index.css": {
        "specifiers": {},
        "defaults": [],
@@ -98,6 +106,122 @@
      "exports": {}
     },
     "format": 64
+   }
+  },
+  "manifest.json": {
+   "import": {
+    "filePath": "manifest.json",
+    "output": "dist/deps/ffa5b716b5a57837f7929dfcca4b4dfdeb97210a7fd5a12d2f1978846d6f1743.json",
+    "dependencies": {
+     "imports": {
+      "assets/android-icon-192x192-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "apple-icon-180x180-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "apple-icon-152x152-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "apple-icon-144x144-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "apple-icon-120x120-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "apple-icon-114x114-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "favicon-96x96-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "apple-icon-76x76-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "apple-icon-72x72-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "apple-icon-60x60-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "apple-icon-57x57-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "favicon-32x32-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      },
+      "favicon-16x16-dunplab-manifest-51508.png": {
+       "specifiers": {},
+       "defaults": [],
+       "namespaces": [],
+       "types": {},
+       "type": "import",
+       "format": 64
+      }
+     },
+     "exports": {}
+    },
+    "format": 48
    }
   },
   "https://esm.sh/react@17.0.1": {
@@ -221,6 +345,149 @@
      }
     },
     "format": 8
+   }
+  },
+  "assets/android-icon-192x192-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "assets/android-icon-192x192-dunplab-manifest-51508.png",
+    "output": "dist/deps/0753bd2963358855d8de4ed02c110f7421edd90dc187a750a8c05b942d21ca78.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "apple-icon-180x180-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "apple-icon-180x180-dunplab-manifest-51508.png",
+    "output": "dist/deps/91cf0931eded23a16b3998935fa24df4f3d61efcc3f3d69a768fe23a566baab3.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "apple-icon-152x152-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "apple-icon-152x152-dunplab-manifest-51508.png",
+    "output": "dist/deps/319012ac1c11c29dbf3509d988faf8a358abd5442c0719342b06ba81919b06bb.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "apple-icon-144x144-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "apple-icon-144x144-dunplab-manifest-51508.png",
+    "output": "dist/deps/c455ae0cb88ced97f8bb846cbdb391e026720bd38e61b0a3efd5595d42cc8fce.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "apple-icon-120x120-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "apple-icon-120x120-dunplab-manifest-51508.png",
+    "output": "dist/deps/b39302aed10175a19b7e983ac453e657378dca20ea58c53159701ce416f1977f.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "apple-icon-114x114-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "apple-icon-114x114-dunplab-manifest-51508.png",
+    "output": "dist/deps/f824038f2f2139072828923a49459a370ebac0dedd6622de15d886abba956088.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "favicon-96x96-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "favicon-96x96-dunplab-manifest-51508.png",
+    "output": "dist/deps/748e2cdb6e09d71c6dde3fa6d2fbf5fb19b1dfdfb3e202468785c83bf84c6d6e.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "apple-icon-76x76-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "apple-icon-76x76-dunplab-manifest-51508.png",
+    "output": "dist/deps/45d53f0bf899376df541f43f60cd2cfd320326f070405eeec28c1ff860d049fd.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "apple-icon-72x72-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "apple-icon-72x72-dunplab-manifest-51508.png",
+    "output": "dist/deps/5496bfb90427c75749b9f6e692b13383f3daea464042d1e7dc1140135aa6c9ca.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "apple-icon-60x60-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "apple-icon-60x60-dunplab-manifest-51508.png",
+    "output": "dist/deps/3bdb2bdbdf6e49e1efc26829080e0d47847943ec656cc5b72f9e95432dc787fb.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "apple-icon-57x57-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "apple-icon-57x57-dunplab-manifest-51508.png",
+    "output": "dist/deps/8bce679aaf5e72bcc1211d3555dbab7bda841f073b5364724a2e375af9bcebeb.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "favicon-32x32-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "favicon-32x32-dunplab-manifest-51508.png",
+    "output": "dist/deps/0bc129588654ea9f5a7e077aa6343c274f4d20d4b20847326d7a66daa7c12d98.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
+   }
+  },
+  "favicon-16x16-dunplab-manifest-51508.png": {
+   "import": {
+    "filePath": "favicon-16x16-dunplab-manifest-51508.png",
+    "output": "dist/deps/9b1087fe1a9dd302b1e7832dba126444f244a79deac2853316b8bffc922cf76e.png",
+    "dependencies": {
+     "imports": {},
+     "exports": {}
+    },
+    "format": 64
    }
   },
   "https://cdn.esm.sh/v41/react@17.0.1/deno/react.js": {
