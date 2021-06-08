@@ -4607,10 +4607,11 @@ const mod6 = (async () => {
         }
         return Math.floor(val);
     };
-    const randomItem = React.createElement(T, null,
-        "(list: T[]) => list[random(0, list.length)]; return ", (random, randomItem),
-        "; })();");
-});
+    function randomItem(list) {
+        return list[random(0, list.length)];
+    }
+    return { random, randomItem };
+})();
 
 /* lib/blob.ts */
 const mod7 = (async () => {
