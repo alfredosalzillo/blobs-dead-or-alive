@@ -38,6 +38,7 @@ jobs:
           rm -rf dist
           bundler bundle --config tsconfig.json --import-map import_map.json index.html=index.html styles/index.css=style.css manifest.json=manifest.json
           deno run  --allow-read --allow-write scripts/fix-build.ts
+          cp -r ./icons ./dist/icons
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
