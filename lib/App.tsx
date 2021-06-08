@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import SvgBlob from './components/SvgBlob.tsx';
 import { Blob, randomBlob } from './blob.ts';
 import WantedPoster from './components/WantedPoster.tsx';
@@ -67,7 +67,8 @@ const LoseDialog = ({ onRetryClick, points, captured = [] }: LoseDialogProps) =>
 )
 
 const initialGame = initialRound(0)
-const App = () => {
+
+export default function App() {
   const [game, setGame] = useState(initialGame)
   const { blobs, captured, wanted, points, time, elapsed } = game;
   const status = getStatus(game)
@@ -106,9 +107,9 @@ const App = () => {
           <div className="controls">
             <div>
               <progress id="time-progress"
-                value={(time - elapsed) / time}
-                max={1}
-                data-animated={elapsed > 0}
+                        value={(time - elapsed) / time}
+                        max={1}
+                        data-animated={elapsed > 0}
               >
                 {elapsed}ms
               </progress>
@@ -127,7 +128,7 @@ const App = () => {
         <div className="board">
           {blobs.map((blob) => (
             <div className="box" onClick={() => onBlobClick(blob)}>
-              <SvgBlob key={blob.id} {...blob} animated />
+              <SvgBlob key={blob.id} {...blob} animated/>
             </div>
           ))}
         </div>
@@ -147,5 +148,3 @@ const App = () => {
     </>
   )
 }
-
-export default App

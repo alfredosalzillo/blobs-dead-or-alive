@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Blob, Eye, Palette } from '../blob.ts';
 import { random, randomItem } from '../random.ts';
 import { spline } from '../spline.ts';
 
-const SvgBlobEye = (props: Eye & { colors: Palette }) => {
+const SvgBlobEye: React.FC = (props: Eye & { colors: Palette }) => {
   const { x, y, size, colors } = props
   return (
     <g
@@ -36,14 +36,16 @@ const animations = ['eye-roll', 'eye-roll-reverse', 'eye-converge', 'eye-converg
 export type SvgBlobProps = Blob & {
   animated?: boolean,
 }
-const SvgBlob = ({
-   width,
-   height,
-   body,
-   eyes,
-   colors,
-   animated,
- }: SvgBlobProps) => {
+
+export default function SvgBlob(props: SvgBlobProps) {
+  let {
+    width,
+    height,
+    body,
+    eyes,
+    colors,
+    animated,
+  } = props;
   const [animation, setAnimation] = useState('');
   useEffect(() => {
     if (!animated) return;
@@ -72,4 +74,3 @@ const SvgBlob = ({
   )
 }
 
-export default SvgBlob
