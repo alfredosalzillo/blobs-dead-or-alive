@@ -72,7 +72,7 @@ const App = () => {
   const { blobs, captured, wanted, points, time, elapsed } = game;
   const status = getStatus(game)
   useEffect(() => {
-    let request = null;
+    let request: number = 0;
     let last = 0;
     const updateElapsed = () => {
       request = window.requestAnimationFrame((time) => {
@@ -112,7 +112,7 @@ const App = () => {
               >
                 {elapsed}ms
               </progress>
-              <label for="time-progress" className="time-progress-label">
+              <label htmlFor="time-progress" className="time-progress-label">
                 {Math.round(time - elapsed)}ms
               </label>
             </div>
