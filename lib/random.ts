@@ -9,9 +9,10 @@ export const random = (min: number, max: number, float = false) => {
   return Math.floor(val);
 };
 
+
 /**
  * Generate a random element of `list`.
  */
-export const randomItem = <T, >(list: T[]) => list[random(0, list.length)]
-
-export default random;
+export function randomItem<T, >(list: T[]) {
+  return list[random(0, list.length)];
+}
