@@ -1,9 +1,9 @@
 /* lib/components/SvgBlob.tsx */
-const mod11 = (async () => {
-    const { useState, useEffect } = await mod2;
-    const { Blob, Eye, Palette } = await mod9;
-    const { random, randomItem } = await mod8;
-    const { spline } = await mod10;
+const mod9 = (async () => {
+    const { useEffect, useState } = await mod2;
+    const { Blob, Eye, Palette } = await mod7;
+    const { random, randomItem } = await mod6;
+    const { spline } = await mod8;
     const SvgBlobEye = (props) => {
         const { x, y, size, colors } = props;
         return (React.createElement("g", { transform: `matrix(1,0,0,1,${x},${y})`, className: "blob-eye" },
@@ -13,7 +13,8 @@ const mod11 = (async () => {
                 } })));
     };
     const animations = ["eye-roll", "eye-roll-reverse", "eye-converge", "eye-converge-reverse"];
-    const SvgBlob = ({ width, height, body, eyes, colors, animated, }) => {
+    function SvgBlob(props) {
+        let { width, height, body, eyes, colors, animated, } = props;
         const [animation, setAnimation] = useState("");
         useEffect(() => {
             if (!animated)
@@ -28,6 +29,6 @@ const mod11 = (async () => {
             React.createElement("g", null,
                 "$",
                 eyes.map((eye) => React.createElement(SvgBlobEye, Object.assign({}, eye, { colors: colors }))))));
-    };
-    return {};
+    }
+    return { default: SvgBlob };
 })();

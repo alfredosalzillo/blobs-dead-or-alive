@@ -1,5 +1,5 @@
 /* https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js */
-const mod3 = (async () => {
+const mod = (async () => {
     var b = Object.create, s = Object.defineProperty, p = Object.getPrototypeOf, O = Object.prototype.hasOwnProperty, j = Object.getOwnPropertyNames, g = Object.getOwnPropertyDescriptor;
     var m = r => s(r, "__esModule", { value: !0 });
     var v = (r, e) => () => (e || r((e = { exports: {} }).exports, e), e.exports);

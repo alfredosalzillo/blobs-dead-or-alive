@@ -72,7 +72,7 @@
     "output": "dist/deps/361601676ada8a49c5ed238e37aff527b2940724f549c37156297f92a3857982.js",
     "dependencies": {
      "imports": {
-      "https://esm.sh/react@17.0.2?dev": {
+      "https://esm.sh/react@17.0.2": {
        "specifiers": {},
        "namespaces": [],
        "types": {},
@@ -119,14 +119,14 @@
     "format": 64
    }
   },
-  "https://esm.sh/react@17.0.2?dev": {
+  "https://esm.sh/react@17.0.2": {
    "import": {
-    "filePath": "https://esm.sh/react@17.0.2?dev",
-    "output": "dist/deps/caf671f6f86f0b6437518ef4dc7ac59f4e69a37630dfbec7c335db5a9f054e87.js",
+    "filePath": "https://esm.sh/react@17.0.2",
+    "output": "dist/deps/c5fac5fe33c4297e45e03344479b5580cadeb230e4f2bd16c677123ac46a3e55.js",
     "dependencies": {
      "imports": {},
      "exports": {
-      "https://cdn.esm.sh/v41/react@17.0.2/deno/react.development.js": {
+      "https://cdn.esm.sh/v41/react@17.0.2/deno/react.js": {
        "specifiers": {
         "default": "default"
        },
@@ -173,10 +173,10 @@
     "output": "dist/deps/a46a351dc952f989e889f250cd0809965e2d220be90f6dceabd4243de22613e2.js",
     "dependencies": {
      "imports": {
-      "https://esm.sh/react@17.0.2?dev": {
+      "https://esm.sh/react@17.0.2": {
        "specifiers": {
-        "useState": "useState",
-        "useEffect": "useEffect"
+        "useEffect": "useEffect",
+        "useState": "useState"
        },
        "namespaces": [],
        "types": {},
@@ -231,7 +231,9 @@
      "exports": {
       "lib/App.tsx": {
        "specifiers": {},
-       "defaults": [],
+       "defaults": [
+        "App"
+       ],
        "namespaces": [],
        "types": {},
        "type": "export",
@@ -242,13 +244,13 @@
     "format": 8
    }
   },
-  "https://cdn.esm.sh/v41/react@17.0.2/deno/react.development.js": {
+  "https://cdn.esm.sh/v41/react@17.0.2/deno/react.js": {
    "export": {
-    "filePath": "https://cdn.esm.sh/v41/react@17.0.2/deno/react.development.js",
-    "output": "dist/deps/5351c3e0013d9a47c046ffc7522e8a9755dc9b20785ff48df4fda683bbbcab4b.js",
+    "filePath": "https://cdn.esm.sh/v41/react@17.0.2/deno/react.js",
+    "output": "dist/deps/ee7be4e3965974892edb428c5186057999d52cbbb6e979c9878bf3d0b57b5674.js",
     "dependencies": {
      "imports": {
-      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.development.js": {
+      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
        "specifiers": {},
        "namespaces": [],
        "types": {},
@@ -260,37 +262,96 @@
       }
      },
      "exports": {
-      "https://cdn.esm.sh/v41/react@17.0.2/deno/react.development.js": {
+      "https://cdn.esm.sh/v41/react@17.0.2/deno/react.js": {
        "specifiers": {
-        "Children": "Children",
-        "Component": "Component",
-        "Fragment": "Fragment",
-        "Profiler": "Profiler",
-        "PureComponent": "PureComponent",
-        "StrictMode": "StrictMode",
-        "Suspense": "Suspense",
-        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED": "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
-        "cloneElement": "cloneElement",
-        "createContext": "createContext",
-        "createElement": "createElement",
-        "createFactory": "createFactory",
-        "createRef": "createRef",
+        "Children": "ke",
+        "Component": "xe",
+        "Fragment": "Le",
+        "Profiler": "Re",
+        "PureComponent": "fe",
+        "StrictMode": "Ce",
+        "Suspense": "Pe",
+        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED": "$e",
+        "cloneElement": "Fe",
+        "createContext": "qe",
+        "createElement": "ge",
+        "createFactory": "Ie",
+        "createRef": "De",
         "default": "export_default",
-        "forwardRef": "forwardRef",
-        "isValidElement": "isValidElement",
-        "lazy": "lazy",
-        "memo": "memo",
-        "useCallback": "useCallback",
-        "useContext": "useContext",
-        "useDebugValue": "useDebugValue",
-        "useEffect": "useEffect",
-        "useImperativeHandle": "useImperativeHandle",
-        "useLayoutEffect": "useLayoutEffect",
-        "useMemo": "useMemo",
-        "useReducer": "useReducer",
-        "useRef": "useRef",
-        "useState": "useState",
-        "version": "version"
+        "forwardRef": "he",
+        "isValidElement": "de",
+        "lazy": "le",
+        "memo": "we",
+        "useCallback": "pe",
+        "useContext": "je",
+        "useDebugValue": "ae",
+        "useEffect": "Ae",
+        "useImperativeHandle": "Oe",
+        "useLayoutEffect": "_e",
+        "useMemo": "ve",
+        "useReducer": "Ee",
+        "useRef": "Se",
+        "useState": "ye",
+        "version": "me"
+       },
+       "namespaces": [],
+       "types": {},
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   },
+   "import": {
+    "filePath": "https://cdn.esm.sh/v41/react@17.0.2/deno/react.js",
+    "output": "dist/deps/ee7be4e3965974892edb428c5186057999d52cbbb6e979c9878bf3d0b57b5674.js",
+    "dependencies": {
+     "imports": {
+      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
+       "specifiers": {},
+       "namespaces": [],
+       "types": {},
+       "defaults": [
+        "__object_assign$"
+       ],
+       "type": "import",
+       "format": 8
+      }
+     },
+     "exports": {
+      "https://cdn.esm.sh/v41/react@17.0.2/deno/react.js": {
+       "specifiers": {
+        "Children": "ke",
+        "Component": "xe",
+        "Fragment": "Le",
+        "Profiler": "Re",
+        "PureComponent": "fe",
+        "StrictMode": "Ce",
+        "Suspense": "Pe",
+        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED": "$e",
+        "cloneElement": "Fe",
+        "createContext": "qe",
+        "createElement": "ge",
+        "createFactory": "Ie",
+        "createRef": "De",
+        "default": "export_default",
+        "forwardRef": "he",
+        "isValidElement": "de",
+        "lazy": "le",
+        "memo": "we",
+        "useCallback": "pe",
+        "useContext": "je",
+        "useDebugValue": "ae",
+        "useEffect": "Ae",
+        "useImperativeHandle": "Oe",
+        "useLayoutEffect": "_e",
+        "useMemo": "ve",
+        "useReducer": "Ee",
+        "useRef": "Se",
+        "useState": "ye",
+        "version": "me"
        },
        "namespaces": [],
        "types": {},
@@ -373,10 +434,10 @@
     "output": "dist/deps/ef587ef4dd082d8731596606ed0e4694f5e6a8b5440e19c26c5ccddc748d4b26.js",
     "dependencies": {
      "imports": {
-      "https://esm.sh/react@17.0.2?dev": {
+      "https://esm.sh/react@17.0.2": {
        "specifiers": {
-        "useState": "useState",
-        "useEffect": "useEffect"
+        "useEffect": "useEffect",
+        "useState": "useState"
        },
        "namespaces": [],
        "types": {},
@@ -421,7 +482,9 @@
      "exports": {
       "lib/components/SvgBlob.tsx": {
        "specifiers": {},
-       "defaults": [],
+       "defaults": [
+        "SvgBlob"
+       ],
        "namespaces": [],
        "types": {
         "SvgBlobProps": "SvgBlobProps"
@@ -480,7 +543,7 @@
     "output": "dist/deps/600ec0f19ca9118638c348110cef7d14d55a94edd723accf30999ebefd579dcd.js",
     "dependencies": {
      "imports": {
-      "https://esm.sh/react@17.0.2?dev": {
+      "https://esm.sh/react@17.0.2": {
        "specifiers": {},
        "namespaces": [],
        "types": {},
@@ -494,7 +557,9 @@
      "exports": {
       "lib/components/WantedPoster.tsx": {
        "specifiers": {},
-       "defaults": [],
+       "defaults": [
+        "WantedPoster"
+       ],
        "namespaces": [],
        "types": {},
        "type": "export",
@@ -560,77 +625,16 @@
     "format": 8
    }
   },
-  "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.development.js": {
+  "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
    "import": {
-    "filePath": "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.development.js",
-    "output": "dist/deps/6dddece0bc4fc6e9bb0e93886c0d35629a0ea8eb7a6728ef673f19dbf6699e16.js",
+    "filePath": "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js",
+    "output": "dist/deps/ce295ff61e202ec2a1a518034ded2573fd84d9b58fed12140e32f58c2cf54673.js",
     "dependencies": {
      "imports": {},
      "exports": {
-      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.development.js": {
+      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
        "specifiers": {
         "default": "export_default"
-       },
-       "namespaces": [],
-       "types": {},
-       "defaults": [],
-       "type": "export",
-       "format": 8
-      }
-     }
-    },
-    "format": 8
-   }
-  },
-  "https://cdn.esm.sh/v41/react@17.0.2/deno/react.js": {
-   "import": {
-    "filePath": "https://cdn.esm.sh/v41/react@17.0.2/deno/react.js",
-    "output": "dist/deps/ee7be4e3965974892edb428c5186057999d52cbbb6e979c9878bf3d0b57b5674.js",
-    "dependencies": {
-     "imports": {
-      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
-       "specifiers": {},
-       "namespaces": [],
-       "types": {},
-       "defaults": [
-        "__object_assign$"
-       ],
-       "type": "import",
-       "format": 8
-      }
-     },
-     "exports": {
-      "https://cdn.esm.sh/v41/react@17.0.2/deno/react.js": {
-       "specifiers": {
-        "Children": "ke",
-        "Component": "xe",
-        "Fragment": "Le",
-        "Profiler": "Re",
-        "PureComponent": "fe",
-        "StrictMode": "Ce",
-        "Suspense": "Pe",
-        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED": "$e",
-        "cloneElement": "Fe",
-        "createContext": "qe",
-        "createElement": "ge",
-        "createFactory": "Ie",
-        "createRef": "De",
-        "default": "export_default",
-        "forwardRef": "he",
-        "isValidElement": "de",
-        "lazy": "le",
-        "memo": "we",
-        "useCallback": "pe",
-        "useContext": "je",
-        "useDebugValue": "ae",
-        "useEffect": "Ae",
-        "useImperativeHandle": "Oe",
-        "useLayoutEffect": "_e",
-        "useMemo": "ve",
-        "useReducer": "Ee",
-        "useRef": "Se",
-        "useState": "ye",
-        "version": "me"
        },
        "namespaces": [],
        "types": {},
@@ -672,28 +676,6 @@
         "unstable_scheduleCallback": "fe",
         "unstable_shouldYield": "Pe",
         "unstable_wrapCallback": "ge"
-       },
-       "namespaces": [],
-       "types": {},
-       "defaults": [],
-       "type": "export",
-       "format": 8
-      }
-     }
-    },
-    "format": 8
-   }
-  },
-  "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
-   "import": {
-    "filePath": "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js",
-    "output": "dist/deps/ce295ff61e202ec2a1a518034ded2573fd84d9b58fed12140e32f58c2cf54673.js",
-    "dependencies": {
-     "imports": {},
-     "exports": {
-      "https://cdn.esm.sh/v41/object-assign@4.1.1/deno/object-assign.js": {
-       "specifiers": {
-        "default": "export_default"
        },
        "namespaces": [],
        "types": {},

@@ -1,8 +1,9 @@
 /* lib/main.tsx */
 export default (async () => {
     const React = (await mod2).default;
-    const ReactDOM = (await mod7).default;
-    const App = (await mod14).default;
+    const ReactDOM = (await mod5).default;
+    const App = (await mod12).default;
+    window.React = React;
     ReactDOM.render(React.createElement(App, null), document.getElementById("root"));
     return {};
 })();

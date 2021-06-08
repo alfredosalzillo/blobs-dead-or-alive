@@ -1,8 +1,8 @@
 /* https://cdn.esm.sh/v41/react-dom@17.0.2/deno/react-dom.js */
-const mod6 = (async () => {
-    const __react$ = (await mod4).default;
-    const __scheduler$ = (await mod5).default;
-    const __object_assign$ = (await mod3).default;
+const mod4 = (async () => {
+    const __react$ = (await mod1).default;
+    const __scheduler$ = (await mod3).default;
+    const __object_assign$ = (await mod).default;
     var Cs = Object.create, zr = Object.defineProperty, _s = Object.getPrototypeOf, Ns = Object.prototype.hasOwnProperty, Ps = Object.getOwnPropertyNames, Ts = Object.getOwnPropertyDescriptor;
     var Ls = e => zr(e, "__esModule", { value: !0 });
     var Oi = (e, n) => () => (n || e((n = { exports: {} }).exports, n), n.exports);

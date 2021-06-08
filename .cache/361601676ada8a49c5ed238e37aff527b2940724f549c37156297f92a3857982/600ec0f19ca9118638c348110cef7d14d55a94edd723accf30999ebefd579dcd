@@ -1,10 +1,13 @@
 /* lib/components/WantedPoster.tsx */
-const mod12 = (async () => {
+const mod10 = (async () => {
     const React = (await mod2).default;
-    const WantedPoster = ({ children }) => (React.createElement("div", { className: "wanted" },
-        React.createElement("div", { className: "wanted-title" }, "WANTED"),
-        React.createElement("div", { className: "wanted-subtitle" }, "Dead or Alive"),
-        React.createElement("div", { className: "wanted-picture" }, children),
-        React.createElement("div", { className: "wanted-reward" }, "100 REWARD")));
-    return {};
+    function WantedPoster(props) {
+        const { children } = props;
+        return (React.createElement("div", { className: "wanted" },
+            React.createElement("div", { className: "wanted-title" }, "WANTED"),
+            React.createElement("div", { className: "wanted-subtitle" }, "Dead or Alive"),
+            React.createElement("div", { className: "wanted-picture" }, children),
+            React.createElement("div", { className: "wanted-reward" }, "100 REWARD")));
+    }
+    return { default: WantedPoster };
 })();

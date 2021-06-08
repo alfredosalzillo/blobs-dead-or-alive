@@ -1,10 +1,10 @@
 /* lib/App.tsx */
-const mod14 = (async () => {
-    const { useState, useEffect } = await mod2;
-    const SvgBlob = (await mod11).default;
-    const { Blob, randomBlob } = await mod9;
-    const WantedPoster = (await mod12).default;
-    const { getStatus, initialRound, nextRound } = await mod13;
+const mod12 = (async () => {
+    const { useEffect, useState } = await mod2;
+    const SvgBlob = (await mod9).default;
+    const { Blob, randomBlob } = await mod7;
+    const WantedPoster = (await mod10).default;
+    const { getStatus, initialRound, nextRound } = await mod11;
     const StartDialog = ({ onClickStart }) => (React.createElement("div", { className: "dialog-backdrop" },
         React.createElement("dialog", { className: "dialog", open: true },
             React.createElement("h1", null, "Instructions"),
@@ -30,7 +30,7 @@ const mod14 = (async () => {
                     React.createElement(SvgBlob, Object.assign({ key: blob.id }, blob, { style: { width: "80px", margin: "5px", border: "1px solid black", background: "#adabab" } }))))))),
             React.createElement("button", { className: "action-button", onClick: onRetryClick }, "RETRY"))));
     const initialGame = initialRound(0);
-    const App = () => {
+    function App() {
         const [game, setGame] = useState(initialGame);
         const { blobs, captured, wanted, points, time, elapsed } = game;
         const status = getStatus(game);
@@ -82,6 +82,6 @@ const mod14 = (async () => {
                     React.createElement(SvgBlob, Object.assign({ key: blob.id }, blob, { animated: true })))))),
                 status === "start" && (React.createElement(StartDialog, { onClickStart: () => setGame(initialRound(1)) })),
                 status === "loose" && (React.createElement(LoseDialog, { points: points, captured: captured, onRetryClick: () => setGame(initialRound(1)) })))));
-    };
-    return {};
+    }
+    return { default: App };
 })();
