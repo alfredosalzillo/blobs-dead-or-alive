@@ -31,7 +31,7 @@ jobs:
           deno-version: ${{ matrix.deno }} # tests across multiple Deno versions
 
       - name: Install Bundler
-        run: deno install --unstable --allow-read --allow-write --allow-net --allow-env --name bundler https://deno.land/x/bundler/cli.ts
+        run: deno install --unstable --allow-read --allow-write --allow-net --allow-env --name bundler https://deno.land/x/bundler@0.7.0/cli.ts
 
       - name: Build
         run: |
