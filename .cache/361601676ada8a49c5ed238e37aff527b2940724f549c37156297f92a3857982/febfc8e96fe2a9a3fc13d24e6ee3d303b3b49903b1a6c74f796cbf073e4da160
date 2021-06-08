@@ -1,6 +1,6 @@
 /* lib/blob.ts */
-const mod7 = (async () => {
-    const { random } = await mod6;
+const mod9 = (async () => {
+    const { random } = await mod8;
     const randomPalette = () => {
         const hue = random(0, 360);
         const saturation = random(75, 100);

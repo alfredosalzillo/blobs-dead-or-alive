@@ -1,10 +1,10 @@
 /* lib/App.tsx */
-const mod12 = (async () => {
+const mod14 = (async () => {
     const { useState, useEffect } = await mod2;
-    const SvgBlob = (await mod9).default;
-    const { Blob, randomBlob } = await mod7;
-    const WantedPoster = (await mod10).default;
-    const { getStatus, initialRound, nextRound } = await mod11;
+    const SvgBlob = (await mod11).default;
+    const { Blob, randomBlob } = await mod9;
+    const WantedPoster = (await mod12).default;
+    const { getStatus, initialRound, nextRound } = await mod13;
     const StartDialog = ({ onClickStart }) => (React.createElement("div", { className: "dialog-backdrop" },
         React.createElement("dialog", { className: "dialog", open: true },
             React.createElement("h1", null, "Instructions"),
@@ -35,7 +35,7 @@ const mod12 = (async () => {
         const { blobs, captured, wanted, points, time, elapsed } = game;
         const status = getStatus(game);
         useEffect(() => {
-            let request = null;
+            let request = 0;
             let last = 0;
             const updateElapsed = () => {
                 request = window.requestAnimationFrame((time) => {
@@ -71,7 +71,7 @@ const mod12 = (async () => {
                             React.createElement("progress", { id: "time-progress", value: (time - elapsed) / time, max: 1, "data-animated": elapsed > 0 },
                                 elapsed,
                                 "ms"),
-                            React.createElement("label", { for: "time-progress", className: "time-progress-label" },
+                            React.createElement("label", { htmlFor: "time-progress", className: "time-progress-label" },
                                 Math.round(time - elapsed),
                                 "ms")),
                         React.createElement("div", { className: "score" },

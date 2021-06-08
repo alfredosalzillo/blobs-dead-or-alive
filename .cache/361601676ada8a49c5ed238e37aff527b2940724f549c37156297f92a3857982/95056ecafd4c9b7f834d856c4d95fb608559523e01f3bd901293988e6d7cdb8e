@@ -1,5 +1,5 @@
 /* lib/spline.ts */
-const mod8 = (async () => {
+const mod10 = (async () => {
     const formatPoints = (points, close = false) => {
         const result = [...points].map(({ x, y }) => [x, y]);
         if (close) {

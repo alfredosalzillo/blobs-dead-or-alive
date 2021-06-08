@@ -1,0 +1,5 @@
+/* https://esm.sh/react-dom@17.0.2?external=react */
+const mod7 = (async () => {
+    const { default: _default } = await mod6;
+    return { default: _default, ...await mod6 };
+})();

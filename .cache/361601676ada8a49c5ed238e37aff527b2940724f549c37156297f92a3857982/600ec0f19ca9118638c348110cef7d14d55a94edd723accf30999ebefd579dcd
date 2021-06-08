@@ -1,5 +1,5 @@
 /* lib/components/WantedPoster.tsx */
-const mod10 = (async () => {
+const mod12 = (async () => {
     const React = (await mod2).default;
     const WantedPoster = ({ children }) => (React.createElement("div", { className: "wanted" },
         React.createElement("div", { className: "wanted-title" }, "WANTED"),

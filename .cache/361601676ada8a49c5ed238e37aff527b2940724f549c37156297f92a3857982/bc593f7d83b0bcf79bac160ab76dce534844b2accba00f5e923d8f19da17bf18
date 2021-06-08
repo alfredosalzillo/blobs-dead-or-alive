@@ -1,5 +1,5 @@
 /* https://cdn.esm.sh/v41/scheduler@0.20.2/deno/scheduler.js */
-const mod3 = (async () => {
+const mod5 = (async () => {
     var D = Object.create, j = Object.defineProperty, z = Object.getPrototypeOf, B = Object.prototype.hasOwnProperty, G = Object.getOwnPropertyNames, ee = Object.getOwnPropertyDescriptor;
     var ne = e => j(e, "__esModule", { value: !0 });
     var H = (e, n) => () => (n || e((n = { exports: {} }).exports, n), n.exports);
