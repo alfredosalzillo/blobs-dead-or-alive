@@ -36,11 +36,8 @@ jobs:
       - name: Build
         run: |
           rm -rf dist
-          mv styles/index.css styles/index.css_b
-          echo '' > styles/index.css
-          bundler bundle --config tsconfig.json --import-map import_map.json index.html=index.html styles/index.css=style.css
-          mv styles/index.css_b dist/style.css
-      
+          bundler bundle --config tsconfig.json --import-map import_map.json index.html=index.html styles/index.css=style.css manifest.json=manifest.json
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
