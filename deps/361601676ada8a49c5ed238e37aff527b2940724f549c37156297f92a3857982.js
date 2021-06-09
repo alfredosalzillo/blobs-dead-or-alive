@@ -4722,15 +4722,16 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
     return { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: Ff, createPortal: jf, default: export_default, findDOMNode: Mf, flushSync: Rf, hydrate: Wf, render: Hf, unmountComponentAtNode: Uf, unstable_batchedUpdates: Vf, unstable_createPortal: Df, unstable_renderSubtreeIntoContainer: Bf, version: If };
 })();
 const mod3 = (async () => {
+    const PUBLIC_URL = "https://alfredosalzillo.me/blobs-dead-or-alive";
     const isLocalhost = Boolean(window.location.hostname === "localhost" || window.location.hostname === "[::1]" || window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/));
     function register(config) {
         if ("serviceWorker" in navigator) {
-            const publicUrl = new URL(window.location.href);
+            const publicUrl = new URL(PUBLIC_URL);
             if (publicUrl.origin !== window.location.origin) {
                 return;
             }
             window.addEventListener("load", () => {
-                const swUrl = `${window.location.href}/service-worker.js`;
+                const swUrl = `${PUBLIC_URL}/service-worker.js`;
                 if (isLocalhost) {
                     checkValidServiceWorker(swUrl, config);
                     navigator.serviceWorker.ready.then(() => {
