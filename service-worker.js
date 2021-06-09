@@ -1205,7 +1205,7 @@ const mod = (async () => {
     const { precacheAndRoute, createHandlerBoundToURL } = await mod2;
     const { registerRoute } = await mod3;
     const { StaleWhileRevalidate } = await mod4;
-    const PUBLIC_URL = "https://alfredosalzillo.me/blobs-dead-or-alive/";
+    const PUBLIC_URL = "https://alfredosalzillo.me/blobs-dead-or-alive";
     clientsClaim();
     precacheAndRoute(self.__WB_MANIFEST || []);
     const fileExtensionRegexp = new RegExp("/[^/?]+\\.[^/]+$");
