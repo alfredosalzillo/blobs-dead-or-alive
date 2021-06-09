@@ -1,4 +1,0 @@
-/* https://esm.sh/workbox-core */
-const mod = (async () => {
-    return { ...await mod5 };
-})();

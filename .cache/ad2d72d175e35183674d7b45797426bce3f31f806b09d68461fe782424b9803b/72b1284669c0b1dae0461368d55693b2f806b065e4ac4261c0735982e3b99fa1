@@ -1,4 +1,0 @@
-/* https://esm.sh/workbox-precaching */
-const mod2 = (async () => {
-    return { ...await mod7 };
-})();
