@@ -21,7 +21,7 @@ Deno.removeSync('./dist/.cache', {
   recursive: true,
 })
 const __WEB_MANIFEST = await getNames('dist')
-  .then((file) => `${PUBLIC_URL}/${file}`)
+  .then((files) => files.map((file) => `${PUBLIC_URL}/${file}`))
 
 Deno.writeTextFileSync(indexPath, Deno.readTextFileSync(indexPath).replace(/"\/deps/ig, '"./deps'))
 Deno.writeTextFileSync(serviceWorkerPath, Deno.readTextFileSync(serviceWorkerPath)
