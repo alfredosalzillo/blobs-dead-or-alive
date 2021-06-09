@@ -1207,7 +1207,7 @@ const mod = (async () => {
     const { StaleWhileRevalidate } = await mod4;
     const PUBLIC_URL = "https://alfredosalzillo.me/blobs-dead-or-alive";
     clientsClaim();
-    precacheAndRoute(self.__WB_MANIFEST || []);
+    precacheAndRoute(["service-worker.js","style.css","index.html","deps","manifest.json",".cache"] || []);
     const fileExtensionRegexp = new RegExp("/[^/?]+\\.[^/]+$");
     registerRoute(({ request, url }) => {
         if (request.mode !== "navigate") {
