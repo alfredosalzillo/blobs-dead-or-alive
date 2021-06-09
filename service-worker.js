@@ -1199,7 +1199,7 @@ const mod1 = (async () => {
 const mod = (async () => {
     return { ...await mod5 };
 })();
-export default (async () => {
+ (async () => {
     const { clientsClaim } = await mod;
     const { ExpirationPlugin } = await mod1;
     const { precacheAndRoute, createHandlerBoundToURL } = await mod2;
