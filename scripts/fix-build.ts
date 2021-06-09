@@ -16,7 +16,8 @@ async function getNames(currentPath: string) {
   return names;
 }
 
-const __WEB_MANIFEST = await getNames('./dist/')
+Deno.removeSync('./dist/.cache')
+const __WEB_MANIFEST = await getNames('./dist')
 
 Deno.writeTextFileSync(indexPath, Deno.readTextFileSync(indexPath).replace(/"\/deps/ig, '"./deps'))
 Deno.writeTextFileSync(serviceWorkerPath, Deno.readTextFileSync(serviceWorkerPath)
