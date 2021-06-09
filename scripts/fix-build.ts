@@ -1,5 +1,6 @@
 const indexPath = './dist/index.html';
 const serviceWorkerPath = './dist/service-worker.js';
+const PUBLIC_URL = 'https://alfredosalzillo.me/blobs-dead-or-alive';
 
 async function getNames(currentPath: string) {
   const names: string[] = [];
@@ -7,7 +8,7 @@ async function getNames(currentPath: string) {
   for await (const dirEntry of Deno.readDir(currentPath)) {
     const entryPath = `${dirEntry.name}`;
     if (dirEntry.isFile) names.push(entryPath);
-   
+
     if (dirEntry.isDirectory) {
       names.concat(await getNames(`${currentPath}/${entryPath}`));
     }
@@ -19,7 +20,8 @@ async function getNames(currentPath: string) {
 Deno.removeSync('./dist/.cache', {
   recursive: true,
 })
-const __WEB_MANIFEST = await getNames('./dist')
+const __WEB_MANIFEST = await getNames('dist')
+  .then((file) => `${PUBLIC_URL}/${file}`)
 
 Deno.writeTextFileSync(indexPath, Deno.readTextFileSync(indexPath).replace(/"\/deps/ig, '"./deps'))
 Deno.writeTextFileSync(serviceWorkerPath, Deno.readTextFileSync(serviceWorkerPath)
