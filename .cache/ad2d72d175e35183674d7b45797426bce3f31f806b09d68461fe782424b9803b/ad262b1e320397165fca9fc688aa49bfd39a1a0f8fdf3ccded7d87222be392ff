@@ -1,0 +1,136 @@
+/* https://cdn.esm.sh/v41/workbox-routing@6.1.5/deno/workbox-routing.js */
+const mod8 = (async () => {
+    var O = Object.defineProperty;
+    var T = (o, e) => {
+        for (var r in e)
+            O(o, r, { get: e[r], enumerable: !0 });
+    };
+    var E = {};
+    T(E, { NavigationRoute: () => b, RegExpRoute: () => m, Route: () => u, Router: () => f, registerRoute: () => N, setCatchHandler: () => $, setDefaultHandler: () => j });
+    "use strict";
+    try {
+        self["workbox:core:6.1.5"] && _();
+    }
+    catch (o) { }
+    var C = (o, ...e) => { let r = o; return e.length > 0 && (r += ` :: ${JSON.stringify(e)}`), r; };
+    var v = C;
+    var l = class extends Error {
+        constructor(e, r) { let t = v(e, r); super(t); this.name = e, this.details = r; }
+    };
+    "use strict";
+    try {
+        self["workbox:routing:6.1.5"] && _();
+    }
+    catch (o) { }
+    var y = "GET";
+    var d = o => o && typeof o == "object" ? o : { handle: o };
+    var u = class {
+        constructor(e, r, t = y) { this.handler = d(r), this.match = e, this.method = t; }
+        setCatchHandler(e) { this.catchHandler = d(e); }
+    };
+    var b = class extends u {
+        constructor(e, { allowlist: r = [/./], denylist: t = [] } = {}) { super(s => this._match(s), e); this._allowlist = r, this._denylist = t; }
+        _match({ url: e, request: r }) {
+            if (r && r.mode !== "navigate")
+                return !1;
+            let t = e.pathname + e.search;
+            for (let s of this._denylist)
+                if (s.test(t))
+                    return !1;
+            return !!this._allowlist.some(s => s.test(t));
+        }
+    };
+    var m = class extends u {
+        constructor(e, r, t) {
+            let s = ({ url: i }) => {
+                let n = e.exec(i.href);
+                if (!!n && !(i.origin !== location.origin && n.index !== 0))
+                    return n.slice(1);
+            };
+            super(s, r, t);
+        }
+    };
+    var f = class {
+        constructor() { this._routes = new Map, this._defaultHandlerMap = new Map; }
+        get routes() { return this._routes; }
+        addFetchListener() { self.addEventListener("fetch", e => { let { request: r } = e, t = this.handleRequest({ request: r, event: e }); t && e.respondWith(t); }); }
+        addCacheListener() {
+            self.addEventListener("message", e => {
+                if (e.data && e.data.type === "CACHE_URLS") {
+                    let { payload: r } = e.data, t = Promise.all(r.urlsToCache.map(s => { typeof s == "string" && (s = [s]); let i = new Request(...s); return this.handleRequest({ request: i, event: e }); }));
+                    e.waitUntil(t), e.ports && e.ports[0] && t.then(() => e.ports[0].postMessage(!0));
+                }
+            });
+        }
+        handleRequest({ request: e, event: r }) {
+            let t = new URL(e.url, location.href);
+            if (!t.protocol.startsWith("http"))
+                return;
+            let s = t.origin === location.origin, { params: i, route: n } = this.findMatchingRoute({ event: r, request: e, sameOrigin: s, url: t }), a = n && n.handler, c = [], x = e.method;
+            if (!a && this._defaultHandlerMap.has(x) && (a = this._defaultHandlerMap.get(x)), !a)
+                return;
+            let p;
+            try {
+                p = a.handle({ url: t, request: e, event: r, params: i });
+            }
+            catch (g) {
+                p = Promise.reject(g);
+            }
+            let R = n && n.catchHandler;
+            return p instanceof Promise && (this._catchHandler || R) && (p = p.catch(async (g) => {
+                if (R)
+                    try {
+                        return await R.handle({ url: t, request: e, event: r, params: i });
+                    }
+                    catch (k) {
+                        g = k;
+                    }
+                if (this._catchHandler)
+                    return this._catchHandler.handle({ url: t, request: e, event: r });
+                throw g;
+            })), p;
+        }
+        findMatchingRoute({ url: e, sameOrigin: r, request: t, event: s }) {
+            let i = this._routes.get(t.method) || [];
+            for (let n of i) {
+                let a, c = n.match({ url: e, sameOrigin: r, request: t, event: s });
+                if (c)
+                    return a = c, (Array.isArray(c) && c.length === 0 || c.constructor === Object && Object.keys(c).length === 0 || typeof c == "boolean") && (a = void 0), { route: n, params: a };
+            }
+            return {};
+        }
+        setDefaultHandler(e, r = y) { this._defaultHandlerMap.set(r, d(e)); }
+        setCatchHandler(e) { this._catchHandler = d(e); }
+        registerRoute(e) { this._routes.has(e.method) || this._routes.set(e.method, []), this._routes.get(e.method).push(e); }
+        unregisterRoute(e) {
+            if (!this._routes.has(e.method))
+                throw new l("unregister-route-but-not-found-with-method", { method: e.method });
+            let r = this._routes.get(e.method).indexOf(e);
+            if (r > -1)
+                this._routes.get(e.method).splice(r, 1);
+            else
+                throw new l("unregister-route-route-not-registered");
+        }
+    };
+    var w, h = () => (w || (w = new f, w.addFetchListener(), w.addCacheListener()), w);
+    function N(o, e, r) {
+        let t;
+        if (typeof o == "string") {
+            let i = new URL(o, location.href), n = ({ url: a }) => a.href === i.href;
+            t = new u(n, e, r);
+        }
+        else if (o instanceof RegExp)
+            t = new m(o, e, r);
+        else if (typeof o == "function")
+            t = new u(o, e, r);
+        else if (o instanceof u)
+            t = o;
+        else
+            throw new l("unsupported-route-type", { moduleName: "workbox-routing", funcName: "registerRoute", paramName: "capture" });
+        return h().registerRoute(t), t;
+    }
+    function $(o) { h().setCatchHandler(o); }
+    function j(o) { h().setDefaultHandler(o); }
+    var { Route: nr, Router: ar, setCatchHandler: ir, setDefaultHandler: ur, NavigationRoute: cr, RegExpRoute: lr, registerRoute: pr } = E;
+    return { NavigationRoute: cr, RegExpRoute: lr, Route: nr, Router: ar, registerRoute: pr, setCatchHandler: ir, setDefaultHandler: ur };
+})();

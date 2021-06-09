@@ -1,0 +1,146 @@
+/* https://cdn.esm.sh/v41/workbox-expiration@6.1.5/deno/workbox-expiration.js */
+const mod6 = (async () => {
+    var O = Object.defineProperty;
+    var R = (o, e) => {
+        for (var r in e)
+            O(o, r, { get: e[r], enumerable: !0 });
+    };
+    var $ = {};
+    R($, { CacheExpiration: () => g, ExpirationPlugin: () => v });
+    "use strict";
+    try {
+        self["workbox:core:6.1.5"] && _();
+    }
+    catch (o) { }
+    var S = (o, ...e) => { let r = o; return e.length > 0 && (r += ` :: ${JSON.stringify(e)}`), r; };
+    var N = S;
+    var w = class extends Error {
+        constructor(e, r) { let t = N(e, r); super(t); this.name = e, this.details = r; }
+    };
+    function b(o) { o.then(() => { }); }
+    var m = class {
+        constructor(e, r, { onupgradeneeded: t, onversionchange: s } = {}) { this._db = null, this._name = e, this._version = r, this._onupgradeneeded = t, this._onversionchange = s || (() => this.close()); }
+        get db() { return this._db; }
+        async open() {
+            if (!this._db)
+                return this._db = await new Promise((e, r) => { let t = !1; setTimeout(() => { t = !0, r(new Error("The open request was blocked and timed out")); }, this.OPEN_TIMEOUT); let s = indexedDB.open(this._name, this._version); s.onerror = () => r(s.error), s.onupgradeneeded = n => { t ? (s.transaction.abort(), s.result.close()) : typeof this._onupgradeneeded == "function" && this._onupgradeneeded(n); }, s.onsuccess = () => { let n = s.result; t ? n.close() : (n.onversionchange = this._onversionchange.bind(this), e(n)); }; }), this;
+        }
+        async getKey(e, r) { return (await this.getAllKeys(e, r, 1))[0]; }
+        async getAll(e, r, t) { return await this.getAllMatching(e, { query: r, count: t }); }
+        async getAllKeys(e, r, t) { return (await this.getAllMatching(e, { query: r, count: t, includeKeys: !0 })).map(n => n.key); }
+        async getAllMatching(e, { index: r, query: t = null, direction: s = "next", count: n, includeKeys: a = !1 } = {}) { return await this.transaction([e], "readonly", (c, i) => { let u = c.objectStore(e), f = r ? u.index(r) : u, p = [], d = f.openCursor(t, s); d.onsuccess = () => { let x = d.result; x ? (p.push(a ? x : x.value), n && p.length >= n ? i(p) : x.continue()) : i(p); }; }); }
+        async transaction(e, r, t) { return await this.open(), await new Promise((s, n) => { let a = this._db.transaction(e, r); a.onabort = () => n(a.error), a.oncomplete = () => s(), t(a, c => s(c)); }); }
+        async _call(e, r, t, ...s) { let n = (a, c) => { let i = a.objectStore(r), u = i[e].apply(i, s); u.onsuccess = () => c(u.result); }; return await this.transaction([r], t, n); }
+        close() { this._db && (this._db.close(), this._db = null); }
+    };
+    m.prototype.OPEN_TIMEOUT = 2000;
+    var C = { readonly: ["get", "count", "getKey", "getAll", "getAllKeys"], readwrite: ["add", "put", "clear", "delete"] };
+    for (let [o, e] of Object.entries(C))
+        for (let r of e)
+            r in IDBObjectStore.prototype && (m.prototype[r] = async function (t, ...s) { return await this._call(r, t, o, ...s); });
+    var T = async (o) => { await new Promise((e, r) => { let t = indexedDB.deleteDatabase(o); t.onerror = () => { r(t.error); }, t.onblocked = () => { r(new Error("Delete blocked")); }, t.onsuccess = () => { e(); }; }); };
+    "use strict";
+    try {
+        self["workbox:expiration:6.1.5"] && _();
+    }
+    catch (o) { }
+    var U = "workbox-expiration", l = "cache-entries", k = o => { let e = new URL(o, location.href); return e.hash = "", e.href; }, y = class {
+        constructor(e) { this._cacheName = e, this._db = new m(U, 1, { onupgradeneeded: r => this._handleUpgrade(r) }); }
+        _handleUpgrade(e) { let t = e.target.result.createObjectStore(l, { keyPath: "id" }); t.createIndex("cacheName", "cacheName", { unique: !1 }), t.createIndex("timestamp", "timestamp", { unique: !1 }), T(this._cacheName); }
+        async setTimestamp(e, r) { e = k(e); let t = { url: e, timestamp: r, cacheName: this._cacheName, id: this._getId(e) }; await this._db.put(l, t); }
+        async getTimestamp(e) { return (await this._db.get(l, this._getId(e))).timestamp; }
+        async expireEntries(e, r) {
+            let t = await this._db.transaction(l, "readwrite", (n, a) => {
+                let i = n.objectStore(l).index("timestamp").openCursor(null, "prev"), u = [], f = 0;
+                i.onsuccess = () => {
+                    let p = i.result;
+                    if (p) {
+                        let d = p.value;
+                        d.cacheName === this._cacheName && (e && d.timestamp < e || r && f >= r ? u.push(p.value) : f++), p.continue();
+                    }
+                    else
+                        a(u);
+                };
+            }), s = [];
+            for (let n of t)
+                await this._db.delete(l, n.id), s.push(n.url);
+            return s;
+        }
+        _getId(e) { return this._cacheName + "|" + k(e); }
+    };
+    var g = class {
+        constructor(e, r = {}) { this._isRunning = !1, this._rerunRequested = !1, this._maxEntries = r.maxEntries, this._maxAgeSeconds = r.maxAgeSeconds, this._matchOptions = r.matchOptions, this._cacheName = e, this._timestampModel = new y(e); }
+        async expireEntries() {
+            if (this._isRunning) {
+                this._rerunRequested = !0;
+                return;
+            }
+            this._isRunning = !0;
+            let e = this._maxAgeSeconds ? Date.now() - this._maxAgeSeconds * 1000 : 0, r = await this._timestampModel.expireEntries(e, this._maxEntries), t = await self.caches.open(this._cacheName);
+            for (let s of r)
+                await t.delete(s, this._matchOptions);
+            this._isRunning = !1, this._rerunRequested && (this._rerunRequested = !1, b(this.expireEntries()));
+        }
+        async updateTimestamp(e) { await this._timestampModel.setTimestamp(e, Date.now()); }
+        async isURLExpired(e) {
+            if (this._maxAgeSeconds) {
+                let r = await this._timestampModel.getTimestamp(e), t = Date.now() - this._maxAgeSeconds * 1000;
+                return r < t;
+            }
+            else
+                return !1;
+        }
+        async delete() { this._rerunRequested = !1, await this._timestampModel.expireEntries(Infinity); }
+    };
+    var h = { googleAnalytics: "googleAnalytics", precache: "precache-v2", prefix: "workbox", runtime: "runtime", suffix: typeof registration != "undefined" ? registration.scope : "" }, E = o => [h.prefix, o, h.suffix].filter(e => e && e.length > 0).join("-"), q = o => {
+        for (let e of Object.keys(h))
+            o(e);
+    }, j = { updateDetails: o => { q(e => { typeof o[e] == "string" && (h[e] = o[e]); }); }, getGoogleAnalyticsName: o => o || E(h.googleAnalytics), getPrecacheName: o => o || E(h.precache), getPrefix: () => h.prefix, getRuntimeName: o => o || E(h.runtime), getSuffix: () => h.suffix };
+    var A = new Set;
+    function D(o) { A.add(o); }
+    var v = class {
+        constructor(e = {}) {
+            this.cachedResponseWillBeUsed = async ({ event: r, request: t, cacheName: s, cachedResponse: n }) => {
+                if (!n)
+                    return null;
+                let a = this._isResponseDateFresh(n), c = this._getCacheExpiration(s);
+                b(c.expireEntries());
+                let i = c.updateTimestamp(t.url);
+                if (r)
+                    try {
+                        r.waitUntil(i);
+                    }
+                    catch (u) { }
+                return a ? n : null;
+            }, this.cacheDidUpdate = async ({ cacheName: r, request: t }) => { let s = this._getCacheExpiration(r); await s.updateTimestamp(t.url), await s.expireEntries(); }, this._config = e, this._maxAgeSeconds = e.maxAgeSeconds, this._cacheExpirations = new Map, e.purgeOnQuotaError && D(() => this.deleteCacheAndMetadata());
+        }
+        _getCacheExpiration(e) {
+            if (e === j.getRuntimeName())
+                throw new w("expire-custom-caches-only");
+            let r = this._cacheExpirations.get(e);
+            return r || (r = new g(e, this._config), this._cacheExpirations.set(e, r)), r;
+        }
+        _isResponseDateFresh(e) {
+            if (!this._maxAgeSeconds)
+                return !0;
+            let r = this._getDateHeaderTimestamp(e);
+            if (r === null)
+                return !0;
+            let t = Date.now();
+            return r >= t - this._maxAgeSeconds * 1000;
+        }
+        _getDateHeaderTimestamp(e) {
+            if (!e.headers.has("date"))
+                return null;
+            let r = e.headers.get("date"), s = new Date(r).getTime();
+            return isNaN(s) ? null : s;
+        }
+        async deleteCacheAndMetadata() {
+            for (let [e, r] of this._cacheExpirations)
+                await self.caches.delete(e), await r.delete();
+            this._cacheExpirations = new Map;
+        }
+    };
+    var { CacheExpiration: Qe, ExpirationPlugin: Ye } = $;
+    return { CacheExpiration: Qe, ExpirationPlugin: Ye };
+})();

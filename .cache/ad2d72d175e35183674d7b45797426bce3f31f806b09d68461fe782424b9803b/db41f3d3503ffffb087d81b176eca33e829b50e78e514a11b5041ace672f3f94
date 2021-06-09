@@ -1,0 +1,127 @@
+/* https://cdn.esm.sh/v41/workbox-core@6.1.5/deno/workbox-core.js */
+const mod5 = (async () => {
+    var Q = Object.defineProperty;
+    var R = (r, e) => {
+        for (var t in e)
+            Q(r, t, { get: e[t], enumerable: !0 });
+    };
+    var $ = {};
+    R($, { _private: () => j, cacheNames: () => I, clientsClaim: () => F, copyResponse: () => M, registerQuotaErrorCallback: () => N, setCacheNameDetails: () => G, skipWaiting: () => V });
+    "use strict";
+    try {
+        self["workbox:core:6.1.5"] && _();
+    }
+    catch (r) { }
+    var T = null;
+    var Y = (r, ...e) => { let t = r; return e.length > 0 && (t += ` :: ${JSON.stringify(e)}`), t; };
+    var C = Y;
+    var u = class extends Error {
+        constructor(e, t) { let o = C(e, t); super(o); this.name = e, this.details = t; }
+    };
+    var A = null;
+    var w = new Set;
+    function N(r) { w.add(r); }
+    var j = {};
+    R(j, { DBWrapper: () => m, Deferred: () => E, WorkboxError: () => u, assert: () => A, cacheMatchIgnoreParams: () => D, cacheNames: () => c, canConstructReadableStream: () => O, canConstructResponseFromBodyStream: () => b, deleteDatabase: () => W, dontWaitFor: () => S, executeQuotaErrorCallbacks: () => P, getFriendlyURL: () => q, logger: () => T, resultingClientExists: () => L, timeout: () => v, waitUntil: () => B });
+    var p = { googleAnalytics: "googleAnalytics", precache: "precache-v2", prefix: "workbox", runtime: "runtime", suffix: typeof registration != "undefined" ? registration.scope : "" }, x = r => [p.prefix, r, p.suffix].filter(e => e && e.length > 0).join("-"), J = r => {
+        for (let e of Object.keys(p))
+            r(e);
+    }, c = { updateDetails: r => { J(e => { typeof r[e] == "string" && (p[e] = r[e]); }); }, getGoogleAnalyticsName: r => r || x(p.googleAnalytics), getPrecacheName: r => r || x(p.precache), getPrefix: () => p.prefix, getRuntimeName: r => r || x(p.runtime), getSuffix: () => p.suffix };
+    function U(r, e) {
+        let t = new URL(r);
+        for (let o of e)
+            t.searchParams.delete(o);
+        return t.href;
+    }
+    async function D(r, e, t, o) {
+        let s = U(e.url, t);
+        if (e.url === s)
+            return r.match(e, o);
+        let n = { ...o, ignoreSearch: !0 }, i = await r.keys(e, n);
+        for (let a of i) {
+            let l = U(a.url, t);
+            if (s === l)
+                return r.match(a, o);
+        }
+    }
+    var y;
+    function O() {
+        if (y === void 0)
+            try {
+                new ReadableStream({ start() { } }), y = !0;
+            }
+            catch (r) {
+                y = !1;
+            }
+        return y;
+    }
+    var h;
+    function b() {
+        if (h === void 0) {
+            let r = new Response("");
+            if ("body" in r)
+                try {
+                    new Response(r.body), h = !0;
+                }
+                catch (e) {
+                    h = !1;
+                }
+            h = !1;
+        }
+        return h;
+    }
+    function S(r) { r.then(() => { }); }
+    var m = class {
+        constructor(e, t, { onupgradeneeded: o, onversionchange: s } = {}) { this._db = null, this._name = e, this._version = t, this._onupgradeneeded = o, this._onversionchange = s || (() => this.close()); }
+        get db() { return this._db; }
+        async open() {
+            if (!this._db)
+                return this._db = await new Promise((e, t) => { let o = !1; setTimeout(() => { o = !0, t(new Error("The open request was blocked and timed out")); }, this.OPEN_TIMEOUT); let s = indexedDB.open(this._name, this._version); s.onerror = () => t(s.error), s.onupgradeneeded = n => { o ? (s.transaction.abort(), s.result.close()) : typeof this._onupgradeneeded == "function" && this._onupgradeneeded(n); }, s.onsuccess = () => { let n = s.result; o ? n.close() : (n.onversionchange = this._onversionchange.bind(this), e(n)); }; }), this;
+        }
+        async getKey(e, t) { return (await this.getAllKeys(e, t, 1))[0]; }
+        async getAll(e, t, o) { return await this.getAllMatching(e, { query: t, count: o }); }
+        async getAllKeys(e, t, o) { return (await this.getAllMatching(e, { query: t, count: o, includeKeys: !0 })).map(n => n.key); }
+        async getAllMatching(e, { index: t, query: o = null, direction: s = "next", count: n, includeKeys: i = !1 } = {}) { return await this.transaction([e], "readonly", (a, l) => { let d = a.objectStore(e), K = t ? d.index(t) : d, f = [], k = K.openCursor(o, s); k.onsuccess = () => { let g = k.result; g ? (f.push(i ? g : g.value), n && f.length >= n ? l(f) : g.continue()) : l(f); }; }); }
+        async transaction(e, t, o) { return await this.open(), await new Promise((s, n) => { let i = this._db.transaction(e, t); i.onabort = () => n(i.error), i.oncomplete = () => s(), o(i, a => s(a)); }); }
+        async _call(e, t, o, ...s) { let n = (i, a) => { let l = i.objectStore(t), d = l[e].apply(l, s); d.onsuccess = () => a(d.result); }; return await this.transaction([t], o, n); }
+        close() { this._db && (this._db.close(), this._db = null); }
+    };
+    m.prototype.OPEN_TIMEOUT = 2000;
+    var X = { readonly: ["get", "count", "getKey", "getAll", "getAllKeys"], readwrite: ["add", "put", "clear", "delete"] };
+    for (let [r, e] of Object.entries(X))
+        for (let t of e)
+            t in IDBObjectStore.prototype && (m.prototype[t] = async function (o, ...s) { return await this._call(t, o, r, ...s); });
+    var E = class {
+        constructor() { this.promise = new Promise((e, t) => { this.resolve = e, this.reject = t; }); }
+    };
+    var W = async (r) => { await new Promise((e, t) => { let o = indexedDB.deleteDatabase(r); o.onerror = () => { t(o.error); }, o.onblocked = () => { t(new Error("Delete blocked")); }, o.onsuccess = () => { e(); }; }); };
+    async function P() {
+        for (let r of w)
+            await r();
+    }
+    var q = r => new URL(String(r), location.href).href.replace(new RegExp(`^${location.origin}`), "");
+    function v(r) { return new Promise(e => setTimeout(e, r)); }
+    var H = 2000;
+    async function L(r) {
+        if (!r)
+            return;
+        let e = await self.clients.matchAll({ type: "window" }), t = new Set(e.map(n => n.id)), o, s = performance.now();
+        for (; performance.now() - s < H && (e = await self.clients.matchAll({ type: "window" }), o = e.find(n => r ? n.id === r : !t.has(n.id)), !o);)
+            await v(100);
+        return o;
+    }
+    function B(r, e) { let t = e(); return r.waitUntil(t), t; }
+    var I = { get googleAnalytics() { return c.getGoogleAnalyticsName(); }, get precache() { return c.getPrecacheName(); }, get prefix() { return c.getPrefix(); }, get runtime() { return c.getRuntimeName(); }, get suffix() { return c.getSuffix(); } };
+    async function M(r, e) {
+        let t = null;
+        if (r.url && (t = new URL(r.url).origin), t !== self.location.origin)
+            throw new u("cross-origin-copy-response", { origin: t });
+        let o = r.clone(), s = { headers: new Headers(o.headers), status: o.status, statusText: o.statusText }, n = e ? e(s) : s, i = b() ? o.body : await o.blob();
+        return new Response(i, n);
+    }
+    function F() { self.addEventListener("activate", () => self.clients.claim()); }
+    function G(r) { c.updateDetails(r); }
+    function V() { self.skipWaiting(); }
+    var { registerQuotaErrorCallback: Vr, setCacheNameDetails: Kr, skipWaiting: Qr, _private: Yr, cacheNames: Jr, clientsClaim: Xr, copyResponse: Hr } = $;
+    return { _private: Yr, cacheNames: Jr, clientsClaim: Xr, copyResponse: Hr, registerQuotaErrorCallback: Vr, setCacheNameDetails: Kr, skipWaiting: Qr };
+})();

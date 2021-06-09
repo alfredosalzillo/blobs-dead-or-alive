@@ -1,5 +1,5 @@
 /* lib/random.ts */
-const mod11 = (async () => {
+const mod12 = (async () => {
     const random = (min, max, float = false) => {
         const val = Math.random() * (max - min) + min;
         if (float) {

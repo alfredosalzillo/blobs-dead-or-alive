@@ -1,5 +1,5 @@
 /* lib/components/WantedPoster.tsx */
-const mod7 = (async () => {
+const mod8 = (async () => {
     const React = (await mod).default;
     function WantedPoster(props) {
         const { children } = props;

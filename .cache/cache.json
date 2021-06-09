@@ -62,6 +62,64 @@
     "format": 16
    }
   },
+  "lib/service-worker.ts": {
+   "import": {
+    "filePath": "lib/service-worker.ts",
+    "output": "dist/service-worker.js",
+    "dependencies": {
+     "imports": {
+      "https://esm.sh/workbox-core": {
+       "specifiers": {
+        "clientsClaim": "clientsClaim"
+       },
+       "namespaces": [],
+       "defaults": [],
+       "type": "import",
+       "format": 8
+      },
+      "https://esm.sh/workbox-expiration": {
+       "specifiers": {
+        "ExpirationPlugin": "ExpirationPlugin"
+       },
+       "namespaces": [],
+       "defaults": [],
+       "type": "import",
+       "format": 8
+      },
+      "https://esm.sh/workbox-precaching": {
+       "specifiers": {
+        "precacheAndRoute": "precacheAndRoute",
+        "createHandlerBoundToURL": "createHandlerBoundToURL"
+       },
+       "namespaces": [],
+       "defaults": [],
+       "type": "import",
+       "format": 8
+      },
+      "https://esm.sh/workbox-routing": {
+       "specifiers": {
+        "registerRoute": "registerRoute"
+       },
+       "namespaces": [],
+       "defaults": [],
+       "type": "import",
+       "format": 8
+      },
+      "https://esm.sh/workbox-strategies": {
+       "specifiers": {
+        "StaleWhileRevalidate": "StaleWhileRevalidate"
+       },
+       "namespaces": [],
+       "defaults": [],
+       "type": "import",
+       "format": 8
+      }
+     },
+     "exports": {}
+    },
+    "format": 8
+   }
+  },
   "lib/main.tsx": {
    "import": {
     "filePath": "lib/main.tsx",
@@ -94,6 +152,15 @@
        ],
        "type": "import",
        "format": 8
+      },
+      "lib/serviceWorkerRegistration.ts": {
+       "specifiers": {},
+       "namespaces": [
+        "serviceWorkerRegistration"
+       ],
+       "defaults": [],
+       "type": "import",
+       "format": 8
       }
      },
      "exports": {}
@@ -110,6 +177,111 @@
      "exports": {}
     },
     "format": 64
+   }
+  },
+  "https://esm.sh/workbox-core": {
+   "import": {
+    "filePath": "https://esm.sh/workbox-core",
+    "output": "dist/deps/7e6bc92999a83db8ff6064552c07bcf6a008dedc583177fa9a2ef47b0c1118bd.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/workbox-core@6.1.5/deno/workbox-core.js": {
+       "specifiers": {},
+       "namespaces": [
+        null
+       ],
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://esm.sh/workbox-expiration": {
+   "import": {
+    "filePath": "https://esm.sh/workbox-expiration",
+    "output": "dist/deps/c34545ea1700a76fcc5331df7446fbbef337ded324a7b74c54ed8a4c3ce062c7.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/workbox-expiration@6.1.5/deno/workbox-expiration.js": {
+       "specifiers": {},
+       "namespaces": [
+        null
+       ],
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://esm.sh/workbox-precaching": {
+   "import": {
+    "filePath": "https://esm.sh/workbox-precaching",
+    "output": "dist/deps/ad6e61ffdc2a1630b6920f007fed5b9ed7b482569c8929ee2de6442994b3de6e.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/workbox-precaching@6.1.5/deno/workbox-precaching.js": {
+       "specifiers": {},
+       "namespaces": [
+        null
+       ],
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://esm.sh/workbox-routing": {
+   "import": {
+    "filePath": "https://esm.sh/workbox-routing",
+    "output": "dist/deps/229f32915bff70ed956e6d3c828cc293459b1a9d064d70f5c8118ee2f94fa43e.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/workbox-routing@6.1.5/deno/workbox-routing.js": {
+       "specifiers": {},
+       "namespaces": [
+        null
+       ],
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://esm.sh/workbox-strategies": {
+   "import": {
+    "filePath": "https://esm.sh/workbox-strategies",
+    "output": "dist/deps/e16949c68ec34f8c22ab9e27f6387b55981443cb4ce77dd36ff8a0e3bcaf7fe8.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/workbox-strategies@6.1.5/deno/workbox-strategies.js": {
+       "specifiers": {},
+       "namespaces": [
+        null
+       ],
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
    }
   },
   "https://esm.sh/react@17.0.2": {
@@ -221,6 +393,163 @@
         "App"
        ],
        "namespaces": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "lib/serviceWorkerRegistration.ts": {
+   "import": {
+    "filePath": "lib/serviceWorkerRegistration.ts",
+    "output": "dist/deps/af4a678a5245e3620c4bfb070874732ba18fcf7b16c6f6fa9d6dd1d7c753e7b7.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "lib/serviceWorkerRegistration.ts": {
+       "specifiers": {
+        "register": "register",
+        "unregister": "unregister"
+       },
+       "defaults": [],
+       "namespaces": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://cdn.esm.sh/v41/workbox-core@6.1.5/deno/workbox-core.js": {
+   "export": {
+    "filePath": "https://cdn.esm.sh/v41/workbox-core@6.1.5/deno/workbox-core.js",
+    "output": "dist/deps/1633b5f80be5818587c4012fed7a4f0dc9d0000b9117faf97f00eee8e89fdeb8.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/workbox-core@6.1.5/deno/workbox-core.js": {
+       "specifiers": {
+        "_private": "Yr",
+        "cacheNames": "Jr",
+        "clientsClaim": "Xr",
+        "copyResponse": "Hr",
+        "registerQuotaErrorCallback": "Vr",
+        "setCacheNameDetails": "Kr",
+        "skipWaiting": "Qr"
+       },
+       "namespaces": [],
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://cdn.esm.sh/v41/workbox-expiration@6.1.5/deno/workbox-expiration.js": {
+   "export": {
+    "filePath": "https://cdn.esm.sh/v41/workbox-expiration@6.1.5/deno/workbox-expiration.js",
+    "output": "dist/deps/dfff1ce822c49b9aaacd6ffa978653367376e904a5cb969f9b3dc9cd6ff0052e.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/workbox-expiration@6.1.5/deno/workbox-expiration.js": {
+       "specifiers": {
+        "CacheExpiration": "Qe",
+        "ExpirationPlugin": "Ye"
+       },
+       "namespaces": [],
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://cdn.esm.sh/v41/workbox-precaching@6.1.5/deno/workbox-precaching.js": {
+   "export": {
+    "filePath": "https://cdn.esm.sh/v41/workbox-precaching@6.1.5/deno/workbox-precaching.js",
+    "output": "dist/deps/64c2dd98dabac4431e442d3a8c29722c0bf19348f19166d57816b1816bf8feb6.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/workbox-precaching@6.1.5/deno/workbox-precaching.js": {
+       "specifiers": {
+        "PrecacheController": "ms",
+        "PrecacheFallbackPlugin": "bs",
+        "PrecacheRoute": "hs",
+        "PrecacheStrategy": "Rs",
+        "addPlugins": "ws",
+        "addRoute": "ps",
+        "cleanupOutdatedCaches": "ls",
+        "createHandlerBoundToURL": "ds",
+        "getCacheKeyForURL": "ys",
+        "matchPrecache": "us",
+        "precache": "fs",
+        "precacheAndRoute": "gs"
+       },
+       "namespaces": [],
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://cdn.esm.sh/v41/workbox-routing@6.1.5/deno/workbox-routing.js": {
+   "export": {
+    "filePath": "https://cdn.esm.sh/v41/workbox-routing@6.1.5/deno/workbox-routing.js",
+    "output": "dist/deps/405e5caa372121342c81aa6ad0eaa3978f1b811b04bae9ee1ae504b860f0ccca.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/workbox-routing@6.1.5/deno/workbox-routing.js": {
+       "specifiers": {
+        "NavigationRoute": "cr",
+        "RegExpRoute": "lr",
+        "Route": "nr",
+        "Router": "ar",
+        "registerRoute": "pr",
+        "setCatchHandler": "ir",
+        "setDefaultHandler": "ur"
+       },
+       "namespaces": [],
+       "defaults": [],
+       "type": "export",
+       "format": 8
+      }
+     }
+    },
+    "format": 8
+   }
+  },
+  "https://cdn.esm.sh/v41/workbox-strategies@6.1.5/deno/workbox-strategies.js": {
+   "export": {
+    "filePath": "https://cdn.esm.sh/v41/workbox-strategies@6.1.5/deno/workbox-strategies.js",
+    "output": "dist/deps/2e4ed5541d36e1f6b51447b8a7767c85747574c845954dc711a1a24e49da7ebf.js",
+    "dependencies": {
+     "imports": {},
+     "exports": {
+      "https://cdn.esm.sh/v41/workbox-strategies@6.1.5/deno/workbox-strategies.js": {
+       "specifiers": {
+        "CacheFirst": "nt",
+        "CacheOnly": "zr",
+        "NetworkFirst": "et",
+        "NetworkOnly": "rt",
+        "StaleWhileRevalidate": "tt",
+        "Strategy": "ot",
+        "StrategyHandler": "st"
+       },
+       "namespaces": [],
+       "defaults": [],
        "type": "export",
        "format": 8
       }

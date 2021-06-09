@@ -1,0 +1,4 @@
+/* https://esm.sh/workbox-strategies */
+const mod4 = (async () => {
+    return { ...await mod9 };
+})();

@@ -1,4 +1,4 @@
-const mod12 = (async () => {
+const mod13 = (async () => {
     const formatPoints = (points, close = false) => {
         const result = [...points].map(({ x, y }) => [x, y]);
         if (close) {
@@ -42,7 +42,7 @@ const mod12 = (async () => {
     };
     return { spline };
 })();
-const mod11 = (async () => {
+const mod12 = (async () => {
     const random = (min, max, float = false) => {
         const val = Math.random() * (max - min) + min;
         if (float) {
@@ -55,7 +55,7 @@ const mod11 = (async () => {
     }
     return { random, randomItem };
 })();
-const mod10 = (async () => {
+const mod11 = (async () => {
     var D = Object.create, j = Object.defineProperty, z = Object.getPrototypeOf, B = Object.prototype.hasOwnProperty, G = Object.getOwnPropertyNames, ee = Object.getOwnPropertyDescriptor;
     var ne = e => j(e, "__esModule", { value: !0 });
     var H = (e, n) => () => (n || e((n = { exports: {} }).exports, n), n.exports);
@@ -265,7 +265,7 @@ const mod10 = (async () => {
     var export_default = ie.default;
     return { default: export_default, unstable_IdlePriority: ve, unstable_ImmediatePriority: he, unstable_LowPriority: xe, unstable_NormalPriority: Te, unstable_Profiling: de, unstable_UserBlockingPriority: Ie, unstable_cancelCallback: _e, unstable_continueExecution: we, unstable_forceFrameRate: pe, unstable_getCurrentPriorityLevel: ke, unstable_getFirstCallbackNode: ye, unstable_next: Me, unstable_now: be, unstable_pauseExecution: je, unstable_requestPaint: me, unstable_runWithPriority: Ce, unstable_scheduleCallback: fe, unstable_shouldYield: Pe, unstable_wrapCallback: ge };
 })();
-const mod9 = (async () => {
+const mod10 = (async () => {
     var b = Object.create, s = Object.defineProperty, p = Object.getPrototypeOf, O = Object.prototype.hasOwnProperty, j = Object.getOwnPropertyNames, g = Object.getOwnPropertyDescriptor;
     var m = r => s(r, "__esModule", { value: !0 });
     var v = (r, e) => () => (e || r((e = { exports: {} }).exports, e), e.exports);
@@ -320,8 +320,8 @@ const mod9 = (async () => {
     var export_default = S.default;
     return { default: export_default };
 })();
-const mod6 = (async () => {
-    const { random } = await mod11;
+const mod7 = (async () => {
+    const { random } = await mod12;
     const randomPalette = () => {
         const hue = random(0, 360);
         const saturation = random(75, 100);
@@ -377,9 +377,9 @@ const mod6 = (async () => {
     };
     return { randomPalette, randomBody, randomEyes, randomBlob };
 })();
-const mod8 = (async () => {
-    const { Blob, randomBlob } = await mod6;
-    const { randomItem } = await mod11;
+const mod9 = (async () => {
+    const { Blob, randomBlob } = await mod7;
+    const { randomItem } = await mod12;
     const BOARD_SIZE = 4;
     const MAX_ROUND_POINTS = 100;
     const MAX_BONUS_TIME = 2000;
@@ -407,8 +407,8 @@ const mod8 = (async () => {
     };
     return { BOARD_SIZE, MAX_ROUND_POINTS, MAX_BONUS_TIME, generateRandomBlobs, initialRound, calculatePoints, calculateTimeBonus, nextRound, getStatus };
 })();
-const mod3 = (async () => {
-    const __object_assign$ = (await mod9).default;
+const mod4 = (async () => {
+    const __object_assign$ = (await mod10).default;
     var W = Object.create, h = Object.defineProperty, Y = Object.getPrototypeOf, G = Object.prototype.hasOwnProperty, J = Object.getOwnPropertyNames, K = Object.getOwnPropertyDescriptor;
     var Q = e => h(e, "__esModule", { value: !0 });
     var j = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports);
@@ -587,10 +587,10 @@ const mod3 = (async () => {
     var export_default = oe.default;
     return { Children: ke, Component: xe, Fragment: Le, Profiler: Re, PureComponent: fe, StrictMode: Ce, Suspense: Pe, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: $e, cloneElement: Fe, createContext: qe, createElement: ge, createFactory: Ie, createRef: De, default: export_default, forwardRef: he, isValidElement: de, lazy: le, memo: we, useCallback: pe, useContext: je, useDebugValue: ae, useEffect: Ae, useImperativeHandle: Oe, useLayoutEffect: _e, useMemo: ve, useReducer: Ee, useRef: Se, useState: ye, version: me };
 })();
-const mod4 = (async () => {
-    const __react$ = (await mod3).default;
-    const __scheduler$ = (await mod10).default;
-    const __object_assign$ = (await mod9).default;
+const mod5 = (async () => {
+    const __react$ = (await mod4).default;
+    const __scheduler$ = (await mod11).default;
+    const __object_assign$ = (await mod10).default;
     var Cs = Object.create, zr = Object.defineProperty, _s = Object.getPrototypeOf, Ns = Object.prototype.hasOwnProperty, Ps = Object.getOwnPropertyNames, Ts = Object.getOwnPropertyDescriptor;
     var Ls = e => zr(e, "__esModule", { value: !0 });
     var Oi = (e, n) => () => (n || e((n = { exports: {} }).exports, n), n.exports);
@@ -4721,15 +4721,95 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
     var export_default = Pf.default;
     return { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: Ff, createPortal: jf, default: export_default, findDOMNode: Mf, flushSync: Rf, hydrate: Wf, render: Hf, unmountComponentAtNode: Uf, unstable_batchedUpdates: Vf, unstable_createPortal: Df, unstable_renderSubtreeIntoContainer: Bf, version: If };
 })();
+const mod3 = (async () => {
+    const isLocalhost = Boolean(window.location.hostname === "localhost" || window.location.hostname === "[::1]" || window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/));
+    function register(config) {
+        if ("serviceWorker" in navigator) {
+            const publicUrl = new URL(window.location.href);
+            if (publicUrl.origin !== window.location.origin) {
+                return;
+            }
+            window.addEventListener("load", () => {
+                const swUrl = `${window.location.href}/service-worker.js`;
+                if (isLocalhost) {
+                    checkValidServiceWorker(swUrl, config);
+                    navigator.serviceWorker.ready.then(() => {
+                        console.log("This web app is being served cache-first by a service " + "worker. To learn more, visit https://cra.link/PWA");
+                    });
+                }
+                else {
+                    registerValidSW(swUrl, config);
+                }
+            });
+        }
+    }
+    function registerValidSW(swUrl, config) {
+        navigator.serviceWorker.register(swUrl).then((registration) => {
+            registration.onupdatefound = () => {
+                const installingWorker = registration.installing;
+                if (installingWorker == null) {
+                    return;
+                }
+                installingWorker.onstatechange = () => {
+                    if (installingWorker.state === "installed") {
+                        if (navigator.serviceWorker.controller) {
+                            console.log("New content is available and will be used when all " + "tabs for this page are closed. See https://cra.link/PWA.");
+                            if (config && config.onUpdate) {
+                                config.onUpdate(registration);
+                            }
+                        }
+                        else {
+                            console.log("Content is cached for offline use.");
+                            if (config && config.onSuccess) {
+                                config.onSuccess(registration);
+                            }
+                        }
+                    }
+                };
+            };
+        }).catch((error) => {
+            console.error("Error during service worker registration:", error);
+        });
+    }
+    function checkValidServiceWorker(swUrl, config) {
+        fetch(swUrl, {
+            headers: { "Service-Worker": "script" }
+        }).then((response) => {
+            const contentType = response.headers.get("content-type");
+            if (response.status === 404 || (contentType != null && contentType.indexOf("javascript") === -1)) {
+                navigator.serviceWorker.ready.then((registration) => {
+                    registration.unregister().then(() => {
+                        window.location.reload();
+                    });
+                });
+            }
+            else {
+                registerValidSW(swUrl, config);
+            }
+        }).catch(() => {
+            console.log("No internet connection found. App is running in offline mode.");
+        });
+    }
+    function unregister() {
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.ready.then((registration) => {
+                registration.unregister();
+            }).catch((error) => {
+                console.error(error.message);
+            });
+        }
+    }
+    return { register, unregister };
+})();
 const mod1 = (async () => {
+    const { default: _default } = await mod5;
+    return { default: _default, ...await mod5 };
+})();
+const mod = (async () => {
     const { default: _default } = await mod4;
     return { default: _default, ...await mod4 };
 })();
-const mod = (async () => {
-    const { default: _default } = await mod3;
-    return { default: _default, ...await mod3 };
-})();
-const mod7 = (async () => {
+const mod8 = (async () => {
     const React = (await mod).default;
     function WantedPoster(props) {
         const { children } = props;
@@ -4737,11 +4817,11 @@ const mod7 = (async () => {
     }
     return { default: WantedPoster };
 })();
-const mod5 = (async () => {
+const mod6 = (async () => {
     const { useEffect, useState } = await mod;
-    const { Blob, Eye, Palette } = await mod6;
-    const { random, randomItem } = await mod11;
-    const { spline } = await mod12;
+    const { Blob, Eye, Palette } = await mod7;
+    const { random, randomItem } = await mod12;
+    const { spline } = await mod13;
     const SvgBlobEye = (props) => {
         const { x, y, size, colors } = props;
         return (React.createElement("g", { transform: `matrix(1,0,0,1,${x},${y})`, className: "blob-eye" }, React.createElement("circle", { r: size, cx: "0", cy: "0", "stroke-width": "2", stroke: colors.dark, fill: colors.light, className: "blob-eye-iris" }), React.createElement("circle", { r: size / 2, cx: "0", cy: "0", fill: colors.dark, className: "blob-eye-pupil", style: {
@@ -4766,10 +4846,10 @@ const mod5 = (async () => {
 })();
 const mod2 = (async () => {
     const { useEffect, useState } = await mod;
-    const SvgBlob = (await mod5).default;
-    const { Blob, randomBlob } = await mod6;
-    const WantedPoster = (await mod7).default;
-    const { getStatus, initialRound, nextRound } = await mod8;
+    const SvgBlob = (await mod6).default;
+    const { Blob, randomBlob } = await mod7;
+    const WantedPoster = (await mod8).default;
+    const { getStatus, initialRound, nextRound } = await mod9;
     const StartDialog = ({ onClickStart }) => (React.createElement("div", { className: "dialog-backdrop" }, React.createElement("dialog", { className: "dialog", open: true }, React.createElement("h1", null, "Instructions"), React.createElement(WantedPoster, null, React.createElement(SvgBlob, Object.assign({}, randomBlob(200, 200)))), React.createElement("p", null, "Find the WANTED BLOB before the time end."), React.createElement("button", { className: "action-button", onClick: onClickStart }, "START"))));
     const LoseDialog = ({ onRetryClick, points, captured = [] }) => (React.createElement("div", { className: "dialog-backdrop" }, React.createElement("dialog", { className: "dialog", open: true }, React.createElement("h1", null, "You LOOSE"), React.createElement("p", null, React.createElement("span", { style: { color: "#2b2b2b" } }, "SCORE"), React.createElement("br", null), points, " PT", React.createElement("br", null)), !!captured.length && (React.createElement("p", null, React.createElement("span", { style: { color: "#2b2b2b" } }, "CAPTURED"), React.createElement("br", null), captured.map((blob) => (React.createElement("div", { style: {
             width: "65px", margin: "3px", border: "1px solid black", background: "#adabab", display: "inline-block"
@@ -4812,7 +4892,9 @@ export default (async () => {
     const React = (await mod).default;
     const ReactDOM = (await mod1).default;
     const App = (await mod2).default;
+    const serviceWorkerRegistration = await mod3;
     window.React = React;
     ReactDOM.render(React.createElement(App, null), document.getElementById("root"));
+    serviceWorkerRegistration.register();
     return {};
 })();

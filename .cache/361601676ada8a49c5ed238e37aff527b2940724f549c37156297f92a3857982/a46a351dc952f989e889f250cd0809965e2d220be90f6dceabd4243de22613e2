@@ -1,10 +1,10 @@
 /* lib/App.tsx */
 const mod2 = (async () => {
     const { useEffect, useState } = await mod;
-    const SvgBlob = (await mod5).default;
-    const { Blob, randomBlob } = await mod6;
-    const WantedPoster = (await mod7).default;
-    const { getStatus, initialRound, nextRound } = await mod8;
+    const SvgBlob = (await mod6).default;
+    const { Blob, randomBlob } = await mod7;
+    const WantedPoster = (await mod8).default;
+    const { getStatus, initialRound, nextRound } = await mod9;
     const StartDialog = ({ onClickStart }) => (React.createElement("div", { className: "dialog-backdrop" },
         React.createElement("dialog", { className: "dialog", open: true },
             React.createElement("h1", null, "Instructions"),

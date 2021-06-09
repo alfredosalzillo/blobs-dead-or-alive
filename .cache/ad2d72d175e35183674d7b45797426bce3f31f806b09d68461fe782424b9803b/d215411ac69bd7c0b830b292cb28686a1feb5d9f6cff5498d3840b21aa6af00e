@@ -1,0 +1,4 @@
+/* https://esm.sh/workbox-routing */
+const mod3 = (async () => {
+    return { ...await mod8 };
+})();

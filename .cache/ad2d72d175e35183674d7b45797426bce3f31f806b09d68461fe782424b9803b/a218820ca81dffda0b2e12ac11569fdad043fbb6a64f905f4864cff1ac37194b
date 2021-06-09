@@ -1,0 +1,4 @@
+/* https://esm.sh/workbox-expiration */
+const mod1 = (async () => {
+    return { ...await mod6 };
+})();
