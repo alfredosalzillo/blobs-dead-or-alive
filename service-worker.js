@@ -1207,7 +1207,7 @@ const mod = (async () => {
     const { StaleWhileRevalidate } = await mod4;
     const PUBLIC_URL = "https://alfredosalzillo.me/blobs-dead-or-alive";
     clientsClaim();
-    precacheAndRoute("https://alfredosalzillo.me/blobs-dead-or-alive/service-worker.js,style.css,index.html,manifest.json" || []);
+    precacheAndRoute(["https://alfredosalzillo.me/blobs-dead-or-alive/service-worker.js","https://alfredosalzillo.me/blobs-dead-or-alive/style.css","https://alfredosalzillo.me/blobs-dead-or-alive/index.html","https://alfredosalzillo.me/blobs-dead-or-alive/manifest.json"] || []);
     const fileExtensionRegexp = new RegExp("/[^/?]+\\.[^/]+$");
     registerRoute(({ request, url }) => {
         if (request.mode !== "navigate") {
