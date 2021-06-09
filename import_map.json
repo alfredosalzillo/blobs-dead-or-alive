@@ -1,6 +1,13 @@
 {
   "imports": {
     "react": "https://esm.sh/react@17.0.2",
-    "react-dom": "https://esm.sh/react-dom@17.0.2?external=react"
+    "react-dom": "https://esm.sh/react-dom@17.0.2?external=react",
+    "webworker": "https://esm.sh/webworker",
+    "workbox-core": "https://esm.sh/workbox-core",
+    "workbox-expiration": "https://esm.sh/workbox-expiration",
+    "workbox-precaching": "https://esm.sh/workbox-precaching",
+    "workbox-routing": "https://esm.sh/workbox-routing",
+    "workbox-strategies": "https://esm.sh/workbox-strategies",
+    "web-vitals": "https://esm.sh/web-vitals"
   }
 }

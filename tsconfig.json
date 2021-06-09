@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "lib": ["dom", "DOM.Iterable", "ESNext"],
+    "lib": ["dom", "DOM.Iterable", "ESNext", "webworker"],
     "types": [],
     "plugins": [
       {
