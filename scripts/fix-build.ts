@@ -6,8 +6,8 @@ async function getNames(currentPath: string) {
 
   for await (const dirEntry of Deno.readDir(currentPath)) {
     const entryPath = `${dirEntry.name}`;
-    names.push(entryPath);
-
+    if (dirEntry.isFile) names.push(entryPath);
+   
     if (dirEntry.isDirectory) {
       names.concat(await getNames(`${currentPath}/${entryPath}`));
     }
