@@ -9,14 +9,14 @@ async function getNames(currentPath: string) {
     names.push(entryPath);
 
     if (dirEntry.isDirectory) {
-      names.concat(await getNames(entryPath));
+      names.concat(await getNames(`${currentPath}/${entryPath}`));
     }
   }
 
   return names;
 }
 
-const __WEB_MANIFEST = await getNames('./dist')
+const __WEB_MANIFEST = await getNames('./dist/')
 
 Deno.writeTextFileSync(indexPath, Deno.readTextFileSync(indexPath).replace(/"\/deps/ig, '"./deps'))
 Deno.writeTextFileSync(serviceWorkerPath, Deno.readTextFileSync(serviceWorkerPath)
