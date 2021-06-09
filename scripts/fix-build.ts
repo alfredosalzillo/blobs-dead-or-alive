@@ -16,7 +16,9 @@ async function getNames(currentPath: string) {
   return names;
 }
 
-Deno.removeSync('./dist/.cache')
+Deno.removeSync('./dist/.cache', {
+  recursive: true,
+})
 const __WEB_MANIFEST = await getNames('./dist')
 
 Deno.writeTextFileSync(indexPath, Deno.readTextFileSync(indexPath).replace(/"\/deps/ig, '"./deps'))
