@@ -14,7 +14,7 @@ import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
 import { StaleWhileRevalidate } from 'workbox-strategies';
 
-const PUBLIC_URL = 'https://alfredosalzillo.me/blobs-dead-or-alive/';
+const PUBLIC_URL = 'https://alfredosalzillo.me/blobs-dead-or-alive';
 
 declare const self: ServiceWorkerGlobalScope;
 
