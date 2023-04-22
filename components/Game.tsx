@@ -5,8 +5,8 @@ import { Blob } from '@/lib/blob';
 import WantedPoster from '@/components/WantedPoster';
 import SvgBlob from '@/components/SvgBlob';
 import { useEffect, useState } from 'react';
-import StartDialog from '@/components/StartDialog';
-import LoseDialog from '@/components/LoseDialog';
+import StartModal from '@/components/StartModal';
+import LoseModal from '@/components/LoseModal';
 import Logo from '@/components/Logo';
 
 const initialGame = initialRound(0);
@@ -110,18 +110,16 @@ const Game = () => {
             </div>
           ))}
         </div>
-        {status === 'start' && (
-          <StartDialog
-            onClickStart={() => game.restart()}
-          />
-        )}
-        {status === 'loose' && (
-          <LoseDialog
-            points={points}
-            captured={captured}
-            onRetryClick={() => game.restart()}
-          />
-        )}
+        <StartModal
+          onStart={() => game.restart()}
+          open={status === 'start'}
+        />
+        <LoseModal
+          points={points}
+          captured={captured}
+          onRetry={() => game.restart()}
+          open={status === 'loose'}
+        />
       </div>
     </>
   );

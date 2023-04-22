@@ -1,0 +1,25 @@
+.root {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #cda57b;
+  font-size: 36px;
+  max-width: 70vw;
+  max-height: 80vh;
+}
+.backdrop {
+  display: none;
+  &.open {
+     content: "";
+     display: block;
+     background: rgba(0, 0, 0, .6);
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     z-index: 0;
+  }
+}
