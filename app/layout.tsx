@@ -1,9 +1,5 @@
-import './globals.css';
-import { Ranchers } from 'next/font/google';
 import React from 'react';
 import { Metadata } from 'next';
-
-const ranchers = Ranchers({ subsets: ['latin'], weight: ['400'] });
 
 export const metadata: Metadata = {
   title: 'Blobs - Dead Or Alive',
@@ -49,7 +45,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={ranchers.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
