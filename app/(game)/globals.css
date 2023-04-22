@@ -1,7 +1,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: black;
+  background-color: #0d1117;
   width: 100%;
   height: 100%;
   font-size: 28px;
@@ -9,14 +9,14 @@ body {
 
 main {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 header {
-  padding: 0 5vw;
+  padding: 0 5dvw;
   margin: auto;
 }
 
