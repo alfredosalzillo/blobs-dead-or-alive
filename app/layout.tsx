@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   icons: {
     apple: '/blobs-dead-or-alive/icons/apple-icon-180x180-dunplab-manifest-51508.png',
-  }
+  },
 };
 
 export default function RootLayout({
