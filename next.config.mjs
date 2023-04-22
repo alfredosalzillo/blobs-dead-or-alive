@@ -4,6 +4,10 @@ import addMdx from '@next/mdx';
 const withPWA = createWithPWA({
   dest: 'public',
   disable: process.env.NODE_ENV === 'development',
+  register: false,
+  workboxOptions: {
+    skipWaiting: false,
+  }
 });
 
 const withMdx = addMdx();

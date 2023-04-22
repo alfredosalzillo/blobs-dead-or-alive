@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import PWAController from '@/components/PWAController';
 
 export const metadata: Metadata = {
   title: 'Blobs - Dead Or Alive',
@@ -45,7 +46,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <PWAController />
+      </body>
     </html>
   );
 }
