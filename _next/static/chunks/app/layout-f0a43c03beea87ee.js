@@ -1,0 +1,9 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[185],{6033:function(e,o,r){Promise.resolve().then(r.t.bind(r,7179,23)),Promise.resolve().then(r.bind(r,4763))},4763:function(e,o,r){"use strict";r.r(o);var t=r(9268),n=r(6006);let i=()=>((0,n.useEffect)(()=>{if("serviceWorker"in navigator&&void 0!==window.workbox){let e=window.workbox;e.addEventListener("waiting",()=>{window.confirm("A newer version of this web app is available, reload to update?")?(e.addEventListener("controlling",()=>{window.location.reload()}),e.messageSkipWaiting()):console.log("User rejected to reload the web app, keep using old version. New version will be automatically load when user open the app next time.")}),e.register()}},[]),(0,t.jsx)(t.Fragment,{}));o.default=i},7179:function(e){e.exports={style:{fontFamily:"'__Ranchers_dc1116', '__Ranchers_Fallback_dc1116'",fontWeight:400,fontStyle:"normal"},className:"__className_dc1116"}},3177:function(e,o,r){"use strict";/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */var t=r(6006),n=Symbol.for("react.element"),i=Symbol.for("react.fragment"),s=Object.prototype.hasOwnProperty,a=t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,l={key:!0,ref:!0,__self:!0,__source:!0};function c(e,o,r){var t,i={},c=null,f=null;for(t in void 0!==r&&(c=""+r),void 0!==o.key&&(c=""+o.key),void 0!==o.ref&&(f=o.ref),o)s.call(o,t)&&!l.hasOwnProperty(t)&&(i[t]=o[t]);if(e&&e.defaultProps)for(t in o=e.defaultProps)void 0===i[t]&&(i[t]=o[t]);return{$$typeof:n,type:e,key:c,ref:f,props:i,_owner:a.current}}o.Fragment=i,o.jsx=c,o.jsxs=c},9268:function(e,o,r){"use strict";e.exports=r(3177)}},function(e){e.O(0,[667,231,744],function(){return e(e.s=6033)}),_N_E=e.O()}]);
