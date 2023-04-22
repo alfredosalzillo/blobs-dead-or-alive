@@ -27,6 +27,18 @@ export const metadata: Metadata = {
   },
   icons: {
     apple: '/blobs-dead-or-alive/icons/apple-icon-180x180-dunplab-manifest-51508.png',
+    icon: {
+      url: '/blobs-dead-or-alive/favicon.ico',
+      type: 'image/x-icon',
+      sizes: 'any',
+      rel: 'icon',
+    },
+    shortcut: {
+      url: '/blobs-dead-or-alive/favicon.ico',
+      type: 'image/x-icon',
+      sizes: 'any',
+      rel: 'icon',
+    },
   },
 };
 
