@@ -1,6 +1,7 @@
 import { Blob } from '@/lib/blob';
 import React from 'react';
 import Modal from '@/components/Modal';
+import ActionButton from '@/components/ActionButton';
 import SvgBlob from './SvgBlob';
 
 type LoseDialogProps = {
@@ -44,9 +45,9 @@ const LoseModal: React.FC<LoseDialogProps> = ({
       ))}
     </p>
     )}
-    <button type="button" className="action-button" onClick={onRetry}>
+    <ActionButton type="button" fullWidth onClick={onRetry}>
       RETRY
-    </button>
+    </ActionButton>
   </Modal>
 );
 

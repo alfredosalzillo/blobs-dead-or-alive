@@ -1,6 +1,7 @@
 import { randomBlob } from '@/lib/blob';
 import React from 'react';
 import Modal from '@/components/Modal';
+import ActionButton from '@/components/ActionButton';
 import WantedPoster from './WantedPoster';
 import SvgBlob from './SvgBlob';
 
@@ -21,9 +22,9 @@ const StartModal: React.FC<StartDialogProps> = ({ onStart, open }) => (
     <p>
       Find the WANTED BLOB before the time end.
     </p>
-    <button type="button" className="action-button" onClick={onStart}>
+    <ActionButton type="button" fullWidth onClick={onStart}>
       START
-    </button>
+    </ActionButton>
   </Modal>
 );
 
