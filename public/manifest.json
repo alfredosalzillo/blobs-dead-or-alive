@@ -9,7 +9,14 @@
   "dir": "ltr",
   "display": "fullscreen",
   "orientation": "portrait",
+  "categories": ["games"],
+  "scope": "https://alfredosalzillo.me/blobs-dead-or-alive/",
   "icons": [
+    {
+      "src": "icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
     {
       "src": "icons/android-icon-192x192-dunplab-manifest-51508.png",
       "type": "image/png",
@@ -18,7 +25,8 @@
     {
       "src": "icons/apple-icon-180x180-dunplab-manifest-51508.png",
       "type": "image/png",
-      "sizes": "180x180"
+      "sizes": "180x180",
+      "purpose": "any maskable"
     },
     {
       "src": "icons/apple-icon-152x152-dunplab-manifest-51508.png",
@@ -74,6 +82,15 @@
       "src": "icons/favicon-16x16-dunplab-manifest-51508.png",
       "type": "image/png",
       "sizes": "16x16"
+    }
+  ],
+  "screenshots" : [
+    {
+      "src": "screenshots/iphone-1125x2436.png",
+      "sizes": "1125x2436",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Game start view"
     }
   ],
   "prefer_related_applications": false

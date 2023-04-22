@@ -9,7 +9,6 @@ export const random = (min: number, max: number, float = false) => {
   return Math.floor(val);
 };
 
-
 /**
  * Generate a random element of `list`.
  */

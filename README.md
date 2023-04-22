@@ -4,17 +4,7 @@ A Blobs game made using React and generative art.
 
 Try it [here](http://alfredosalzillo.me/blobs-dead-or-alive/).
 
-![preview](./assets/wanted-preview.png)
-
-## Develop
-
-Install [denoliver](https://github.com/joakimunge/denoliver) 
-and [bundler](https://github.com/timreichen/Bundler).
-
-```bash
-denoliver dist
-bundler bundle --watch --config tsconfig.json --import-map import_map.json index.html=index.html
-```
+![preview](./public/assets/wanted-preview.png)
 
 ---
 Made with ❤️ and blobs.
