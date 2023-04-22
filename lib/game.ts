@@ -16,12 +16,12 @@ export const BOARD_SIZE = 4;
 export const MAX_ROUND_POINTS = 100;
 export const MAX_BONUS_TIME = 2000;
 
-export const generateRandomBlobs = () => Array(BOARD_SIZE * BOARD_SIZE)
+export const generateRandomBlobs = (size = 9) => Array(size)
   .fill(0)
   .map(() => generateBlob(200, 200));
 
 export const generateRound = (stage = 1): GameState => {
-  const blobs = generateRandomBlobs();
+  const blobs = generateRandomBlobs(9);
   return ({
     blobs,
     captured: [],
@@ -38,7 +38,7 @@ export const calculatePoints = (game: GameState) => Math
 export const calculateTimeBonus = (game: GameState) => ((MAX_BONUS_TIME / 2)
   + (MAX_BONUS_TIME / (2 ** (game.round - 1))));
 export const nextRound = (game: GameState): GameState => {
-  const blobs = generateRandomBlobs();
+  const blobs = generateRandomBlobs(game.round <= 3 ? 9 : 16);
   return ({
     blobs,
     captured: [...game.captured, game.wanted],

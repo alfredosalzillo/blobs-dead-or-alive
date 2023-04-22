@@ -34,12 +34,8 @@
 }
 
 .board {
-  --board-cols: 4;
-  --board-rows: 4;
   --size: min(90vmin, 100vh - 230px) ;
   display: grid;
-  grid-template-columns: repeat(4, calc(100% / 4));
-  grid-template-rows: repeat(4, calc(100% / 4));
   justify-content: center;
   width: var(--size);
   height: var(--size);
