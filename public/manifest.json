@@ -20,13 +20,14 @@
     {
       "src": "icons/android-icon-192x192-dunplab-manifest-51508.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any"
     },
     {
       "src": "icons/apple-icon-180x180-dunplab-manifest-51508.png",
       "type": "image/png",
       "sizes": "180x180",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     },
     {
       "src": "icons/apple-icon-152x152-dunplab-manifest-51508.png",
