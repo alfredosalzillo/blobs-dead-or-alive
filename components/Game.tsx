@@ -98,9 +98,7 @@ const Game = () => {
               {points}
             </div>
           </div>
-          <WantedPoster>
-            {wanted && <Blob {...wanted} />}
-          </WantedPoster>
+          <WantedPoster picture={<Blob {...wanted} />} />
         </div>
         <div className="board">
           {blobs.map((blob) => (

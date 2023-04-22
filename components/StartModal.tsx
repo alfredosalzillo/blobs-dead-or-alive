@@ -16,9 +16,7 @@ const StartModal: React.FC<StartDialogProps> = ({ onStart, open }) => (
     <h1>
       Instructions
     </h1>
-    <WantedPoster>
-      <Blob {...blob} />
-    </WantedPoster>
+    <WantedPoster picture={<Blob {...blob} />} />
     <p>
       Find the WANTED BLOB before the time end.
     </p>
