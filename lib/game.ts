@@ -1,5 +1,5 @@
-import { Blob, randomBlob } from './blob.ts';
-import { randomItem } from './random.ts';
+import { Blob, randomBlob } from './blob';
+import { randomItem } from './random';
 
 export type Game = {
   blobs: Blob[],
@@ -23,23 +23,24 @@ export const generateRandomBlobs = () => Array(BOARD_SIZE * BOARD_SIZE)
 export const initialRound = (stage = 1): Game => {
   const blobs = generateRandomBlobs();
   return ({
-    blobs: blobs,
+    blobs,
     captured: [],
     wanted: randomItem(blobs),
-    time: 3*1000,
+    time: 3 * 1000,
     elapsed: 0,
     points: 0,
     round: stage,
   });
-}
+};
 
 export const calculatePoints = (game: Game) => Math
-  .round(MAX_ROUND_POINTS * (game.time - game.elapsed) / game.time)
-export const calculateTimeBonus = (game: Game) => (MAX_BONUS_TIME / 2) + (MAX_BONUS_TIME /  (2 ** (game.round - 1)));
+  .round((MAX_ROUND_POINTS * (game.time - game.elapsed)) / game.time);
+export const calculateTimeBonus = (game: Game) => ((MAX_BONUS_TIME / 2)
+  + (MAX_BONUS_TIME / (2 ** (game.round - 1))));
 export const nextRound = (game: Game): Game => {
   const blobs = generateRandomBlobs();
   return ({
-    blobs: blobs,
+    blobs,
     captured: [...game.captured, game.wanted],
     wanted: randomItem(blobs),
     time: game.time - game.elapsed + calculateTimeBonus(game),
@@ -47,9 +48,9 @@ export const nextRound = (game: Game): Game => {
     points: game.points + calculatePoints(game),
     round: game.round + 1,
   });
-}
-export const getStatus = (game: Game): GameStatus => {
-  if (game.round === 0) return 'start'
-  if (game.elapsed >= game.time) return 'loose'
-  return 'run'
-}
+};
+export const getStatus = (game: Pick<Game, 'round' | 'elapsed' | 'time'>): GameStatus => {
+  if (game.round === 0) return 'start';
+  if (game.elapsed >= game.time) return 'loose';
+  return 'run';
+};

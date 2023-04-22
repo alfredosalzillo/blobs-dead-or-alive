@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function WantedPoster(props) {
+const WantedPoster: React.FC<React.PropsWithChildren> = (props) => {
   const { children } = props;
   return (
     <div className="wanted">
@@ -18,4 +18,6 @@ export default function WantedPoster(props) {
       </div>
     </div>
   );
-}
+};
+
+export default WantedPoster;

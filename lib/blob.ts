@@ -1,4 +1,4 @@
-import { random } from './random.ts';
+import { random } from './random';
 
 export type Palette = {
   primary: string,
@@ -25,8 +25,8 @@ export const randomPalette = (): Palette => {
     primary,
     dark,
     light,
-  }
-}
+  };
+};
 type Point = {
   x: number,
   y: number,
@@ -50,9 +50,9 @@ export const randomBody = (x: number, y: number, size: number): Point[] => {
     return {
       x: px,
       y: py,
-    }
-  })
-}
+    };
+  });
+};
 export type Eye = {
   x: number,
   y: number,
@@ -70,7 +70,7 @@ export const randomEyes = (x: number, y: number, width: number): Eye[] => {
         x,
         y,
         size,
-      }
+      },
     ];
   }
   return [
@@ -85,7 +85,7 @@ export const randomEyes = (x: number, y: number, width: number): Eye[] => {
       x: x + width,
     },
   ];
-}
+};
 export type Blob = {
   id: string,
   x: number,
@@ -100,15 +100,18 @@ export type Blob = {
  * Generate a random Blob.
  */
 export const randomBlob = (width: number, height: number): Blob => {
-  const x = width / 2
-  const y = height / 2
-  const size = random(50, 80)
-  const colors = randomPalette()
-  const body = randomBody(x, y, size)
+  const x = width / 2;
+  const y = height / 2;
+  const size = random(50, 80);
+  const colors = randomPalette();
+  const body = randomBody(x, y, size);
   const maxWidth = size / 2;
   const eyes = randomEyes(x, y, maxWidth);
+  const id = Buffer.from(JSON.stringify({
+    x, y, size, colors, body, eyes,
+  })).toString('base64');
   return {
-    id: btoa(`${Date.now()}${random(0, 1000)}`),
+    id,
     x,
     y,
     width,
@@ -116,5 +119,5 @@ export const randomBlob = (width: number, height: number): Blob => {
     body,
     eyes,
     colors,
-  }
-}
+  };
+};
