@@ -43,10 +43,14 @@
   justify-content: center;
   width: var(--size);
   height: var(--size);
-  background: #adabab;
   margin: auto;
+  gap: 2px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #937b62;;
+  border: 2px solid #937b62;;
 
   .box {
-    border: 1px solid #2b2b2b;
+
   }
 }

@@ -13,6 +13,16 @@ import classes from './Game.module.scss';
 const StartModal = dynamic(() => import('@/components/StartModal'), { ssr: false });
 const LoseModal = dynamic(() => import('@/components/LoseModal'), { ssr: false });
 
+function complementaryColor(color: string | [number, number, number]) {
+  if (typeof color === 'string') {
+    return `#${
+      (`0${(255 - parseInt(color.substring(1, 3), 16)).toString(16)}`).slice(-2)
+    }${(`0${(255 - parseInt(color.substring(3, 5), 16)).toString(16)}`).slice(-2)
+    }${(`0${(255 - parseInt(color.substring(5, 7), 16)).toString(16)}`).slice(-2)}`;
+  }
+  return [(255 - color[0]), (255 - color[1]), (255 - color[2])];
+}
+
 const useGame = (initialState: GameState) => {
   const [game, setGame] = useState(initialState);
   const {
@@ -104,7 +114,14 @@ const Game: React.FC<GameProps> = ({ initialGame }) => {
       <div className={classes.board}>
         {blobs.map((blob) => (
           // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-          <div key={blob.id} role="button" tabIndex={-1} className="box" onClick={() => onBlobClick(blob)}>
+          <div
+            key={blob.id}
+            role="button"
+            tabIndex={-1}
+            className={classes.box}
+            onClick={() => onBlobClick(blob)}
+            style={{ backgroundColor: blob.colors.dark }}
+          >
             <Blob {...blob} animated />
           </div>
         ))}
