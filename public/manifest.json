@@ -84,5 +84,14 @@
       "sizes": "16x16"
     }
   ],
+  "screenshots" : [
+    {
+      "src": "screenshots/iphone-1125x2436.png",
+      "sizes": "1125x2436",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Game start view"
+    }
+  ],
   "prefer_related_applications": false
 }
