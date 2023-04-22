@@ -25,37 +25,6 @@ header {
   padding: 0 5vw;
   margin: auto;
 }
-.title {
-  color: #cda57b;
-  text-align: left;
-  letter-spacing: 2px;
-  font-size: min(7vw, 78px);
-}
-.title .title-doa {
-  position: relative;
-  display: inline-block;
-  color: black;
-  background-color: #937b62;
-  padding: 0 5px;
-}
-.title .title-doa:before, .title .title-doa:after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  background-color: #2b2b2b;
-  border: 1px solid black;
-}
-.title .title-doa:before {
-  top: 2px;
-  left: 2px;
-}
-.title .title-doa:after {
-  bottom: 2px;
-  right: 2px;
-}
 .dialog {
   position: fixed;
   top: 50%;

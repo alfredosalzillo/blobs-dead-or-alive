@@ -1,0 +1,31 @@
+.root {
+  color: #cda57b;
+  text-align: left;
+  letter-spacing: 2px;
+  font-size: min(7vw, 78px);
+  .doa {
+    position: relative;
+    display: inline-block;
+    color: black;
+    background-color: #937b62;
+    padding: 0 5px;
+    &:before, &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background-color: #2b2b2b;
+      border: 1px solid black;
+    }
+    &:before {
+      top: 2px;
+      left: 2px;
+    }
+    &:after {
+      bottom: 2px;
+      right: 2px;
+    }
+  }
+}

@@ -7,6 +7,7 @@ import SvgBlob from '@/components/SvgBlob';
 import { useEffect, useState } from 'react';
 import StartDialog from '@/components/StartDialog';
 import LoseDialog from '@/components/LoseDialog';
+import Logo from '@/components/Logo';
 
 const initialGame = initialRound(0);
 
@@ -71,10 +72,7 @@ const Game = () => {
   return (
     <>
       <header>
-        <h1 className="title">
-          BLOBS
-          <span className="title-doa">DEAD OR ALIVE</span>
-        </h1>
+        <Logo />
       </header>
       <div className="content">
         <div className="content-header">
