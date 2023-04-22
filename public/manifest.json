@@ -9,6 +9,8 @@
   "dir": "ltr",
   "display": "fullscreen",
   "orientation": "portrait",
+  "categories": ["games"],
+  "scope": "https://alfredosalzillo.me/blobs-dead-or-alive/",
   "icons": [
     {
       "src": "icons/icon-512x512.png",
