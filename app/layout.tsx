@@ -1,6 +1,9 @@
 import React from 'react';
 import { Metadata } from 'next';
 import PWAController from '@/components/PWAController';
+import { Ranchers } from 'next/font/google';
+
+const ranchers = Ranchers({ subsets: ['latin'], weight: ['400'] });
 
 export const metadata: Metadata = {
   title: 'Blobs - Dead Or Alive',
@@ -46,7 +49,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={ranchers.className}>
         {children}
         <PWAController />
       </body>

@@ -6,10 +6,12 @@ import {
 import { BlobDescriptor } from '@/lib/blob';
 import WantedPoster from '@/components/WantedPoster';
 import React, { useEffect, useState } from 'react';
-import StartModal from '@/components/StartModal';
-import LoseModal from '@/components/LoseModal';
 import Blob from '@/components/Blob';
+import dynamic from 'next/dynamic';
 import classes from './Game.module.scss';
+
+const StartModal = dynamic(() => import('@/components/StartModal'), { ssr: false });
+const LoseModal = dynamic(() => import('@/components/LoseModal'), { ssr: false });
 
 const useGame = (initialState: GameState) => {
   const [game, setGame] = useState(initialState);
