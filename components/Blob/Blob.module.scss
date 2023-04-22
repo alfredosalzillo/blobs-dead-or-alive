@@ -1,0 +1,110 @@
+.root {
+
+}
+
+.pupil {
+  --radius: 5px;
+}
+
+.animated {
+  &.roll .pupil {
+    transform: translate(0, 0);
+    animation: roll linear 3s;
+  }
+
+  &.rollReverse .pupil {
+    transform: translate(0, 0);
+    animation: roll linear 3s reverse;
+  }
+
+  &.converge .eye:nth-child(1) .pupil {
+    transform: translate(0, 0);
+    animation: converge-left linear 0.5s;
+  }
+
+  &.converge .eye:nth-child(2) .pupil {
+    transform: translate(0, 0);
+    animation: converge-right linear 0.5s;
+  }
+
+  &.convergeReverse .eye:nth-child(1) .pupil {
+    transform: translate(0, 0);
+    animation: converge-right linear 0.5s;
+  }
+
+  &.convergeReverse .eye:nth-child(2) .pupil {
+    transform: translate(0, 0);
+    animation: converge-left linear 0.5s;
+  }
+
+  &.flock .pupil {
+    transform: translate(0, 0);
+    animation: flock linear 1s;
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(5px, 5px);
+  }
+  40% {
+    transform: translate(5px, 0px);
+  }
+  60% {
+    transform: translate(5px, -5px);
+  }
+  60% {
+    transform: translate(0, -5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes converge-left {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(5px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes converge-right {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-5px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes flock {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(5px, 0px);
+  }
+  40% {
+    transform: translate(calc(-5px), 0px);
+  }
+  60% {
+    transform: translate(5px, 0px);
+  }
+  80% {
+    transform: translate(-5px, 0px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

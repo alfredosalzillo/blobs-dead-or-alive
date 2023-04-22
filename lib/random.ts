@@ -12,6 +12,6 @@ export const random = (min: number, max: number, float = false) => {
 /**
  * Generate a random element of `list`.
  */
-export function randomItem<T, >(list: T[]) {
+export function randomItem<T, >(list: T[]): T {
   return list[random(0, list.length)];
 }

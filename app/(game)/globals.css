@@ -15,16 +15,17 @@ main {
   justify-content: space-between;
 }
 
-h1 {
-  font-size: 48px;
-}
-h2 {
-  font-size: 36px;
-}
-
 header {
   padding: 0 5vw;
   margin: auto;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 36px;
 }
 
 .content {
@@ -136,112 +137,4 @@ header {
 
 .board .box {
   border: 1px solid #2b2b2b;
-}
-
-@keyframes roll {
-  0% {
-    transform: translate(0, 0);
-  }
-  20% {
-    transform: translate(5px, 5px);
-  }
-  40% {
-    transform: translate(5px, 0px);
-  }
-  60% {
-    transform: translate(5px, -5px);
-  }
-  60% {
-    transform: translate(0, -5px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes converge-left {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(5px, 0);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes converge-right {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-5px, 0);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes flock {
-  0% {
-    transform: translate(0, 0);
-  }
-  20% {
-    transform: translate(5px, 0px);
-  }
-  40% {
-    transform: translate(calc(-5px), 0px);
-  }
-  60% {
-    transform: translate(5px, 0px);
-  }
-  80% {
-    transform: translate(-5px, 0px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-.blob {
-
-}
-.blob-eye-pupil {
-  --radius: 5px;
-}
-
-.eye-roll .blob-eye-pupil {
-  transform: translate(0, 0);
-  animation: roll linear 3s;
-}
-
-.eye-roll-reverse .blob-eye-pupil {
-  transform: translate(0, 0);
-  animation: roll linear 3s reverse;
-}
-
-.eye-converge .blob-eye:nth-child(1) .blob-eye-pupil {
-  transform: translate(0, 0);
-  animation: converge-left linear 0.5s;
-}
-
-.eye-converge .blob-eye:nth-child(2) .blob-eye-pupil {
-  transform: translate(0, 0);
-  animation: converge-right linear 0.5s;
-}
-
-.eye-converge-reverse .blob-eye:nth-child(1) .blob-eye-pupil {
-  transform: translate(0, 0);
-  animation: converge-right linear 0.5s;
-}
-
-.eye-converge-reverse .blob-eye:nth-child(2) .blob-eye-pupil {
-  transform: translate(0, 0);
-  animation: converge-left linear 0.5s;
-}
-
-.eye-flock .blob-eye-pupil {
-  transform: translate(0, 0);
-  animation: flock linear 1s;
 }

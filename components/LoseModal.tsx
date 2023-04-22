@@ -1,13 +1,13 @@
-import { Blob } from '@/lib/blob';
+import { Blob as BlobType } from '@/lib/blob';
 import React from 'react';
 import Modal from '@/components/Modal';
 import ActionButton from '@/components/ActionButton';
-import SvgBlob from './SvgBlob';
+import Blob from '@/components/Blob';
 
 type LoseDialogProps = {
   onRetry: () => void,
   points: number,
-  captured?: Blob[],
+  captured?: BlobType[],
   open?: boolean,
 }
 const LoseModal: React.FC<LoseDialogProps> = ({
@@ -40,7 +40,7 @@ const LoseModal: React.FC<LoseDialogProps> = ({
             display: 'inline-block',
           }}
         >
-          <SvgBlob key={blob.id} {...blob} />
+          <Blob key={blob.id} {...blob} />
         </div>
       ))}
     </p>

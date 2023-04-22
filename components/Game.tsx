@@ -1,13 +1,13 @@
 'use client';
 
 import { getStatus, initialRound, nextRound } from '@/lib/game';
-import { Blob } from '@/lib/blob';
+import { Blob as BlobType } from '@/lib/blob';
 import WantedPoster from '@/components/WantedPoster';
-import SvgBlob from '@/components/SvgBlob';
 import { useEffect, useState } from 'react';
 import StartModal from '@/components/StartModal';
 import LoseModal from '@/components/LoseModal';
 import Logo from '@/components/Logo';
+import Blob from '@/components/Blob';
 
 const initialGame = initialRound(0);
 
@@ -38,7 +38,7 @@ const useGame = () => {
   }, []);
 
   const status = getStatus(game);
-  const next = (blob: Blob) => {
+  const next = (blob: BlobType) => {
     if (blob.id === wanted.id) {
       setGame(nextRound);
     }
@@ -66,7 +66,7 @@ const Game = () => {
     blobs, captured, wanted, points, time, elapsed, status,
   } = game;
   const progress = (time - elapsed) / time;
-  const onBlobClick = (blob: Blob) => {
+  const onBlobClick = (blob: BlobType) => {
     game.next(blob);
   };
   return (
@@ -99,14 +99,14 @@ const Game = () => {
             </div>
           </div>
           <WantedPoster>
-            {wanted && <SvgBlob {...wanted} />}
+            {wanted && <Blob {...wanted} />}
           </WantedPoster>
         </div>
         <div className="board">
           {blobs.map((blob) => (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <div key={blob.id} role="button" tabIndex={-1} className="box" onClick={() => onBlobClick(blob)}>
-              <SvgBlob {...blob} animated />
+              <Blob {...blob} animated />
             </div>
           ))}
         </div>
