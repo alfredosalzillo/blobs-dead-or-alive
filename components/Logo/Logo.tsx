@@ -1,10 +1,10 @@
 import classes from './Logo.module.scss';
 
 const Logo = () => (
-  <h1 className={classes.root}>
+  <div className={classes.root}>
     BLOBS
     <span className={classes.doa}>DEAD OR ALIVE</span>
-  </h1>
+  </div>
 );
 
 export default Logo;
