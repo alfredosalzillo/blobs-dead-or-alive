@@ -53,7 +53,7 @@ export const randomBody = (x: number, y: number, size: number): Point[] => {
     };
   });
 };
-export type Eye = {
+export type EyeDescriptor = {
   x: number,
   y: number,
   size: number,
@@ -61,7 +61,7 @@ export type Eye = {
 /**
  * Generate Blob Eyes.
  */
-export const randomEyes = (x: number, y: number, width: number): Eye[] => {
+export const randomEyes = (x: number, y: number, width: number): EyeDescriptor[] => {
   const isCyclops = random(0, 1, true) > 0.75;
   const size = random(width / 2, width);
   if (isCyclops) {
@@ -86,20 +86,20 @@ export const randomEyes = (x: number, y: number, width: number): Eye[] => {
     },
   ];
 };
-export type Blob = {
+export type BlobDescriptor = {
   id: string,
   x: number,
   y: number,
   width: number,
   height: number,
-  eyes: Eye[],
+  eyes: EyeDescriptor[],
   body: Point[],
   colors: Palette,
 }
 /**
  * Generate a random Blob.
  */
-export const randomBlob = (width: number, height: number): Blob => {
+export const generateBlob = (width: number, height: number): BlobDescriptor => {
   const x = width / 2;
   const y = height / 2;
   const size = random(50, 80);

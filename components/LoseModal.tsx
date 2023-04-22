@@ -1,4 +1,4 @@
-import { Blob as BlobType } from '@/lib/blob';
+import { BlobDescriptor } from '@/lib/blob';
 import React from 'react';
 import Modal from '@/components/Modal';
 import ActionButton from '@/components/ActionButton';
@@ -7,7 +7,7 @@ import Blob from '@/components/Blob';
 type LoseDialogProps = {
   onRetry: () => void,
   points: number,
-  captured?: BlobType[],
+  captured?: BlobDescriptor[],
   open?: boolean,
 }
 const LoseModal: React.FC<LoseDialogProps> = ({

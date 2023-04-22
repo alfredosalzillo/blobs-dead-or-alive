@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Blob as BlobType, Eye as EyeType, Palette } from '@/lib/blob';
+import { BlobDescriptor, EyeDescriptor, Palette } from '@/lib/blob';
 import { random, randomItem } from '@/lib/random';
 import spline from '@/lib//spline';
 import clsx from 'clsx';
 import classes from './Blob.module.scss';
 
-export type EyeProps = EyeType & { colors: Palette }
+export type EyeProps = EyeDescriptor & { colors: Palette }
 const Eye: React.FC<EyeProps> = ({
   x, y, size, colors,
 }) => (
@@ -43,7 +43,7 @@ const animations = [
 ];
 type Animation = typeof animations[number];
 const randomAnimation = () => randomItem<Animation>(animations);
-export type BlobProps = BlobType & {
+export type BlobProps = BlobDescriptor & {
   animated?: boolean,
 }
 

@@ -1,0 +1,52 @@
+.root {
+  margin: auto;
+  padding: 5px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.controls {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.controls progress {
+  width: 100%;
+  background-color: #937b62;
+  border: 1px solid #937b62;
+}
+.timeProgressLabel {
+  color: #cda57b;
+}
+
+.score {
+  color: #937b62;
+  font-size: 96px;
+}
+
+.board {
+  --board-cols: 4;
+  --board-rows: 4;
+  --size: min(90vmin, 100vh - 230px) ;
+  display: grid;
+  grid-template-columns: repeat(4, calc(100% / 4));
+  grid-template-rows: repeat(4, calc(100% / 4));
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  background: #adabab;
+  margin: auto;
+
+  .box {
+    border: 1px solid #2b2b2b;
+  }
+}

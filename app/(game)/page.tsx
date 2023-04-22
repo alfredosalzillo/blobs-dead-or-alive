@@ -1,11 +1,16 @@
-import dynamic from 'next/dynamic';
+import Logo from '@/components/Logo';
+import { generateRound } from '@/lib/game';
+import Game from '@/components/Game';
 
-const Game = dynamic(() => import('@/components/Game'), { ssr: false });
-
-export default function Home() {
+const Home = () => {
+  const initialGame = generateRound(0);
   return (
-    <main>
-      <Game />
-    </main>
+    <>
+      <header>
+        <Logo />
+      </header>
+      <Game initialGame={initialGame} />
+    </>
   );
-}
+};
+export default Home;

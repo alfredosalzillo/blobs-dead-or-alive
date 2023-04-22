@@ -1,10 +1,10 @@
-import { Blob, randomBlob } from './blob';
+import { BlobDescriptor, generateBlob } from './blob';
 import { randomItem } from './random';
 
-export type Game = {
-  blobs: Blob[],
-  captured: Blob[],
-  wanted: Blob,
+export type GameState = {
+  blobs: BlobDescriptor[],
+  captured: BlobDescriptor[],
+  wanted: BlobDescriptor,
   points: number,
   elapsed: number,
   time: number,
@@ -18,9 +18,9 @@ export const MAX_BONUS_TIME = 2000;
 
 export const generateRandomBlobs = () => Array(BOARD_SIZE * BOARD_SIZE)
   .fill(0)
-  .map(() => randomBlob(200, 200));
+  .map(() => generateBlob(200, 200));
 
-export const initialRound = (stage = 1): Game => {
+export const generateRound = (stage = 1): GameState => {
   const blobs = generateRandomBlobs();
   return ({
     blobs,
@@ -33,11 +33,11 @@ export const initialRound = (stage = 1): Game => {
   });
 };
 
-export const calculatePoints = (game: Game) => Math
+export const calculatePoints = (game: GameState) => Math
   .round((MAX_ROUND_POINTS * (game.time - game.elapsed)) / game.time);
-export const calculateTimeBonus = (game: Game) => ((MAX_BONUS_TIME / 2)
+export const calculateTimeBonus = (game: GameState) => ((MAX_BONUS_TIME / 2)
   + (MAX_BONUS_TIME / (2 ** (game.round - 1))));
-export const nextRound = (game: Game): Game => {
+export const nextRound = (game: GameState): GameState => {
   const blobs = generateRandomBlobs();
   return ({
     blobs,
@@ -49,7 +49,7 @@ export const nextRound = (game: Game): Game => {
     round: game.round + 1,
   });
 };
-export const getStatus = (game: Pick<Game, 'round' | 'elapsed' | 'time'>): GameStatus => {
+export const getStatus = (game: Pick<GameState, 'round' | 'elapsed' | 'time'>): GameStatus => {
   if (game.round === 0) return 'start';
   if (game.elapsed >= game.time) return 'loose';
   return 'run';
