@@ -1,0 +1,27 @@
+@use '@/theme/colors.scss' as colors;
+
+.root {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.progress {
+  width: 100%;
+  background-color: colors.$primary-dark;
+  border: 1px solid colors.$primary-dark;
+}
+
+.info {
+  color: colors.$primary-dark;
+  font-size: 16px;
+  .value {
+    display: block;
+    width: 100%;
+    text-align: right;
+    color: colors.$primary-main;
+    font-size: 32px;
+  }
+}

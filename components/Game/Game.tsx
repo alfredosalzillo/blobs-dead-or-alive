@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import Blob from '@/components/Blob';
 import dynamic from 'next/dynamic';
 import classes from './Game.module.scss';
+import Controls from './Controls';
 
 const StartModal = dynamic(() => import('@/components/StartModal'), { ssr: false });
 const LoseModal = dynamic(() => import('@/components/LoseModal'), { ssr: false });
@@ -77,37 +78,19 @@ export type GameProps = {
 const Game: React.FC<GameProps> = ({ initialGame }) => {
   const game = useGame(initialGame);
   const {
-    blobs, captured, wanted, points, time, elapsed, status,
+    blobs,
+    captured,
+    wanted,
+    points,
+    status,
   } = game;
-  const progress = (time - elapsed) / time;
   const onBlobClick = (blob: BlobDescriptor) => {
     game.next(blob);
   };
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <div className={classes.controls}>
-          <div>
-            <progress
-              id="time-progress"
-              value={progress}
-              max={1}
-              data-animated={elapsed > 0}
-            >
-              {elapsed}
-              ms
-            </progress>
-            <label htmlFor="time-progress" className={classes.timeProgressLabel}>
-              {Math.round(time - elapsed)}
-              ms
-            </label>
-          </div>
-          <div className={classes.score}>
-            PT
-            {' '}
-            {points}
-          </div>
-        </div>
+        <Controls game={game} />
         <WantedPoster picture={<Blob {...wanted} />} />
       </div>
       <div

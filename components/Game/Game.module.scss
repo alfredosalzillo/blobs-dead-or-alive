@@ -13,28 +13,6 @@
   margin-top: 20px;
 }
 
-.controls {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-right: 20px;
-}
-
-.controls progress {
-  width: 100%;
-  background-color: colors.$primary-dark;
-  border: 1px solid colors.$primary-dark;
-}
-.timeProgressLabel {
-  color: colors.$primary-main;
-}
-
-.score {
-  color: colors.$primary-dark;
-  font-size: 96px;
-}
-
 .board {
   --size: min(90vmin, 100vh - 230px) ;
   display: grid;
