@@ -82,6 +82,7 @@ const Game: React.FC<GameProps> = ({ initialGame }) => {
     captured,
     wanted,
     points,
+    round,
     status,
   } = game;
   const onBlobClick = (blob: BlobDescriptor) => {
@@ -117,6 +118,7 @@ const Game: React.FC<GameProps> = ({ initialGame }) => {
         open={status === 'start'}
       />
       <LoseModal
+        round={round}
         points={points}
         captured={captured}
         onRetry={() => game.restart()}
