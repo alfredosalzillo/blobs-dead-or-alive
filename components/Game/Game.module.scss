@@ -1,3 +1,5 @@
+@use '@/theme/colors.scss' as colors;
+
 .root {
   margin: auto;
   padding: 5px;
@@ -21,15 +23,15 @@
 
 .controls progress {
   width: 100%;
-  background-color: #937b62;
-  border: 1px solid #937b62;
+  background-color: colors.$primary-dark;
+  border: 1px solid colors.$primary-dark;
 }
 .timeProgressLabel {
-  color: #cda57b;
+  color: colors.$primary-main;
 }
 
 .score {
-  color: #937b62;
+  color: colors.$primary-dark;
   font-size: 96px;
 }
 
@@ -43,8 +45,8 @@
   gap: 2px;
   border-radius: 12px;
   overflow: hidden;
-  background: #937b62;;
-  border: 2px solid #937b62;;
+  background: colors.$primary-dark;;
+  border: 2px solid colors.$primary-dark;;
 
   .box {
 

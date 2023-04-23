@@ -1,10 +1,12 @@
+@use '@/theme/colors.scss' as colors;
+
 .root {
   position: fixed;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
   z-index: 10;
-  background: #cda57b;
+  background: colors.$primary-main;
   font-size: 36px;
   max-width: 70vw;
   max-height: 80vh;

@@ -1,5 +1,7 @@
+@use '@/theme/colors.scss' as colors;
+
 .root {
-  color: #cda57b;
+  color: colors.$primary-main;
   text-align: left;
   letter-spacing: 2px;
   font-size: 32px;
@@ -8,7 +10,7 @@
     position: relative;
     display: inline-block;
     color: black;
-    background-color: #937b62;
+    background-color: colors.$primary-dark;
     padding: 0 5px;
     margin-left: 4px;
     &:before, &:after {
