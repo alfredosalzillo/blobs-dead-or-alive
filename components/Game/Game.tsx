@@ -8,6 +8,7 @@ import WantedPoster from '@/components/WantedPoster';
 import React, { useEffect, useState } from 'react';
 import Blob from '@/components/Blob';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 import classes from './Game.module.scss';
 import Controls from './Controls';
 
@@ -76,6 +77,7 @@ export type GameProps = {
   initialGame: GameState,
 }
 const Game: React.FC<GameProps> = ({ initialGame }) => {
+  const router = useRouter();
   const game = useGame(initialGame);
   const {
     blobs,
@@ -122,6 +124,7 @@ const Game: React.FC<GameProps> = ({ initialGame }) => {
         points={points}
         captured={captured}
         onRetry={() => game.restart()}
+        onBack={() => router.push('/')}
         open={status === 'loose'}
       />
     </div>

@@ -29,3 +29,9 @@
   background: colors.$primary-light;
   display: inline-block;
 }
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

@@ -1,0 +1,11 @@
+@use '@/theme/colors.scss' as colors;
+
+.root {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  padding: 4px;
+  box-sizing: border-box;
+  background: colors.$accent-main;
+  border-radius: 12px;
+}

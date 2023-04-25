@@ -1,12 +1,13 @@
 import { BlobDescriptor } from '@/lib/blob';
 import React from 'react';
 import Modal from '@/components/Modal';
-import ActionButton from '@/components/ActionButton';
 import Blob from '@/components/Blob';
+import Button from '@/components/Button';
 import classes from './LoseModal.module.scss';
 
 export type LoseDialogProps = {
-  onRetry: () => void,
+  onRetry?: () => void,
+  onBack?: () => void,
   points: number,
   round: number
   captured?: BlobDescriptor[],
@@ -14,6 +15,7 @@ export type LoseDialogProps = {
 }
 const LoseModal: React.FC<LoseDialogProps> = ({
   onRetry,
+  onBack,
   points,
   round,
   captured = [],
@@ -55,9 +57,14 @@ const LoseModal: React.FC<LoseDialogProps> = ({
         ))}
       </div>
     </div>
-    <ActionButton type="button" fullWidth onClick={onRetry}>
-      RETRY
-    </ActionButton>
+    <div className={classes.actions}>
+      <Button color="accent" type="button" fullWidth onClick={onRetry}>
+        RETRY
+      </Button>
+      <Button color="accent" type="button" fullWidth onClick={onBack}>
+        BACK TO MENU
+      </Button>
+    </div>
   </Modal>
 );
 

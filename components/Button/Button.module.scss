@@ -1,18 +1,21 @@
 @use '@/theme/colors.scss' as colors;
 
 .root {
-  color: colors.$primary-main;
-  text-align: left;
-  letter-spacing: 2px;
-  font-size: 32px;
-  padding: 16px 0;
-  .doa {
-    position: relative;
-    display: inline-block;
-    color: black;
+  font-size: 36px;
+  padding: 8px 20px;
+  box-sizing: border-box;
+  font-family: inherit;
+  position: relative;
+
+  &.primary {
+    border: 2px solid colors.$primary-dark;
     background-color: colors.$primary-main;
-    padding: 0 5px;
-    margin-left: 4px;
+    color: colors.$accent-main;
+
+    &:hover {
+      background-color: colors.$primary-light;
+    }
+
     &:before, &:after {
       content: "";
       display: block;
@@ -32,4 +35,14 @@
       right: 2px;
     }
   }
+
+  &.accent {
+    border: 2px solid colors.$accent-light;
+    background-color: black;
+    color: colors.$primary-main;
+  }
+}
+
+.fullWidth {
+  width: 100%;
 }

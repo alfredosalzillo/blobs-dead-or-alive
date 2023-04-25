@@ -1,14 +1,16 @@
 import './globals.scss';
 import React from 'react';
+import { ModalProvider } from '@/plugins/modal-provider';
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: {
   children: React.ReactNode
-}) {
-  return (
-    <main>
+}) => (
+  <main>
+    <ModalProvider>
       {children}
-    </main>
-  );
-}
+    </ModalProvider>
+  </main>
+);
+export default RootLayout;

@@ -1,11 +1,11 @@
 import React from 'react';
 import Modal from '@/components/Modal';
-import ActionButton from '@/components/ActionButton';
+import Button from '@/components/Button';
 import WantedPoster from './WantedPoster';
 
 type StartDialogProps = {
   blob: React.ReactNode,
-  onStart: () => void,
+  onStart?: () => void,
   open?: boolean,
 }
 const StartModal: React.FC<StartDialogProps> = ({ blob, onStart, open }) => (
@@ -17,9 +17,9 @@ const StartModal: React.FC<StartDialogProps> = ({ blob, onStart, open }) => (
     <p>
       Find the WANTED BLOB before the time end.
     </p>
-    <ActionButton type="button" fullWidth onClick={onStart}>
+    <Button color="accent" type="button" fullWidth onClick={onStart}>
       START
-    </ActionButton>
+    </Button>
   </Modal>
 );
 
