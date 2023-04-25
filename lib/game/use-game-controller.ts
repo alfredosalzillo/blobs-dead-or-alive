@@ -28,7 +28,7 @@ export type GameControllerStrategy = Reducer<GameControllerState, GameController
 
 export type GameController = GameControllerState & {
   // eslint-disable-next-line no-unused-vars
-  next(blob: BlobDescriptor): void,
+  capture(blob: BlobDescriptor): void,
   restart(): void,
 }
 const useGameController = (
@@ -50,11 +50,11 @@ const useGameController = (
     updateElapsed();
     return () => window.cancelAnimationFrame(request);
   }, []);
-  const next = (blob: BlobDescriptor) => dispatch({ type: 'next', payload: blob });
+  const capture = (blob: BlobDescriptor) => dispatch({ type: 'next', payload: blob });
   const restart = () => dispatch({ type: 'restart', payload: undefined });
   return {
     ...state,
-    next,
+    capture,
     restart,
   };
 };

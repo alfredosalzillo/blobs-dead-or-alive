@@ -50,7 +50,7 @@ const Game: React.FC<GameProps> = ({ strategy, initialState }) => {
             role="button"
             tabIndex={-1}
             className={classes.box}
-            onClick={() => controller.next(blob)}
+            onClick={() => controller.capture(blob)}
             style={{ backgroundColor: blob.colors.dark }}
           >
             <Blob {...blob} animated />
