@@ -124,7 +124,7 @@ const Game: React.FC<GameProps> = ({ initialGame }) => {
         points={points}
         captured={captured}
         onRetry={() => game.restart()}
-        onBack={() => router.push('/')}
+        onBack={() => router.back()}
         open={status === 'loose'}
       />
     </div>
