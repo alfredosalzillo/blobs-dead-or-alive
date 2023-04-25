@@ -1,14 +1,14 @@
-import { generateRound } from '@/lib/game';
-import Game from '@/components/Game';
 import Header from '@/components/Header';
+import { generateInitialState } from '@/lib/game/strategies/rush';
+import RushGame from '@/components/RushGame';
 
-const RushPage = () => {
-  const initialGame = generateRound(0);
-  return (
-    <>
-      <Header title="RUSH" />
-      <Game initialGame={initialGame} />
-    </>
-  );
-};
+const initialGame = generateInitialState();
+const RushPage = () => (
+  <>
+    <Header title="RUSH" />
+    <RushGame
+      initialState={initialGame}
+    />
+  </>
+);
 export default RushPage;

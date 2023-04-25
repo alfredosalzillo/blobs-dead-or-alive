@@ -1,19 +1,21 @@
 import React from 'react';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
-import WantedPoster from './WantedPoster';
+import { generateBlob } from '@/lib/blob';
+import Blob from '@/components/Blob';
+import WantedPoster from '@/components/WantedPoster';
 
+const blob = generateBlob(200, 200);
 type StartDialogProps = {
-  blob: React.ReactNode,
   onStart?: () => void,
   open?: boolean,
 }
-const StartModal: React.FC<StartDialogProps> = ({ blob, onStart, open }) => (
+const StartModal: React.FC<StartDialogProps> = ({ onStart, open }) => (
   <Modal open={open}>
     <h1>
       Instructions
     </h1>
-    <WantedPoster picture={blob} />
+    <WantedPoster picture={<Blob {...blob} />} />
     <p>
       Find the WANTED BLOB before the time end.
     </p>

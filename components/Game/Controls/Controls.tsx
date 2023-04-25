@@ -1,14 +1,15 @@
 import React from 'react';
-import { GameState } from '@/lib/game';
 import classes from './Controls.module.scss';
 
 export type ControlsProps = {
-  game: GameState
+  points: number,
+  time: number,
+  elapsed: number,
+  round: number,
 }
-const Controls: React.FC<ControlsProps> = ({ game }) => {
-  const {
-    points, time, elapsed, round,
-  } = game;
+const Controls: React.FC<ControlsProps> = ({
+  points, time, elapsed, round,
+}) => {
   const progress = (time - elapsed) / time;
   return (
     <div className={classes.root}>
