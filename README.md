@@ -2,9 +2,9 @@
 
 A Blobs game made using React and generative art.
 
-Try it [here](http://alfredosalzillo.me/blobs-dead-or-alive/).
-
 ![preview](./public/assets/wanted-preview.png)
+
+Try it on the [Web](http://alfredosalzillo.me/blobs-dead-or-alive/) or get it on the [Google Play Store](https://play.google.com/store/apps/details?id=me.alfredosalzillo.blobsdeadoralive.twa&hl=it&gl=US).
 
 ---
 Made with ❤️ and blobs.
