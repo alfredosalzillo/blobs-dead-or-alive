@@ -51,7 +51,7 @@ const rush: GameControllerStrategy = (state, action) => {
   switch (action.type) {
     case 'restart':
       return generateRound(1, 'run');
-    case 'next':
+    case 'capture':
       if (action.payload.id === state.wanted.id) {
         return nextRound(state);
       }

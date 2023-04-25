@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:stage": "npx ts-node scripts/generate-stage.ts"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "8.2.0",
@@ -26,6 +27,7 @@
     "@types/react-dom": "18.0.11",
     "eslint": "8.38.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-next": "13.3.0"
+    "eslint-config-next": "13.3.0",
+    "tsconfig-paths": "^4.2.0"
   }
 }

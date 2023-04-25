@@ -1,7 +1,7 @@
 import { BlobDescriptor } from '@/lib/blob';
 import { Reducer, useEffect, useReducer } from 'react';
 
-export type GameControllerStatus = 'start' | 'run' | 'loose';
+export type GameControllerStatus = 'start' | 'run' | 'loose' | 'win';
 
 export type GameControllerState = {
   blobs: BlobDescriptor[],
@@ -19,10 +19,10 @@ export type GameControllerGenericAction<Type, Payload> = {
   payload: Payload,
 }
 export type GameControllerRestartAction = GameControllerGenericAction<'restart', void>;
-export type GameControllerNextAction = GameControllerGenericAction<'next', BlobDescriptor>;
+export type GameControllerCaptureAction = GameControllerGenericAction<'capture', BlobDescriptor>;
 export type GameControllerUpdateElapsedAction = GameControllerGenericAction<'update-elapsed', number>;
 export type GameControllerAction = GameControllerRestartAction
-  | GameControllerNextAction
+  | GameControllerCaptureAction
   | GameControllerUpdateElapsedAction;
 export type GameControllerStrategy = Reducer<GameControllerState, GameControllerAction>;
 
@@ -50,7 +50,7 @@ const useGameController = (
     updateElapsed();
     return () => window.cancelAnimationFrame(request);
   }, []);
-  const capture = (blob: BlobDescriptor) => dispatch({ type: 'next', payload: blob });
+  const capture = (blob: BlobDescriptor) => dispatch({ type: 'capture', payload: blob });
   const restart = () => dispatch({ type: 'restart', payload: undefined });
   return {
     ...state,

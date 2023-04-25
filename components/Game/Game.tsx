@@ -11,6 +11,7 @@ import Controls from './Controls';
 
 const StartModal = dynamic(() => import('@/components/StartModal'), { ssr: false });
 const LoseModal = dynamic(() => import('@/components/LoseModal'), { ssr: false });
+const WinModal = dynamic(() => import('@/components/WinModal'), { ssr: false });
 
 const gridSize = (size: number): React.CSSProperties => {
   const rows = Math.sqrt(size);
@@ -68,6 +69,14 @@ const Game: React.FC<GameProps> = ({ strategy, initialState }) => {
         onRetry={() => controller.restart()}
         onBack={() => router.back()}
         open={controller.status === 'loose'}
+      />
+      <WinModal
+        round={controller.round}
+        points={controller.points}
+        captured={controller.captured}
+        onRetry={() => controller.restart()}
+        onBack={() => router.push('/campaign/')}
+        open={controller.status === 'win'}
       />
     </div>
   );
