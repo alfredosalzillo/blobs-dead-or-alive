@@ -59,7 +59,7 @@ export type TypographyProps<
   variant?: TVariant | TypographyVariant
 }
 
-export function Typography<
+function Typography<
   TVariant extends TypographyVariant = 'body',
   T extends
       | keyof JSX.IntrinsicElements
