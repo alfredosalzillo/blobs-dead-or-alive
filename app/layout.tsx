@@ -8,8 +8,8 @@ import PWAController from '@/components/PWAController';
 const ranchers = Ranchers({ subsets: ['latin'], weight: ['400'] });
 
 export const metadata: Metadata = {
-  title: 'Blobs - Dead Or Alive',
-  applicationName: 'Blobs - Dead Or Alive',
+  title: 'Blobs Dead Or Alive',
+  applicationName: 'Blobs Dead Or Alive',
   description: 'This blob is WANTED! Dead or Alive 100PT Rewards!',
   authors: [
     {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   manifest: '/blobs-dead-or-alive/manifest.json',
   other: {
-    'og:title': 'Blobs - Dead Or Alive',
+    'og:title': 'Blobs Dead Or Alive',
     'og:description': 'This blob is WANTED! Dead or Alive 100PT Rewards!',
     'og:image': '/blobs-dead-or-alive/assets/wanted-preview.png',
   },
