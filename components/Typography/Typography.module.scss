@@ -1,0 +1,129 @@
+@use '@/theme/colors.scss' as colors;
+
+.alignCenter {
+  text-align: center;
+}
+.alignRight {
+  text-align: right;
+}
+.alignLeft {
+  text-align: left;
+}
+.alignJustify {
+  text-align: justify;
+}
+.alignInherit {
+  text-align: inherit;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.noWrap {
+  white-space: nowrap;
+}
+
+.colorPrimary {
+  color: colors.$primary-main;
+}
+.colorAccent {
+  color: colors.$accent-main;
+}
+.colorInherit {
+  color: inherit;
+}
+
+.h1 {
+  font-size: 48px;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  margin: 0;
+  &.gutterBottom {
+    margin-bottom: 16px;
+  }
+  &.gutterTop {
+    margin-top: 16px;
+  }
+}
+
+.h2 {
+  padding-top: 8px;
+  padding-bottom: 12px;
+  font-size: 36px;
+  margin: 0;
+  &.gutterBottom {
+    margin-bottom: 12px;
+  }
+  &.gutterTop {
+    margin-top: 12px;
+  }
+}
+
+.h3 {
+  padding-top: 4px;
+  padding-bottom: 8px;
+  font-size: 32px;
+  margin: 0;
+  &.gutterBottom {
+    margin-bottom: 12px;
+  }
+  &.gutterTop {
+    margin-top: 12px;
+  }
+}
+
+.h4 {
+  padding-top: 4px;
+  padding-bottom: 8px;
+  font-size: 28px;
+  margin: 0;
+  &.gutterBottom {
+    margin-bottom: 8px;
+  }
+  &.gutterTop {
+    margin-top: 8px;
+  }
+}
+
+.h5 {
+  padding-top: 4px;
+  padding-bottom: 8px;
+  font-size: 24px;
+  margin: 0;
+  &.gutterBottom {
+    margin-bottom: 8px;
+  }
+  &.gutterTop {
+    margin-top: 8px;
+  }
+}
+
+.h6 {
+  padding-top: 4px;
+  padding-bottom: 8px;
+  font-size: 20px;
+  margin: 0;
+  &.gutterBottom {
+    margin-bottom: 8px;
+  }
+  &.gutterTop {
+    margin-top: 8px;
+  }
+}
+
+.body {
+  font-size: 22px;
+  margin: 0;
+  &.gutterBottom {
+    margin-bottom: 8px;
+  }
+  &.gutterTop {
+    margin-top: 8px;
+  }
+}
+
+.paragraph {
+  padding-top: 4px;
+  padding-bottom: 12px;
+}

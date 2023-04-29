@@ -5,6 +5,7 @@ import type { BlobDescriptor } from '@/lib/blob';
 import Modal from '@/components/Modal';
 import Blob from '@/components/Blob';
 import Button from '@/components/Button';
+import Typography from '@/components/Typography';
 
 import classes from './WinModal.module.scss';
 
@@ -25,11 +26,11 @@ const WinModal: React.FC<WinModalProps> = ({
   open = false,
 }) => (
   <Modal open={open}>
-    <h1>
+    <Typography variant="h1">
       You WON!
-    </h1>
+    </Typography>
     <div className={classes.content}>
-      <h2>RESULTS</h2>
+      <Typography variant="h2">RESULTS</Typography>
       <div className={classes.info}>
         {points}
         {' '}

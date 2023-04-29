@@ -5,6 +5,7 @@ import Button from '@/components/Button';
 import { generateBlob } from '@/lib/blob';
 import Blob from '@/components/Blob';
 import WantedPoster from '@/components/WantedPoster';
+import Typography from '@/components/Typography';
 
 const blob = generateBlob(200, 200);
 type StartDialogProps = {
@@ -13,13 +14,13 @@ type StartDialogProps = {
 }
 const StartModal: React.FC<StartDialogProps> = ({ onStart, open }) => (
   <Modal open={open}>
-    <h1>
+    <Typography variant="h1">
       Instructions
-    </h1>
+    </Typography>
     <WantedPoster picture={<Blob {...blob} />} />
-    <p>
+    <Typography variant="body" paragraph gutterTop>
       Find the WANTED BLOB before the time end.
-    </p>
+    </Typography>
     <Button color="accent" type="button" fullWidth onClick={onStart}>
       START
     </Button>

@@ -7,6 +7,7 @@ import { generateBlob } from '@/lib/blob';
 import Blob from '@/components/Blob';
 import WantedPoster from '@/components/WantedPoster';
 import Button from '@/components/Button';
+import Typography from '@/components/Typography';
 
 const blob = generateBlob(200, 200);
 type InstructionsModalProps = {
@@ -15,13 +16,13 @@ type InstructionsModalProps = {
 }
 const InstructionsModal: React.FC<InstructionsModalProps> = ({ onContinue, open }) => (
   <Modal open={open}>
-    <h1>
+    <Typography variant="h1">
       Instructions
-    </h1>
+    </Typography>
     <WantedPoster picture={<Blob {...blob} />} />
-    <p>
+    <Typography variant="body" paragraph gutterTop>
       Find the WANTED BLOB before the time end.
-    </p>
+    </Typography>
     <Button color="accent" type="button" fullWidth onClick={onContinue}>
       CONTINUE
     </Button>
