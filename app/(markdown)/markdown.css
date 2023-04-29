@@ -8,12 +8,12 @@ body {
 }
 
 main {
-    padding: 24px;
     background-color: #0d1117;
     box-sizing: border-box;
 }
 
 .markdown-body {
+    padding: 24px;
     color-scheme: dark;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
