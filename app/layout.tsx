@@ -3,8 +3,6 @@ import { Ranchers } from 'next/font/google';
 
 import type { Metadata } from 'next';
 
-import PWAController from '@/components/PWAController';
-
 const ranchers = Ranchers({ subsets: ['latin'], weight: ['400'] });
 
 export const metadata: Metadata = {
@@ -53,7 +51,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={ranchers.className}>
         {children}
-        <PWAController />
       </body>
     </html>
   );

@@ -2,6 +2,7 @@ import './globals.scss';
 import React from 'react';
 
 import { ModalProvider } from '@/plugins/modal-provider';
+import PWAController from '@/components/PWAController';
 
 const RootLayout = ({
   children,
@@ -12,6 +13,7 @@ const RootLayout = ({
     <ModalProvider>
       {children}
     </ModalProvider>
+    <PWAController />
   </main>
 );
 export default RootLayout;
