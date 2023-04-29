@@ -1,6 +1,7 @@
 import './globals.scss';
 import React from 'react';
 
+import AuthProvider from 'auth/AuthProvider';
 import { ModalProvider } from '@/plugins/modal-provider';
 import PWAController from '@/components/PWAController';
 
@@ -10,9 +11,11 @@ const RootLayout = ({
   children: React.ReactNode
 }) => (
   <main>
-    <ModalProvider>
-      {children}
-    </ModalProvider>
+    <AuthProvider>
+      <ModalProvider>
+        {children}
+      </ModalProvider>
+    </AuthProvider>
     <PWAController />
   </main>
 );

@@ -26,7 +26,7 @@ const HomePage = () => {
         <Button fullWidth onClick={() => router.push('/rush')}>START GAME</Button>
         <Button fullWidth onClick={() => comingSoon.open()}>CAMPAIGN</Button>
         <Button fullWidth onClick={() => instructions.open()}>INSTRUCTIONS</Button>
-        <Button fullWidth onClick={() => comingSoon.open()}>SETTINGS</Button>
+        <Button fullWidth onClick={() => router.push('/settings')}>SETTINGS</Button>
       </div>
       <InstructionsModal open={instructions.opened} onContinue={() => instructions.close()} />
       <ComingSoonModal open={comingSoon.opened} onContinue={() => comingSoon.close()} />
