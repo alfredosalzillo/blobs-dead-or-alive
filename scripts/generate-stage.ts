@@ -1,6 +1,7 @@
-import * as fs from 'node:fs';
 import { Round } from '@/lib/game/strategies/stage';
 import { generateRandomBlobs } from '@/lib/game/strategies/rush';
+
+import * as fs from 'node:fs';
 
 type RoundDescriptor = {
   blobs: number,

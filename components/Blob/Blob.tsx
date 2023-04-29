@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { BlobDescriptor, EyeDescriptor, Palette } from '@/lib/blob';
+import clsx from 'clsx';
+
+import type { BlobDescriptor, EyeDescriptor, Palette } from '@/lib/blob';
+
 import { random, randomItem } from '@/lib/random';
 import spline from '@/lib//spline';
-import clsx from 'clsx';
+
 import classes from './Blob.module.scss';
 
 export type EyeProps = EyeDescriptor & { colors: Palette }
@@ -29,6 +32,7 @@ const Eye: React.FC<EyeProps> = ({
       fill={colors.dark}
       className={classes.pupil}
       style={{
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         '--radius': `${size / 2}px`,
       }}

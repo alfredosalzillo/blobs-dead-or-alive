@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react';
 import clsx from 'clsx';
 import { createPortal } from 'react-dom';
+
 import classes from './Modal.module.scss';
 
 const useModalRoot = () => useMemo(() => {

@@ -1,4 +1,5 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+
 import PrivacyPolicy from './privacy-policy.mdx';
 
 export const metadata: Metadata = {

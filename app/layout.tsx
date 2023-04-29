@@ -1,7 +1,9 @@
 import React from 'react';
-import { Metadata } from 'next';
-import PWAController from '@/components/PWAController';
 import { Ranchers } from 'next/font/google';
+
+import type { Metadata } from 'next';
+
+import PWAController from '@/components/PWAController';
 
 const ranchers = Ranchers({ subsets: ['latin'], weight: ['400'] });
 

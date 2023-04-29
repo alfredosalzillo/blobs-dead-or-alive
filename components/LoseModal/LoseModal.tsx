@@ -1,8 +1,11 @@
-import { BlobDescriptor } from '@/lib/blob';
 import React from 'react';
+
+import type { BlobDescriptor } from '@/lib/blob';
+
 import Modal from '@/components/Modal';
 import Blob from '@/components/Blob';
 import Button from '@/components/Button';
+
 import classes from './LoseModal.module.scss';
 
 export type LoseDialogProps = {

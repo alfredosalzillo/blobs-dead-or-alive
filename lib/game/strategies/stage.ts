@@ -1,5 +1,5 @@
-import { BlobDescriptor } from '@/lib/blob';
-import { GameControllerState, GameControllerStrategy } from '@/lib/game/use-game-controller';
+import type { BlobDescriptor } from '@/lib/blob';
+import type { GameControllerState, GameControllerStrategy } from '@/lib/game/use-game-controller';
 
 export type Round = {
   blobs: BlobDescriptor[],

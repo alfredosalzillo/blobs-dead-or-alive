@@ -1,5 +1,11 @@
 {
-  "extends": ["airbnb", "next", "next/core-web-vitals"],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb",
+    "next",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals"
+  ],
   "rules": {
     "react/function-component-definition": 0,
     "react/require-default-props": 0,
@@ -19,6 +25,26 @@
       {
         "tsx": 0
       }
-    ]
+    ],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
+        "groups": [
+          "external",
+          "type",
+          "internal",
+          "index",
+          "parent",
+          "sibling",
+          "builtin",
+          "object"
+        ]
+      }
+    ],
+    "@typescript-eslint/consistent-type-imports": "error"
   }
 }

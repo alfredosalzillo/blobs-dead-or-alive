@@ -1,4 +1,5 @@
 import React from 'react';
+
 import classes from './Controls.module.scss';
 
 export type ControlsProps = {

@@ -1,5 +1,7 @@
 import React from 'react';
+
 import SmallLogo from '@/components/SmallLogo';
+
 import classes from './Header.module.scss';
 
 export type HeaderProps = {

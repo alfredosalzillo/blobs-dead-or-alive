@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Workbox } from 'workbox-window';
+
+import type { Workbox } from 'workbox-window';
 
 declare global {
   // eslint-disable-next-line no-unused-vars

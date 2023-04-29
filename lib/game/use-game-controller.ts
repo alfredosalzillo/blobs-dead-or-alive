@@ -1,5 +1,7 @@
-import { BlobDescriptor } from '@/lib/blob';
-import { Reducer, useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
+
+import type { Reducer } from 'react';
+import type { BlobDescriptor } from '@/lib/blob';
 
 export type GameControllerStatus = 'start' | 'run' | 'loose' | 'win';
 
@@ -37,7 +39,7 @@ const useGameController = (
 ): GameController => {
   const [state, dispatch] = useReducer(strategy, initialState);
   useEffect(() => {
-    let request: number = 0;
+    let request = 0;
     let last = 0;
     const updateElapsed = () => {
       request = window.requestAnimationFrame((timestamp) => {

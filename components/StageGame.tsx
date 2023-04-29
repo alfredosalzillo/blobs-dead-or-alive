@@ -1,8 +1,11 @@
 'use client';
 
-import Game from '@/components/Game';
 import React, { useMemo } from 'react';
-import { createInitialState, createStageStrategy, Stage } from '@/lib/game/strategies/stage';
+
+import type { Stage } from '@/lib/game/strategies/stage';
+
+import Game from '@/components/Game';
+import { createInitialState, createStageStrategy } from '@/lib/game/strategies/stage';
 
 export type StageGameProps = {
   stage: Stage,

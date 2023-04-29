@@ -1,11 +1,13 @@
 'use client';
 
 import React from 'react';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
+
 import Logo from '@/components/Logo';
 import Button from '@/components/Button';
-import dynamic from 'next/dynamic';
 import { useModal } from '@/plugins/modal-provider';
-import { useRouter } from 'next/navigation';
+
 import classes from './page.module.scss';
 
 const InstructionsModal = dynamic(() => import('@/components/InstructionsModal'), { ssr: false });

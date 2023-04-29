@@ -1,11 +1,15 @@
 'use client';
 
-import WantedPoster from '@/components/WantedPoster';
 import React from 'react';
-import Blob from '@/components/Blob';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
-import useGameController, { GameControllerState, GameControllerStrategy } from '@/lib/game/use-game-controller';
+
+import type { GameControllerState, GameControllerStrategy } from '@/lib/game/use-game-controller';
+
+import Blob from '@/components/Blob';
+import WantedPoster from '@/components/WantedPoster';
+import useGameController from '@/lib/game/use-game-controller';
+
 import classes from './Game.module.scss';
 import Controls from './Controls';
 

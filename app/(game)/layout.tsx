@@ -1,5 +1,6 @@
 import './globals.scss';
 import React from 'react';
+
 import { ModalProvider } from '@/plugins/modal-provider';
 
 const RootLayout = ({

@@ -1,4 +1,5 @@
-import { GameControllerState, GameControllerStatus, GameControllerStrategy } from '@/lib/game/use-game-controller';
+import type { GameControllerState, GameControllerStatus, GameControllerStrategy } from '@/lib/game/use-game-controller';
+
 import { generateBlob } from '@/lib/blob';
 import { randomItem } from '@/lib/random';
 

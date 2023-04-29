@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+
 import Modal from '@/components/Modal';
 import { generateBlob } from '@/lib/blob';
 import Blob from '@/components/Blob';
