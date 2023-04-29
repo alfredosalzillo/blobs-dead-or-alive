@@ -10,7 +10,9 @@ const withPWA = createWithPWA({
   }
 });
 
-const withMdx = addMdx();
+const withMdx = addMdx({
+  extension: /\.mdx?$|\.md?$/,
+});
 
 /** @type {import('next').NextConfig} */
 const config = {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import PrivacyPolicy from './privacy-policy.mdx';
+import PrivacyPolicy from '@/PRIVACY_POLICY.md';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
