@@ -63,11 +63,18 @@
   ],
   "screenshots" : [
     {
-      "src": "screenshots/iphone-1125x2436.png",
-      "sizes": "1125x2436",
-      "type": "image/png",
+      "src": "screenshots/phone-1242x2208-1.jpg",
+      "sizes": "1242x2208",
+      "type": "image/jpg",
       "platform": "wide",
-      "label": "Game start view"
+      "label": "Example 1"
+    },
+    {
+      "src": "screenshots/phone-1242x2208-2.jpg",
+      "sizes": "1242x2208",
+      "type": "image/jpg",
+      "platform": "wide",
+      "label": "Example 2"
     }
   ],
   "prefer_related_applications": false
