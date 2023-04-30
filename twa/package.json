@@ -1,0 +1,12 @@
+{
+  "name": "blobs-dead-or-alive-twa",
+  "version": "1.0.0",
+  "description": "TWA app",
+  "main": "index.js",
+  "scripts": {
+    "twa:build": "npx @bubblewrap/cli build --manifest='./twa-manifest.json'",
+    "twa:update": "npx @bubblewrap/cli update"
+  },
+  "author": "Alfredo Salzillo",
+  "license": "ISC"
+}

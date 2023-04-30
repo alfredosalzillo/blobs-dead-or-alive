@@ -1,0 +1,45 @@
+{
+  "packageId": "me.alfredosalzillo.blobsdeadoralive.twa",
+  "host": "alfredosalzillo.me",
+  "name": "Blobs Dead Or ALive",
+  "launcherName": "Blobs DOA",
+  "display": "fullscreen",
+  "themeColor": "#000000",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#000000",
+  "enableNotifications": true,
+  "startUrl": "/blobs-dead-or-alive/",
+  "iconUrl": "https://alfredosalzillo.me/blobs-dead-or-alive/icons/icon-512x512.png",
+  "maskableIconUrl": "https://alfredosalzillo.me/blobs-dead-or-alive/icons/icon-512x512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "blobs-dead-or-alive"
+  },
+  "appVersionName": "4",
+  "appVersionCode": 4,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://alfredosalzillo.me/blobs-dead-or-alive/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://alfredosalzillo.me/blobs-dead-or-alive/",
+  "minSdkVersion": 19,
+  "orientation": "portrait",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [
+    "https://blobsdeadoralive.alfredosalzillo.me",
+    "https://blobs-dead-or-alive.web.app/"
+  ],
+  "retainedBundles": [],
+  "appVersion": "4"
+}
