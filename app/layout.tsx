@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     'og:image': '/blobs-dead-or-alive/assets/wanted-preview.png',
   },
   icons: {
-    apple: '/blobs-dead-or-alive/icons/apple-icon-180x180-dunplab-manifest-51508.png',
+    apple: '/blobs-dead-or-alive/icons/icon-192x192.png',
     icon: {
       url: '/blobs-dead-or-alive/favicon.ico',
       type: 'image/x-icon',
