@@ -4,6 +4,10 @@ import React from 'react';
 import AuthProvider from 'auth/AuthProvider';
 import { ModalProvider } from '@/plugins/modal-provider';
 import PWAController from '@/components/PWAController';
+import OnlyLogged from '@/components/OnlyLogged';
+
+import LoadingScreen from './LoadingScreen';
+import SignInScreen from './SignInScreen';
 
 const RootLayout = ({
   children,
@@ -13,7 +17,9 @@ const RootLayout = ({
   <main>
     <AuthProvider>
       <ModalProvider>
-        {children}
+        <OnlyLogged loading={<LoadingScreen />} fallback={<SignInScreen />}>
+          {children}
+        </OnlyLogged>
       </ModalProvider>
     </AuthProvider>
     <PWAController />

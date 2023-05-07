@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 
@@ -49,17 +51,18 @@ type Animation = typeof animations[number];
 const randomAnimation = () => randomItem<Animation>(animations);
 export type BlobProps = BlobDescriptor & {
   animated?: boolean,
+  className?: string,
 }
 
-const Blob: React.FC<BlobProps> = (props) => {
-  const {
-    width,
-    height,
-    body,
-    eyes,
-    colors,
-    animated,
-  } = props;
+const Blob: React.FC<BlobProps> = ({
+  animated,
+  body,
+  className,
+  colors,
+  eyes,
+  height,
+  width,
+}) => {
   const [animation, setAnimation] = useState<Animation | null>(null);
   useEffect(() => {
     if (!animated) return undefined;
@@ -79,7 +82,7 @@ const Blob: React.FC<BlobProps> = (props) => {
         [classes.converge]: animation === 'eye-converge',
         [classes.convergeReverse]: animation === 'eye-converge-reverse',
         [classes.flock]: animation === 'eye-flock',
-      })}
+      }, className)}
       onClick={() => setAnimation('eye-flock')}
       onAnimationEnd={() => setAnimation('')}
     >

@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: inherit;
   position: relative;
+  cursor: pointer;
 
   &.primary {
     border: 2px solid colors.$primary-dark;

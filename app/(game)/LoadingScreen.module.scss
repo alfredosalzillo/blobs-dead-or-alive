@@ -1,0 +1,30 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.loading {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  width: 100%;
+  align-items: self-end;
+  justify-content: end;
+  box-sizing: border-box;
+}
+
+.blob {
+  filter: grayscale(1);
+}
