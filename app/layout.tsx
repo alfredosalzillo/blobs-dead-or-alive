@@ -1,7 +1,7 @@
 import React from 'react';
 import { Ranchers } from 'next/font/google';
 
-import type {Metadata, Viewport} from 'next';
+import type { Metadata, Viewport } from 'next';
 
 const ranchers = Ranchers({ subsets: ['latin'], weight: ['400'] });
 
