@@ -19,9 +19,6 @@ const config = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx', 'md'],
   output: 'export',
   basePath: '/blobs-dead-or-alive',
-  experimental: {
-    appDir: true,
-  },
 }
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Ranchers } from 'next/font/google';
 
-import type { Metadata } from 'next';
+import type {Metadata, Viewport} from 'next';
 
 const ranchers = Ranchers({ subsets: ['latin'], weight: ['400'] });
 
@@ -14,8 +14,6 @@ export const metadata: Metadata = {
       name: 'Alfredo Salzillo',
     },
   ],
-  viewport: 'width=device-width, initial-scale=1.0',
-  themeColor: '#000000',
   formatDetection: {
     telephone: false,
   },
@@ -40,6 +38,12 @@ export const metadata: Metadata = {
       rel: 'icon',
     },
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+  themeColor: '#000000',
 };
 
 export default function RootLayout({
