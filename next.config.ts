@@ -1,3 +1,4 @@
+import type { NextConfig } from "next";
 import createWithPWA from "@ducanh2912/next-pwa";
 import addMdx from "@next/mdx";
 
@@ -14,8 +15,7 @@ const withMdx = addMdx({
   extension: /\.mdx?$|\.md?$/,
 });
 
-/** @type {import('next').NextConfig} */
-const config = {
+const config: NextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "mdx", "md"],
   output: "export",
   basePath: "/blobs-dead-or-alive",

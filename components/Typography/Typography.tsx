@@ -1,5 +1,5 @@
 import type React from "react";
-import type { ComponentProps, JSXElementConstructor } from "react";
+import type { ComponentProps, JSX, JSXElementConstructor } from "react";
 import clsx from "clsx";
 import classes from "./Typography.module.scss";
 
