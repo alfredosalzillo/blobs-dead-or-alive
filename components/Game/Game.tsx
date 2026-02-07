@@ -10,8 +10,8 @@ import WantedPoster from "@/components/WantedPoster";
 import type {
   GameControllerState,
   GameControllerStrategy,
-} from "@/lib/game/use-game-controller";
-import useGameController from "@/lib/game/use-game-controller";
+} from "@/lib/game/useGameController";
+import useGameController from "@/lib/game/useGameController";
 
 const StartModal = dynamic(() => import("@/components/StartModal"), {
   ssr: false,

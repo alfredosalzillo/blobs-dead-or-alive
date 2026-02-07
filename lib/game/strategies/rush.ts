@@ -3,7 +3,7 @@ import type {
   GameControllerState,
   GameControllerStatus,
   GameControllerStrategy,
-} from "@/lib/game/use-game-controller";
+} from "@/lib/game/useGameController";
 import { randomItem } from "@/lib/random";
 
 export const MAX_ROUND_POINTS = 100;

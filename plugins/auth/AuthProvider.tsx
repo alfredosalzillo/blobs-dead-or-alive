@@ -41,7 +41,9 @@ const AuthProvider: React.FC<AuthProviderProps> = ({
         console.error("AuthProvider", error);
       });
   }, [autoSignInAnonymously, ready, user]);
+
   const value = useMemo(() => ({ user, ready }), [user, ready]);
+
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 

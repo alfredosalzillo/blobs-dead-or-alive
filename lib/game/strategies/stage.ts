@@ -2,7 +2,7 @@ import type { BlobDescriptor } from "@/lib/blob";
 import type {
   GameControllerState,
   GameControllerStrategy,
-} from "@/lib/game/use-game-controller";
+} from "@/lib/game/useGameController";
 
 export type Round = {
   blobs: BlobDescriptor[];
@@ -21,7 +21,6 @@ export const createInitialState = (stage: Stage): GameControllerState => ({
   status: "start",
 });
 
-// eslint-disable-next-line no-unused-vars
 type RoundStrategyFactory = (stage: Stage) => GameControllerStrategy;
 export const createStageStrategy: RoundStrategyFactory =
   (stage) => (state, action) => {
