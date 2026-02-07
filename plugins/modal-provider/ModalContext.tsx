@@ -1,15 +1,23 @@
 "use client";
 
+import type { ComponentType } from "react";
 import { createContext } from "react";
 
+// biome-ignore lint/suspicious/noExplicitAny: allowed
+export type ModalEntry<P = any> = {
+  name: string;
+  component: ComponentType<P>;
+  props: P;
+};
+
 export type ModalContextValue = {
-  state: Record<string, unknown>;
-  open<T>(name: string, options: T): void;
+  modals: ModalEntry[];
+  open<P>(name: string, component: ComponentType<P>, props: P): void;
   close(name: string): void;
 };
 
 const ModalContext = createContext<ModalContextValue>({
-  state: {},
+  modals: [],
   open: () => {
     throw new Error("ModalContext is not implemented");
   },

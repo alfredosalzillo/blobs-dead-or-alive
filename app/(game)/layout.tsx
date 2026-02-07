@@ -1,5 +1,5 @@
 import "./globals.scss";
-import { FC, Suspense } from "react";
+import { type FC, Suspense } from "react";
 import AuthProvider from "auth/AuthProvider";
 import OnlyLogged from "@/components/OnlyLogged";
 import PWAController from "@/components/PWAController";
@@ -14,9 +14,7 @@ const RootLayout: FC<LayoutProps<"/">> = ({
     <AuthProvider>
       <ModalProvider>
         <OnlyLogged loading={loading} fallback={signIn}>
-          <Suspense fallback={loading}>
-            {children}
-          </Suspense>
+          <Suspense fallback={loading}>{children}</Suspense>
         </OnlyLogged>
       </ModalProvider>
     </AuthProvider>

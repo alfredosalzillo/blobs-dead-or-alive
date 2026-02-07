@@ -14,39 +14,40 @@ const InstructionsModal = dynamic(
 const ComingSoonModal = dynamic(() => import("@/components/ComingSoonModal"), {
   ssr: false,
 });
-const useInstructionsModal = () => useModal("instructions");
-const useComingSoonModal = () => useModal("coming-soon");
 
 const HomePage = () => {
-  const instructions = useInstructionsModal();
-  const comingSoon = useComingSoonModal();
+  const modal = useModal();
   const router = useRouter();
   return (
-    <>
-      <div className={classes.root}>
-        <Logo />
-        <Button fullWidth onClick={() => router.push("/rush")}>
-          START GAME
-        </Button>
-        <Button fullWidth onClick={() => comingSoon.open()}>
-          CAMPAIGN
-        </Button>
-        <Button fullWidth onClick={() => instructions.open()}>
-          INSTRUCTIONS
-        </Button>
-        <Button fullWidth onClick={() => router.push("/settings")}>
-          SETTINGS
-        </Button>
-      </div>
-      <InstructionsModal
-        open={instructions.opened}
-        onContinue={() => instructions.close()}
-      />
-      <ComingSoonModal
-        open={comingSoon.opened}
-        onContinue={() => comingSoon.close()}
-      />
-    </>
+    <div className={classes.root}>
+      <Logo />
+      <Button fullWidth onClick={() => router.push("/rush")}>
+        START GAME
+      </Button>
+      <Button
+        fullWidth
+        onClick={() =>
+          modal.open("coming-soon", ComingSoonModal, {
+            onContinue: () => modal.close("coming-soon"),
+          })
+        }
+      >
+        CAMPAIGN
+      </Button>
+      <Button
+        fullWidth
+        onClick={() =>
+          modal.open("instructions", InstructionsModal, {
+            onContinue: () => modal.close("instructions"),
+          })
+        }
+      >
+        INSTRUCTIONS
+      </Button>
+      <Button fullWidth onClick={() => router.push("/settings")}>
+        SETTINGS
+      </Button>
+    </div>
   );
 };
 

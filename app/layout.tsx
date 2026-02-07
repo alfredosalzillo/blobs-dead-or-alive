@@ -45,14 +45,10 @@ export const viewport: Viewport = {
   themeColor: "#000000",
 };
 
-const RootLayout = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => (
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="en" dir="ltr">
-  <body className={ranchers.className}>{children}</body>
+    <body className={ranchers.className}>{children}</body>
   </html>
 );
 
-export default RootLayout
+export default RootLayout;
