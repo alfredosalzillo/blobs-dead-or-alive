@@ -1,28 +1,23 @@
-'use client';
+"use client";
 
-import React, { useEffect, useMemo, useState } from 'react';
-import {
-  onAuthStateChanged,
-  getAuth, signInAnonymously,
-} from 'firebase/auth';
-
-import type { User } from 'firebase/auth';
-
-import app from '@/plugins/firebase';
-
-import AuthContext from './AuthContext';
+import type React from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { User } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
+import AuthContext from "./AuthContext";
+import app from "@/plugins/firebase";
 
 const auth = getAuth(app);
 
 export type AuthProviderProps = {
-  children: React.ReactNode,
-  autoSignInAnonymously?: boolean,
-}
+  children: React.ReactNode;
+  autoSignInAnonymously?: boolean;
+};
 const AuthProvider: React.FC<AuthProviderProps> = ({
   children,
   autoSignInAnonymously = false,
 }) => {
-  const [user, setUser] = useState<User| null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -43,15 +38,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({
         setUser(currentUser.user);
       })
       .catch((error) => {
-        console.error('AuthProvider', error);
+        console.error("AuthProvider", error);
       });
   }, [autoSignInAnonymously, ready, user]);
   const value = useMemo(() => ({ user, ready }), [user, ready]);
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

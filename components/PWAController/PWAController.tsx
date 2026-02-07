@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-
-import type { Workbox } from 'workbox-window';
+import { useEffect } from "react";
+import type { Workbox } from "workbox-window";
 
 declare global {
   // eslint-disable-next-line no-unused-vars
@@ -13,11 +12,19 @@ declare global {
 
 const PWAController = () => {
   useEffect(() => {
-    if (typeof window !== 'undefined' && 'serviceWorker' in navigator && window.workbox !== undefined) {
+    if (
+      typeof window !== "undefined" &&
+      "serviceWorker" in navigator &&
+      window.workbox !== undefined
+    ) {
       const wb = window.workbox as Workbox;
-      wb.addEventListener('waiting', () => {
-        if (window.confirm('A newer version of this web app is available, reload to update?')) {
-          wb.addEventListener('controlling', () => {
+      wb.addEventListener("waiting", () => {
+        if (
+          window.confirm(
+            "A newer version of this web app is available, reload to update?",
+          )
+        ) {
+          wb.addEventListener("controlling", () => {
             window.location.reload();
           });
 
@@ -25,15 +32,14 @@ const PWAController = () => {
           wb.messageSkipWaiting();
         } else {
           console.log(
-            'User rejected to reload the web app, keep using old version. New version will be automatically load when user open the app next time.',
+            "User rejected to reload the web app, keep using old version. New version will be automatically load when user open the app next time.",
           );
         }
       });
       wb.register();
     }
   }, []);
-  // eslint-disable-next-line react/jsx-no-useless-fragment
-  return <></>;
+  return null;
 };
 
 export default PWAController;

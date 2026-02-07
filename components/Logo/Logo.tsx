@@ -1,4 +1,4 @@
-import classes from './Logo.module.scss';
+import classes from "./Logo.module.scss";
 
 const Logo = () => (
   <div className={classes.root}>

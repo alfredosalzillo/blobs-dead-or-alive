@@ -1,23 +1,16 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import clsx from 'clsx';
+import type React from "react";
+import { useEffect, useState } from "react";
+import clsx from "clsx";
+import classes from "./Blob.module.scss";
+import spline from "@/lib//spline";
+import type { BlobDescriptor, EyeDescriptor, Palette } from "@/lib/blob";
+import { random, randomItem } from "@/lib/random";
 
-import type { BlobDescriptor, EyeDescriptor, Palette } from '@/lib/blob';
-
-import { random, randomItem } from '@/lib/random';
-import spline from '@/lib//spline';
-
-import classes from './Blob.module.scss';
-
-export type EyeProps = EyeDescriptor & { colors: Palette }
-const Eye: React.FC<EyeProps> = ({
-  x, y, size, colors,
-}) => (
-  <g
-    transform={`matrix(1,0,0,1,${x},${y})`}
-    className={classes.eye}
-  >
+export type EyeProps = EyeDescriptor & { colors: Palette };
+const Eye: React.FC<EyeProps> = ({ x, y, size, colors }) => (
+  <g transform={`matrix(1,0,0,1,${x},${y})`} className={classes.eye}>
     <circle
       r={size}
       cx="0"
@@ -35,24 +28,24 @@ const Eye: React.FC<EyeProps> = ({
       className={classes.pupil}
       style={{
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        '--radius': `${size / 2}px`,
+        // @ts-expect-error
+        "--radius": `${size / 2}px`,
       }}
     />
   </g>
 );
 const animations = [
-  'eye-roll',
-  'eye-roll-reverse',
-  'eye-converge',
-  'eye-converge-reverse',
+  "eye-roll",
+  "eye-roll-reverse",
+  "eye-converge",
+  "eye-converge-reverse",
 ];
-type Animation = typeof animations[number];
+type Animation = (typeof animations)[number];
 const randomAnimation = () => randomItem<Animation>(animations);
 export type BlobProps = BlobDescriptor & {
-  animated?: boolean,
-  className?: string,
-}
+  animated?: boolean;
+  className?: string;
+};
 
 const Blob: React.FC<BlobProps> = ({
   animated,
@@ -67,33 +60,48 @@ const Blob: React.FC<BlobProps> = ({
   useEffect(() => {
     if (!animated) return undefined;
     if (!animation) {
-      const timeout = setTimeout(() => setAnimation(randomAnimation), random(0, 20000));
+      const timeout = setTimeout(
+        () => setAnimation(randomAnimation),
+        random(0, 20000),
+      );
       return () => clearTimeout(timeout);
     }
     return undefined;
-  }, [animated, animation, setAnimation]);
+  }, [animated, animation]);
   return (
+    // biome-ignore lint/a11y/noSvgWithoutTitle: allowed
+    // biome-ignore lint/a11y/useKeyWithClickEvents: allowed
     <svg
       viewBox={`0 0 ${width} ${height}`}
-      className={clsx(classes.root, {
-        [classes.animated]: animated,
-        [classes.roll]: animation === 'eye-roll',
-        [classes.rollReverse]: animation === 'eye-roll-reverse',
-        [classes.converge]: animation === 'eye-converge',
-        [classes.convergeReverse]: animation === 'eye-converge-reverse',
-        [classes.flock]: animation === 'eye-flock',
-      }, className)}
-      onClick={() => setAnimation('eye-flock')}
-      onAnimationEnd={() => setAnimation('')}
+      className={clsx(
+        classes.root,
+        {
+          [classes.animated]: animated,
+          [classes.roll]: animation === "eye-roll",
+          [classes.rollReverse]: animation === "eye-roll-reverse",
+          [classes.converge]: animation === "eye-converge",
+          [classes.convergeReverse]: animation === "eye-converge-reverse",
+          [classes.flock]: animation === "eye-flock",
+        },
+        className,
+      )}
+      onClick={() => setAnimation("eye-flock")}
+      onAnimationEnd={() => setAnimation("")}
     >
       <path
-        d={spline(body as any[], 1, true)}
+        d={spline(body, 1, true)}
         strokeWidth={2}
         stroke={colors.dark}
         fill={colors.primary}
       />
       <g>
-        {eyes.map((eye) => <Eye key={[eye.x, eye.y, eye.size].join('-')} {...eye} colors={colors} />)}
+        {eyes.map((eye) => (
+          <Eye
+            key={[eye.x, eye.y, eye.size].join("-")}
+            {...eye}
+            colors={colors}
+          />
+        ))}
       </g>
     </svg>
   );

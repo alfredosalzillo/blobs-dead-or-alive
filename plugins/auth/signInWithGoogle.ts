@@ -1,6 +1,5 @@
-import { getAuth, GoogleAuthProvider, signInWithRedirect } from 'firebase/auth';
-
-import app from '@/plugins/firebase';
+import { GoogleAuthProvider, getAuth, signInWithRedirect } from "firebase/auth";
+import app from "@/plugins/firebase";
 
 const auth = getAuth(app);
 const signInWithGoogle = () => {

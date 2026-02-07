@@ -1,19 +1,13 @@
-import './globals.scss';
-import React from 'react';
+import "./globals.scss";
+import type React from "react";
+import AuthProvider from "auth/AuthProvider";
+import LoadingScreen from "./LoadingScreen";
+import SignInScreen from "./SignInScreen";
+import OnlyLogged from "@/components/OnlyLogged";
+import PWAController from "@/components/PWAController";
+import { ModalProvider } from "@/plugins/modal-provider";
 
-import AuthProvider from 'auth/AuthProvider';
-import { ModalProvider } from '@/plugins/modal-provider';
-import PWAController from '@/components/PWAController';
-import OnlyLogged from '@/components/OnlyLogged';
-
-import LoadingScreen from './LoadingScreen';
-import SignInScreen from './SignInScreen';
-
-const RootLayout = ({
-  children,
-}: {
-  children: React.ReactNode
-}) => (
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <main>
     <AuthProvider>
       <ModalProvider>

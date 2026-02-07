@@ -1,2 +1,2 @@
-export { default } from './WantedPoster';
-export * from './WantedPoster';
+export * from "./WantedPoster";
+export { default } from "./WantedPoster";

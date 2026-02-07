@@ -1,18 +1,18 @@
-import React from 'react';
-
-import Modal from '@/components/Modal';
-import Button from '@/components/Button';
-import Typography from '@/components/Typography';
+import type React from "react";
+import Button from "@/components/Button";
+import Modal from "@/components/Modal";
+import Typography from "@/components/Typography";
 
 type ComingSoonModalProps = {
-  onContinue?: () => void,
-  open?: boolean,
-}
-const ComingSoonModal: React.FC<ComingSoonModalProps> = ({ onContinue, open }) => (
+  onContinue?: () => void;
+  open?: boolean;
+};
+const ComingSoonModal: React.FC<ComingSoonModalProps> = ({
+  onContinue,
+  open,
+}) => (
   <Modal open={open}>
-    <Typography variant="h1">
-      Coming Soon
-    </Typography>
+    <Typography variant="h1">Coming Soon</Typography>
     <Typography variant="body" paragraph>
       We are working on this feature. Stay tuned!
     </Typography>

@@ -1,21 +1,25 @@
-'use client';
+"use client";
 
-import React from 'react';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/navigation';
+import type React from "react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import Controls from "./Controls";
+import classes from "./Game.module.scss";
+import Blob from "@/components/Blob";
+import WantedPoster from "@/components/WantedPoster";
+import type {
+  GameControllerState,
+  GameControllerStrategy,
+} from "@/lib/game/use-game-controller";
+import useGameController from "@/lib/game/use-game-controller";
 
-import type { GameControllerState, GameControllerStrategy } from '@/lib/game/use-game-controller';
-
-import Blob from '@/components/Blob';
-import WantedPoster from '@/components/WantedPoster';
-import useGameController from '@/lib/game/use-game-controller';
-
-import classes from './Game.module.scss';
-import Controls from './Controls';
-
-const StartModal = dynamic(() => import('@/components/StartModal'), { ssr: false });
-const LoseModal = dynamic(() => import('@/components/LoseModal'), { ssr: false });
-const WinModal = dynamic(() => import('@/components/WinModal'), { ssr: false });
+const StartModal = dynamic(() => import("@/components/StartModal"), {
+  ssr: false,
+});
+const LoseModal = dynamic(() => import("@/components/LoseModal"), {
+  ssr: false,
+});
+const WinModal = dynamic(() => import("@/components/WinModal"), { ssr: false });
 
 const gridSize = (size: number): React.CSSProperties => {
   const rows = Math.sqrt(size);
@@ -27,9 +31,9 @@ const gridSize = (size: number): React.CSSProperties => {
 };
 
 export type GameProps = {
-  initialState: GameControllerState,
-  strategy: GameControllerStrategy,
-}
+  initialState: GameControllerState;
+  strategy: GameControllerStrategy;
+};
 const Game: React.FC<GameProps> = ({ strategy, initialState }) => {
   const router = useRouter();
   const controller = useGameController(strategy, initialState);
@@ -44,12 +48,10 @@ const Game: React.FC<GameProps> = ({ strategy, initialState }) => {
         />
         <WantedPoster picture={<Blob {...controller.wanted} />} />
       </div>
-      <div
-        className={classes.board}
-        style={gridSize(controller.blobs.length)}
-      >
+      <div className={classes.board} style={gridSize(controller.blobs.length)}>
         {controller.blobs.map((blob) => (
-          // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+          // biome-ignore lint/a11y/useKeyWithClickEvents: allowed
+          // biome-ignore lint/a11y/useSemanticElements: allowed
           <div
             key={blob.id}
             role="button"
@@ -64,7 +66,7 @@ const Game: React.FC<GameProps> = ({ strategy, initialState }) => {
       </div>
       <StartModal
         onStart={() => controller.restart()}
-        open={controller.status === 'start'}
+        open={controller.status === "start"}
       />
       <LoseModal
         round={controller.round}
@@ -72,15 +74,15 @@ const Game: React.FC<GameProps> = ({ strategy, initialState }) => {
         captured={controller.captured}
         onRetry={() => controller.restart()}
         onBack={() => router.back()}
-        open={controller.status === 'loose'}
+        open={controller.status === "loose"}
       />
       <WinModal
         round={controller.round}
         points={controller.points}
         captured={controller.captured}
         onRetry={() => controller.restart()}
-        onBack={() => router.push('/campaign/')}
-        open={controller.status === 'win'}
+        onBack={() => router.push("/campaign/")}
+        open={controller.status === "win"}
       />
     </div>
   );

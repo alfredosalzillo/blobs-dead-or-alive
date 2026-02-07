@@ -1,16 +1,13 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-
-import type { BlobDescriptor } from '@/lib/blob';
-
-import { generateBlob } from '@/lib/blob';
-import Blob from '@/components/Blob';
-import Logo from '@/components/Logo';
-import Typography from '@/components/Typography';
-import WantedPoster from '@/components/WantedPoster';
-
-import classes from './LoadingScreen.module.scss';
+import { useEffect, useState } from "react";
+import classes from "./LoadingScreen.module.scss";
+import Blob from "@/components/Blob";
+import Logo from "@/components/Logo";
+import Typography from "@/components/Typography";
+import WantedPoster from "@/components/WantedPoster";
+import type { BlobDescriptor } from "@/lib/blob";
+import { generateBlob } from "@/lib/blob";
 
 const useVariableBlob = () => {
   const [blob, setBlob] = useState<BlobDescriptor | null>(null);
@@ -30,7 +27,9 @@ const LoadingScreen = () => {
         <Logo />
       </div>
       <div className={classes.main}>
-        <WantedPoster picture={blob && <Blob {...blob} className={classes.blob} />} />
+        <WantedPoster
+          picture={blob && <Blob {...blob} className={classes.blob} />}
+        />
         <Typography variant="body" color="primary" gutterTop>
           ...waiting for blobs to hunt...
         </Typography>

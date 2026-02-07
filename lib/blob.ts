@@ -1,10 +1,10 @@
-import { random } from './random';
+import { random } from "./random";
 
 export type Palette = {
-  primary: string,
-  light: string,
-  dark: string,
-}
+  primary: string;
+  light: string;
+  dark: string;
+};
 /**
  * Generate a palette of colors.
  */
@@ -28,9 +28,9 @@ export const randomPalette = (): Palette => {
   };
 };
 type Point = {
-  x: number,
-  y: number,
-}
+  x: number;
+  y: number;
+};
 /**
  * Generate a Blob body.
  */
@@ -39,29 +39,35 @@ export const randomBody = (x: number, y: number, size: number): Point[] => {
   const numPoints = random(3, 12);
   // step used to place each point at equal distances
   const angleStep = (Math.PI * 2) / numPoints;
-  return Array(numPoints).fill(0).map((_, i) => {
-    // how much randomness should be added to each point
-    const pull = random(0.75, 1, true);
-    // x & y coordinates of the current point
-    // cos(theta) * radius + a little randomness thrown in
-    const px = x + Math.cos(i * angleStep) * (size * pull);
-    // sin(theta) * radius + a little randomness thrown in
-    const py = y + Math.sin(i * angleStep) * (size * pull);
-    return {
-      x: px,
-      y: py,
-    };
-  });
+  return Array(numPoints)
+    .fill(0)
+    .map((_, i) => {
+      // how much randomness should be added to each point
+      const pull = random(0.75, 1, true);
+      // x & y coordinates of the current point
+      // cos(theta) * radius + a little randomness thrown in
+      const px = x + Math.cos(i * angleStep) * (size * pull);
+      // sin(theta) * radius + a little randomness thrown in
+      const py = y + Math.sin(i * angleStep) * (size * pull);
+      return {
+        x: px,
+        y: py,
+      };
+    });
 };
 export type EyeDescriptor = {
-  x: number,
-  y: number,
-  size: number,
-}
+  x: number;
+  y: number;
+  size: number;
+};
 /**
  * Generate Blob Eyes.
  */
-export const randomEyes = (x: number, y: number, width: number): EyeDescriptor[] => {
+export const randomEyes = (
+  x: number,
+  y: number,
+  width: number,
+): EyeDescriptor[] => {
   const isCyclops = random(0, 1, true) > 0.75;
   const size = random(width / 2, width);
   if (isCyclops) {
@@ -87,15 +93,15 @@ export const randomEyes = (x: number, y: number, width: number): EyeDescriptor[]
   ];
 };
 export type BlobDescriptor = {
-  id: string,
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-  eyes: EyeDescriptor[],
-  body: Point[],
-  colors: Palette,
-}
+  id: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  eyes: EyeDescriptor[];
+  body: Point[];
+  colors: Palette;
+};
 /**
  * Generate a random Blob.
  */
@@ -107,9 +113,16 @@ export const generateBlob = (width: number, height: number): BlobDescriptor => {
   const body = randomBody(x, y, size);
   const maxWidth = size / 2;
   const eyes = randomEyes(x, y, maxWidth);
-  const id = Buffer.from(JSON.stringify({
-    x, y, size, colors, body, eyes,
-  })).toString('base64');
+  const id = Buffer.from(
+    JSON.stringify({
+      x,
+      y,
+      size,
+      colors,
+      body,
+      eyes,
+    }),
+  ).toString("base64");
   return {
     id,
     x,

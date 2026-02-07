@@ -1,14 +1,13 @@
-'use client';
+"use client";
 
-import React from 'react';
-
-import useAuth from 'auth/useAuth';
+import type React from "react";
+import useAuth from "auth/useAuth";
 
 export type OnlyLoggedProps = {
   children: React.ReactNode;
   fallback?: React.ReactNode;
   loading?: React.ReactNode;
-}
+};
 const OnlyLogged: React.FC<OnlyLoggedProps> = ({
   children,
   fallback,

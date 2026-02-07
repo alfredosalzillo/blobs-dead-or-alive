@@ -1,15 +1,17 @@
-import React from 'react';
-
-import classes from './Controls.module.scss';
+import type React from "react";
+import classes from "./Controls.module.scss";
 
 export type ControlsProps = {
-  points: number,
-  time: number,
-  elapsed: number,
-  round: number,
-}
+  points: number;
+  time: number;
+  elapsed: number;
+  round: number;
+};
 const Controls: React.FC<ControlsProps> = ({
-  points, time, elapsed, round,
+  points,
+  time,
+  elapsed,
+  round,
 }) => {
   const progress = (time - elapsed) / time;
   return (

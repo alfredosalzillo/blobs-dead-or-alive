@@ -1,18 +1,20 @@
-import React from 'react';
-import clsx from 'clsx';
+import type React from "react";
+import clsx from "clsx";
+import classes from "./Button.module.scss";
 
-import classes from './Button.module.scss';
-
-export type ButtonColor = 'primary' | 'accent';
+export type ButtonColor = "primary" | "accent";
 
 export type ButtonProps = {
-  children: React.ReactNode,
-  color?: ButtonColor,
-  fullWidth?: boolean,
-} & React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+  children: React.ReactNode;
+  color?: ButtonColor;
+  fullWidth?: boolean;
+} & React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;
 const Button: React.FC<ButtonProps> = ({
   children,
-  color = 'primary',
+  color = "primary",
   fullWidth = false,
   className,
   ...props
@@ -20,11 +22,15 @@ const Button: React.FC<ButtonProps> = ({
   // eslint-disable-next-line react/button-has-type
   <button
     {...props}
-    className={clsx(classes.root, {
-      [classes.fullWidth]: fullWidth,
-      [classes.primary]: color === 'primary',
-      [classes.accent]: color === 'accent',
-    }, className)}
+    className={clsx(
+      classes.root,
+      {
+        [classes.fullWidth]: fullWidth,
+        [classes.primary]: color === "primary",
+        [classes.accent]: color === "accent",
+      },
+      className,
+    )}
   >
     {children}
   </button>

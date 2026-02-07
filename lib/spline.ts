@@ -1,7 +1,7 @@
 type Point = {
-  x: number,
-  y: number,
-}
+  x: number;
+  y: number;
+};
 const formatPoints = (points: Point[], close = false): number[] => {
   const result = [...points].map(({ x, y }) => [x, y]);
   if (close) {
@@ -16,11 +16,7 @@ const formatPoints = (points: Point[], close = false): number[] => {
   }
   return result.flat();
 };
-const spline = (
-  points :Point[] = [],
-  tension = 1,
-  close = false,
-) => {
+const spline = (points: Point[] = [], tension = 1, close = false) => {
   const flatPoints = formatPoints(points, close);
   const size = flatPoints.length;
   const last = size - 4;

@@ -1,2 +1,2 @@
-export { default } from './LoseModal';
-export * from './LoseModal';
+export * from "./LoseModal";
+export { default } from "./LoseModal";

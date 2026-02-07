@@ -1,1 +1,1 @@
-export { default } from './PWAController';
+export { default } from "./PWAController";

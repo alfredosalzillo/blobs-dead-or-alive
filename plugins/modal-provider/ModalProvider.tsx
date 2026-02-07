@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import type { FC, ReactNode } from 'react';
-import React, { useCallback, useMemo, useState } from 'react';
-import ModalContext from './ModalContext';
+import type { FC, ReactNode } from "react";
+import { useCallback, useMemo, useState } from "react";
+import ModalContext from "./ModalContext";
 
-export type ModalProviderProps = { children: ReactNode }
+export type ModalProviderProps = { children: ReactNode };
 const ModalProvider: FC<ModalProviderProps> = ({ children }) => {
   const [state, setState] = useState<Record<string, unknown>>({});
 
-  const open = useCallback(<T, >(name: string, options: T) => {
+  const open = useCallback(<T,>(name: string, options: T) => {
     setState((current) => ({
       ...current,
       [name]: options,
@@ -22,16 +22,17 @@ const ModalProvider: FC<ModalProviderProps> = ({ children }) => {
     }));
   }, []);
 
-  const value = useMemo(() => ({
-    open,
-    close,
-    state,
-  }), [open, close, state]);
+  const value = useMemo(
+    () => ({
+      open,
+      close,
+      state,
+    }),
+    [open, close, state],
+  );
 
   return (
-    <ModalContext.Provider value={value}>
-      {children}
-    </ModalContext.Provider>
+    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
   );
 };
 
