@@ -1,6 +1,7 @@
 import type React from "react";
 import type { Metadata, Viewport } from "next";
 import { Ranchers } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const ranchers = Ranchers({ subsets: ["latin"], weight: ["400"] });
 
@@ -48,6 +49,7 @@ export const viewport: Viewport = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="en" dir="ltr">
     <body className={ranchers.className}>{children}</body>
+    <GoogleAnalytics gaId="G-T9K99NE6JX" />
   </html>
 );
 
