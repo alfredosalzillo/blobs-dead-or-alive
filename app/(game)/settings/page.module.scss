@@ -13,3 +13,14 @@
   flex-direction: column;
   gap: 12px;
 }
+
+.legal {
+  a {
+    color: colors.$primary-main;
+    text-decoration: underline;
+
+    &:hover {
+      color: colors.$primary-light;
+    }
+  }
+}

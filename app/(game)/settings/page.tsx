@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import classes from "./page.module.scss";
 import Header from "@/components/Header";
 import Typography from "@/components/Typography";
@@ -39,6 +40,16 @@ const SettingsPage = () => (
           Account
         </Typography>
         <AccountSettings />
+      </div>
+      <div className={classes.legal}>
+        <Typography variant="h2" color="primary">
+          Legal
+        </Typography>
+        <Typography variant="body" paragraph>
+          <Link href="/privacy-policy">Privacy Policy</Link>
+          <br />
+          <Link href="/terms-and-conditions">Terms and Conditions</Link>
+        </Typography>
       </div>
     </div>
   </>
