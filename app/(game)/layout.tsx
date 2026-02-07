@@ -1,17 +1,19 @@
 import "./globals.scss";
-import type React from "react";
+import type { FC } from "react";
 import AuthProvider from "auth/AuthProvider";
-import LoadingScreen from "./LoadingScreen";
-import SignInScreen from "./SignInScreen";
 import OnlyLogged from "@/components/OnlyLogged";
 import PWAController from "@/components/PWAController";
 import { ModalProvider } from "@/plugins/modal-provider";
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => (
+const RootLayout: FC<LayoutProps<"/">> = ({
+  loading,
+  "sign-in": signIn,
+  children,
+}) => (
   <main>
     <AuthProvider>
       <ModalProvider>
-        <OnlyLogged loading={<LoadingScreen />} fallback={<SignInScreen />}>
+        <OnlyLogged loading={loading} fallback={signIn}>
           {children}
         </OnlyLogged>
       </ModalProvider>

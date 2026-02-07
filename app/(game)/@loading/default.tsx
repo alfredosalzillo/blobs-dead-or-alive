@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import classes from "./LoadingScreen.module.scss";
+import classes from "./default.module.scss";
 import Blob from "@/components/Blob";
 import Logo from "@/components/Logo";
 import Typography from "@/components/Typography";

@@ -2,7 +2,7 @@
 
 import signInAnonymously from "auth/signInAnonymously";
 import signInWithGoogle from "auth/signInWithGoogle";
-import classes from "./SignInScreen.module.scss";
+import classes from "./default.module.scss";
 import Button from "@/components/Button";
 import Logo from "@/components/Logo";
 import Typography from "@/components/Typography";
