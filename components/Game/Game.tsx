@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import Controls from "./Controls";
 import classes from "./Game.module.scss";
-import Blob from "@/components/Blob";
+import Blob from "@alfredo.salzillo/blobs/Blob";
 import WantedPoster from "@/components/WantedPoster";
 import type {
   GameControllerState,

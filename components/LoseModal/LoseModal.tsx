@@ -1,10 +1,10 @@
 import type React from "react";
 import classes from "./LoseModal.module.scss";
-import Blob from "@/components/Blob";
+import Blob from "@alfredo.salzillo/blobs/Blob";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import Typography from "@/components/Typography";
-import type { BlobDescriptor } from "@/lib/blob";
+import type { BlobDescriptor } from "@alfredo.salzillo/blobs";
 
 export type LoseDialogProps = {
   onRetry?: () => void;

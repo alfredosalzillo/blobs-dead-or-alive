@@ -1,6 +1,6 @@
 import type { Reducer } from "react";
 import { useEffect, useReducer } from "react";
-import type { BlobDescriptor } from "@/lib/blob";
+import type { BlobDescriptor } from "@alfredo.salzillo/blobs";
 
 export type GameControllerStatus = "start" | "run" | "loose" | "win";
 

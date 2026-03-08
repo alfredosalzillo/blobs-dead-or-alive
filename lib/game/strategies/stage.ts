@@ -1,4 +1,4 @@
-import type { BlobDescriptor } from "@/lib/blob";
+import type { BlobDescriptor } from "@alfredo.salzillo/blobs";
 import type {
   GameControllerState,
   GameControllerStrategy,
