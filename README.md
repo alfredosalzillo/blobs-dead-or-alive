@@ -6,7 +6,7 @@ A fast-paced "Find the Blob" game built with React, Next.js, and generative art.
 
 ## 🎮 How to Play
 
-Try it on the [Web](http://alfredosalzillo.me/blobs-dead-or-alive/) or get it on the [Google Play Store](https://play.google.com/store/apps/details?id=me.alfredosalzillo.blobsdeadoralive.twa&hl=it&gl=US).
+Try it on the [Web](http://alfredosalzillo.me/blobs-dead-or-alive/).
 
 The goal is simple: find the "Wanted" blob among a crowd of similar-looking blobs before time runs out!
 
