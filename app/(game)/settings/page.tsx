@@ -17,7 +17,7 @@ const AccountSettings = dynamic(() => import("./AccountSettings"), {
 
 const SettingsPage = () => (
   <>
-    <Header title="Settings" back />
+    <Header title="Settings" back="/" />
     <div className={classes.root}>
       <div>
         <Typography variant="h2" color="primary">

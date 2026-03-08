@@ -21,7 +21,7 @@ const CampaignPage = () => {
 
   return (
     <>
-      <Header title="CAMPAIGN" back />
+      <Header title="CAMPAIGN" back="/" />
       <div className={classes.root}>
         {loading ? (
           <Loader message="LOADING PROGRESS..." />

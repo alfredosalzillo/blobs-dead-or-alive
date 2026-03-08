@@ -11,7 +11,7 @@ const StagePage = async ({ params }: StagePageProps) => {
   const data = await import(`@/campaign/stage-${stage}.json`);
   return (
     <>
-      <Header title={`STAGE ${stage}`} back />
+      <Header title={`STAGE ${stage}`} back="/campaign" />
       <StageGame
         stage={data.default}
         stageNumber={Number.parseInt(stage, 10)}
