@@ -8,7 +8,7 @@ import Typography from "@/components/Typography";
 
 export type WinModalProps = {
   onRetry?: () => void;
-  onBack?: () => void;
+  onContinue?: () => void;
   points: number;
   round: number;
   captured?: BlobDescriptor[];
@@ -16,7 +16,7 @@ export type WinModalProps = {
 };
 const WinModal: React.FC<WinModalProps> = ({
   onRetry,
-  onBack,
+  onContinue,
   points,
   round,
   captured = [],
@@ -47,7 +47,7 @@ const WinModal: React.FC<WinModalProps> = ({
       <Button color="accent" type="button" fullWidth onClick={onRetry}>
         RETRY
       </Button>
-      <Button color="accent" type="button" fullWidth onClick={onBack}>
+      <Button color="accent" type="button" fullWidth onClick={onContinue}>
         CONTINUE
       </Button>
     </div>

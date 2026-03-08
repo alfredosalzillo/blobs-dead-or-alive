@@ -41,7 +41,6 @@ const Game: React.FC<GameProps> = ({ strategy, initialState, onWin }) => {
 
   const handleWin = () => {
     onWin?.(controller.points);
-    router.push("/campaign");
   };
 
   return (
@@ -88,7 +87,7 @@ const Game: React.FC<GameProps> = ({ strategy, initialState, onWin }) => {
         points={controller.points}
         captured={controller.captured}
         onRetry={() => controller.restart()}
-        onBack={handleWin}
+        onContinue={handleWin}
         open={controller.status === "win"}
       />
     </div>

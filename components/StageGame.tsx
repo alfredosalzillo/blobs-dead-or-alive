@@ -9,12 +9,14 @@ import {
   createStageStrategy,
 } from "@/lib/game/strategies/stage";
 import { useUserProgress } from "@/lib/game/useUserProgress";
+import { useRouter } from "next/navigation";
 
 export type StageGameProps = {
   stage: Stage;
   stageNumber: number;
 };
 const StageGame: React.FC<StageGameProps> = ({ stage, stageNumber }) => {
+  const router = useRouter();
   const strategy = useMemo(() => createStageStrategy(stage), [stage]);
   const initialState = useMemo(() => createInitialState(stage), [stage]);
   const { completeStage } = useUserProgress();
@@ -23,7 +25,10 @@ const StageGame: React.FC<StageGameProps> = ({ stage, stageNumber }) => {
     <Game
       strategy={strategy}
       initialState={initialState}
-      onWin={(points) => completeStage(stageNumber, points)}
+      onWin={async (points) => {
+        await completeStage(stageNumber, points);
+        router.replace("/campaign");
+      }}
     />
   );
 };
