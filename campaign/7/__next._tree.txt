@@ -1,0 +1,6 @@
+:HL["/blobs-dead-or-alive/_next/static/chunks/d9a713a7e7689830.css","style"]
+:HL["/blobs-dead-or-alive/_next/static/chunks/953334737f876ca4.css","style"]
+:HL["/blobs-dead-or-alive/_next/static/chunks/8c87ce717b9c4dc3.css","style"]
+:HL["/blobs-dead-or-alive/_next/static/chunks/20584c2820cb1a6c.css","style"]
+:HL["/blobs-dead-or-alive/_next/static/media/85fe59ccaf5d2f7d-s.p.c374b6e0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"xwSZ3RGL6amL5497s791S","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"(game)","paramType":null,"paramKey":"(game)","hasRuntimePrefetch":false,"slots":{"children":{"name":"campaign","paramType":null,"paramKey":"campaign","hasRuntimePrefetch":false,"slots":{"children":{"name":"stage","paramType":"d","paramKey":"7","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false},"loading":{"name":"__DEFAULT__","paramType":null,"paramKey":"__DEFAULT__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false},"sign-in":{"name":"__DEFAULT__","paramType":null,"paramKey":"__DEFAULT__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
