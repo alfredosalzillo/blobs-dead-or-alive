@@ -12,12 +12,12 @@
     "generate:stage": "npx ts-node scripts/generate-stage.ts"
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "^10.2.9",
+    "@ducanh2912/next-pwa": "^10.2.6",
     "@mdx-js/loader": "^3.1.1",
     "@next/mdx": "^16.1.6",
     "@next/third-parties": "^16.1.6",
     "clsx": "^2.1.1",
-    "firebase": "^12.9.0",
+    "firebase": "^12.10.0",
     "next": "^16.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -26,10 +26,13 @@
     "workbox-window": "^7.4.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.14",
-    "@types/node": "^25.2.1",
-    "@types/react": "^19.2.13",
+    "@biomejs/biome": "^2.4.6",
+    "@types/node": "^25.3.5",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "tsconfig-paths": "^4.2.0"
+  },
+  "volta": {
+    "node": "25.8.0"
   }
 }
