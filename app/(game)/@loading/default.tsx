@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { BlobDescriptor } from "@alfredo.salzillo/blobs";
+import { generateBlob } from "@alfredo.salzillo/blobs";
+import Blob from "@alfredo.salzillo/blobs/Blob";
 import classes from "./default.module.scss";
-import Blob from "@/components/Blob";
 import Logo from "@/components/Logo";
 import Typography from "@/components/Typography";
 import WantedPoster from "@/components/WantedPoster";
-import type { BlobDescriptor } from "@/lib/blob";
-import { generateBlob } from "@/lib/blob";
 
 const useVariableBlob = () => {
   const [blob, setBlob] = useState<BlobDescriptor | null>(null);

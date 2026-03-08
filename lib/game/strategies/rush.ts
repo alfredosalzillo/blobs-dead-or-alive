@@ -1,4 +1,4 @@
-import { generateBlob } from "@/lib/blob";
+import { generateBlob } from "@alfredo.salzillo/blobs";
 import type {
   GameControllerState,
   GameControllerStatus,
