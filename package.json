@@ -1,6 +1,17 @@
 {
   "name": "blobs-dead-or-alive",
   "version": "1.0.1",
+  "description": "A fast-paced \"Find the Blob\" game built with React, Next.js, and generative art.",
+  "keywords": [
+    "game",
+    "react",
+    "nextjs",
+    "pwa",
+    "generative-art",
+    "blobs",
+    "web-game",
+    "twa"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",
