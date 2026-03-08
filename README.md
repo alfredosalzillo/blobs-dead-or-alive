@@ -63,7 +63,7 @@ The goal is simple: find the "Wanted" blob among a crowd of similar-looking blob
 
 ## 📜 License
 
-This project is licensed under the terms found in the [LICENSE](./LICENSE) file (if available) or is private.
+This project is licensed under the terms found in the [LICENSE](./LICENSE) file.
 
 ---
 Made with ❤️ and blobs.
