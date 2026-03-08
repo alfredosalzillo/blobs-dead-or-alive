@@ -11,9 +11,6 @@ const InstructionsModal = dynamic(
   () => import("@/components/InstructionsModal"),
   { ssr: false },
 );
-const ComingSoonModal = dynamic(() => import("@/components/ComingSoonModal"), {
-  ssr: false,
-});
 
 const HomePage = () => {
   const modal = useModal();
@@ -24,14 +21,7 @@ const HomePage = () => {
       <Button fullWidth onClick={() => router.push("/rush")}>
         START GAME
       </Button>
-      <Button
-        fullWidth
-        onClick={() =>
-          modal.open("coming-soon", ComingSoonModal, {
-            onContinue: () => modal.close("coming-soon"),
-          })
-        }
-      >
+      <Button fullWidth onClick={() => router.push("/campaign")}>
         CAMPAIGN
       </Button>
       <Button

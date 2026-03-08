@@ -1,12 +1,12 @@
 "use client";
 
 import type React from "react";
+import { generateBlob } from "@alfredo.salzillo/blobs";
 import Blob from "@alfredo.salzillo/blobs/Blob";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import Typography from "@/components/Typography";
 import WantedPoster from "@/components/WantedPoster";
-import { generateBlob } from "@alfredo.salzillo/blobs";
 
 const blob = generateBlob(200, 200);
 type InstructionsModalProps = {

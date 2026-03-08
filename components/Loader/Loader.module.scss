@@ -1,0 +1,29 @@
+@use '@/theme/colors.scss' as colors;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 40px;
+  min-height: 300px;
+}
+
+.text {
+  font-size: 32px;
+  color: colors.$primary-light;
+  text-align: center;
+}
+
+.blobs {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blob {
+  width: 60px;
+  height: 60px;
+}

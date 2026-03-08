@@ -1,10 +1,10 @@
 import type React from "react";
-import classes from "./WinModal.module.scss";
+import type { BlobDescriptor } from "@alfredo.salzillo/blobs";
 import Blob from "@alfredo.salzillo/blobs/Blob";
+import classes from "./WinModal.module.scss";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import Typography from "@/components/Typography";
-import type { BlobDescriptor } from "@alfredo.salzillo/blobs";
 
 export type WinModalProps = {
   onRetry?: () => void;

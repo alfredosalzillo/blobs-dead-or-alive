@@ -5,7 +5,7 @@ import { generateInitialState } from "@/lib/game/strategies/rush";
 const initialGame = generateInitialState();
 const RushPage = () => (
   <>
-    <Header title="RUSH" />
+    <Header title="RUSH" back />
     <RushGame initialState={initialGame} />
   </>
 );

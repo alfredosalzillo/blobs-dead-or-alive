@@ -1,0 +1,18 @@
+@use '@/theme/colors.scss' as colors;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  box-sizing: border-box;
+  width: min(724px, 100%);
+  margin: 0 auto;
+}
+
+.stageList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+

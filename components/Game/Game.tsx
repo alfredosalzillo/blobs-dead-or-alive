@@ -3,9 +3,9 @@
 import type React from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
+import Blob from "@alfredo.salzillo/blobs/Blob";
 import Controls from "./Controls";
 import classes from "./Game.module.scss";
-import Blob from "@alfredo.salzillo/blobs/Blob";
 import WantedPoster from "@/components/WantedPoster";
 import type {
   GameControllerState,
@@ -33,10 +33,17 @@ const gridSize = (size: number): React.CSSProperties => {
 export type GameProps = {
   initialState: GameControllerState;
   strategy: GameControllerStrategy;
+  onWin?: (points: number) => void;
 };
-const Game: React.FC<GameProps> = ({ strategy, initialState }) => {
+const Game: React.FC<GameProps> = ({ strategy, initialState, onWin }) => {
   const router = useRouter();
   const controller = useGameController(strategy, initialState);
+
+  const handleWin = () => {
+    onWin?.(controller.points);
+    router.push("/campaign");
+  };
+
   return (
     <div className={classes.root}>
       <div className={classes.header}>
@@ -81,7 +88,7 @@ const Game: React.FC<GameProps> = ({ strategy, initialState }) => {
         points={controller.points}
         captured={controller.captured}
         onRetry={() => controller.restart()}
-        onBack={() => router.push("/campaign/")}
+        onBack={handleWin}
         open={controller.status === "win"}
       />
     </div>

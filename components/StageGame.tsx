@@ -8,14 +8,24 @@ import {
   createInitialState,
   createStageStrategy,
 } from "@/lib/game/strategies/stage";
+import { useUserProgress } from "@/lib/game/useUserProgress";
 
 export type StageGameProps = {
   stage: Stage;
+  stageNumber: number;
 };
-const StageGame: React.FC<StageGameProps> = ({ stage }) => {
+const StageGame: React.FC<StageGameProps> = ({ stage, stageNumber }) => {
   const strategy = useMemo(() => createStageStrategy(stage), [stage]);
   const initialState = useMemo(() => createInitialState(stage), [stage]);
-  return <Game strategy={strategy} initialState={initialState} />;
+  const { completeStage } = useUserProgress();
+
+  return (
+    <Game
+      strategy={strategy}
+      initialState={initialState}
+      onWin={(points) => completeStage(stageNumber, points)}
+    />
+  );
 };
 
 export default StageGame;
