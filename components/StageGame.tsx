@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { useMemo } from "react";
+import { useRouter } from "next/navigation";
 import Game from "@/components/Game";
 import type { Stage } from "@/lib/game/strategies/stage";
 import {
@@ -9,7 +10,6 @@ import {
   createStageStrategy,
 } from "@/lib/game/strategies/stage";
 import { useUserProgress } from "@/lib/game/useUserProgress";
-import { useRouter } from "next/navigation";
 
 export type StageGameProps = {
   stage: Stage;

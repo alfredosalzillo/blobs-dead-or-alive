@@ -3,7 +3,12 @@
 import type React from "react";
 import { useEffect, useMemo, useState } from "react";
 import type { User } from "firebase/auth";
-import { getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
+import {
+  getAuth,
+  getRedirectResult,
+  onAuthStateChanged,
+  signInAnonymously,
+} from "firebase/auth";
 import AuthContext from "./AuthContext";
 import app from "@/plugins/firebase";
 
@@ -21,6 +26,16 @@ const AuthProvider: React.FC<AuthProviderProps> = ({
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result) {
+          setUser(result.user);
+        }
+      })
+      .catch((error) => {
+        console.error("AuthProvider: getRedirectResult error", error);
+      });
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setReady(true);
